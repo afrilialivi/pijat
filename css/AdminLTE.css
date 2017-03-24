@@ -16,7 +16,7 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-       background: url('../img/new/background.gif') repeat;
+       background: url('../img/new/bg.jpg');
 
 }
 body {
@@ -1904,8 +1904,8 @@ Component: timeline
   background-color: #00acd6;
 }
 .btn.btn-danger {
-  background-color: #ff4c07;
-  border-color: #d2120f;
+  background-color: rgba(179, 58, 193, 0.28);
+  border-color: rgba(125, 10, 197, 0.38);
 }
 .btn.btn-danger:hover,
 .btn.btn-danger:active,
@@ -3112,7 +3112,7 @@ Component: timeline
  .login_logo{
   width: 200px;
   height: 200px;
-  background: url('../img/new/login.png') no-repeat;
+  background: url('') no-repeat;
   margin-right: auto;
   margin-left: auto;
   margin-top: 50px;

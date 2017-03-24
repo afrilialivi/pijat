@@ -14,38 +14,63 @@
         <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <!-- resposive -->
+        <!--<link href="../css/resposive/layout.css" rel="stylesheet" type="text/css" />-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
 
-        <script src="assets/jquery-3.min.js"></script>
+          <script src="assets/jquery-3.min.js"></script>
 <style type="text/css">
-    html, body {
-        background-color: #025670;
+    html{
+        background-size: cover;
     }
+
     .alert {
         display: none;
     }
+    .bg-white{
+        background-color: rgba(255, 255, 255, 0.39)!important;
+    }
+    
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.46); 
+    }
+    .btn-block:hover{
+        background-color: rgba(179, 58, 193, 0.40)!important;
+        border-color: rgba(125, 10, 197, 0.44);
+    }
 </style>
+
     </head>
     <body>
         <div class="login_logo"></div>
-        <div class="form-box" id="login-box">
-            <div class="header">
+        <div class="form-box" id="">
+            <div class="header" style="background-color: rgba(255, 255, 255, 0.39);">
                 <div class="bg-logo">
                     <span style="font-size: 3em !important;">
-                            <strong>Login</strong>
+                        <strong>Login</strong>
                     </span>
                 </div>
             </div>
-
-
             <form id="form_login">
                 <div class="body bg-white">
+                    <?php
+                    if(isset($_GET['err'])){
+                    ?>
                     <br>
                      <div class="alert alert-warning alert-dismissable">
-                        <i class="fa fa-warning"></i>
-                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button"></button>
-                        <b>Error !</b>
-                        User login or Password incorrect
+                    <i class="fa fa-warning"></i>
+                    <button class="close" aria-hidden="true" data-dismiss="alert" type="button"></button>
+                    <b>Error !</b>
+                   User Login or Password tidak benar
                     </div>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group">
                         <input style="border:1px solid #eee;" required type="text" name="i_login" class="form-control" placeholder="User Login"/>
                     </div>
@@ -53,11 +78,23 @@
                         <input style="border:1px solid #eee;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-info btn-block" style="margin-top:10px;">LOGIN</button>
+                      <button type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
                     </div>
+
                 </div>
+
             </form>
+
+<div></div>
+
+
         </div>
+
+<span></span>
+
+
+
+
     </body>
 </html>
 <script type="text/javascript">

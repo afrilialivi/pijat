@@ -41,20 +41,12 @@ switch ($page) {
 			$_SESSION['user_id'] = $query_user->user_id;
 			$_SESSION['user_type_id'] = $query_user->user_type_id;
 			$_SESSION['branch_id'] = $query_user->branch_id;
-			/*
-			if($_SESSION['user_type_id'] == 1 || $_SESSION['user_type_id'] == 3){
-				header("Location: transaction.php?page=list");
-			}else{
-				header('Location: report_detail.php?page=list');
-			}*/
-
-			header("Location: home.php");
-
-			echo $_SESSION['user_type_id'];
-
+			$s_cabang = $_SESSION['branch_id'];
+			$status = 1;
+			echo json_encode($status);
 		}else{
-			//login gagal
-			header('Location: ../login.php?err=1');
+			$status = 2;
+			echo json_encode($status);
 		}
 
 
