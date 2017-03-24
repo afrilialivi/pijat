@@ -64,28 +64,7 @@
                                             <textarea name="i_desc" class="form-control" rows="5"><?= $row->branch_desc ?></textarea>
                                         </div>
                                     
-                                        <div class="form-group">
-                                         <label>Images </label>
-                                          <?php
-                                        if($id){
-                                        $gambar = ($row->branch_img) ? "../img/branch/".$row->branch_img : "../img/img_not_found.png";
-                                        ?>
-                                        <br />
-                                        <img src="<?= $gambar ?>" style="max-width:25%; max-height: 25%;"/>
-                                        <?php
-                    										}
-                    										?>
-                                        </br>
-                                        
-                                        <div class="input-group  ">
-                                            <label class="input-group-btn">
-                                                <span class="btn btn-warning">
-                                                    Browse… <input type="file" style="display: none;" name="i_img" id="i_img" class="btn-file" />
-                                                </span>
-                                            </label>
-                                            <input type="text" class="form-control" readonly="" value="<?= $row->branch_img ?>">
-                                        </div>
-                                        </div>
+                                       
                                         
                                         
                                         </div>

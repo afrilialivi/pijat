@@ -58,6 +58,7 @@ body > .header {
   left: 0;
   right: 0;
   z-index: 1030;
+
 }
 /* Define 2 column template */
 .right-side,
@@ -450,7 +451,8 @@ body > .header .logo {
   width: 230px;
   height: 100px;
   display: block;
-  border: 1px solid #d2120f;
+  /*border: 1px solid #d2120f;*/
+  background-color: rgba(97, 41, 95, 0.32);border-color: #361563;
 }
 body > .header .logo .icon {
   margin-right: 10px;
@@ -600,7 +602,9 @@ body > .header .logo .icon {
 }
 .user-panel {
   padding: 10px;
-  background: #ff4c07;
+  /*background: #ff4c07;*/
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -1321,7 +1325,9 @@ body > .header .logo .icon {
   -moz-border-radius: 3px;
   border-radius: 3px !important;
   width: 100%;
-  background:#fff;
+  /*background:#fff;*/
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #FF3030;
 
@@ -1420,6 +1426,8 @@ body > .header .logo .icon {
   border-bottom-left-radius: 3px;
   border-radius:3px;
   padding-bottom:10px;
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
 }
 
 .box .box-body2 {
@@ -1437,6 +1445,8 @@ body > .header .logo .icon {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
 }
 .box .box-body > table,
 .box .box-body > .table {
@@ -1497,7 +1507,7 @@ body > .header .logo .icon {
   margin: -9px;
 }
 .box .box-footer {
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid #44055f;
   -webkit-border-top-left-radius: 0;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
@@ -1510,7 +1520,7 @@ body > .header .logo .icon {
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  background:#F9FAFC;
+  background-color: rgba(97, 41, 95, 0.32);
   padding: 10px;
 }
 .box.box-solid {
@@ -1904,8 +1914,8 @@ Component: timeline
   background-color: #00acd6;
 }
 .btn.btn-danger {
-  background-color: rgba(179, 58, 193, 0.28);
-  border-color: rgba(125, 10, 197, 0.38);
+   background-color: #ff4c07;
+  border-color: #d2120f;
 }
 .btn.btn-danger:hover,
 .btn.btn-danger:active,
@@ -2127,7 +2137,9 @@ Component: timeline
 */
 /* NAV PILLS */
 .nav.nav-pills > li > a {
-  border-top: 3px solid transparent;
+  /*border-top: 3px solid transparent;*/
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -2593,8 +2605,10 @@ Component: timeline
 */
 /* skin-blue navbar */
 .skin-blue .navbar {
-  background-color: #fff;
- box-shadow:rgba(0, 0, 0, 0.0980392) 0 1px 3px;
+  /*background-color: #fff;
+ box-shadow:rgba(0, 0, 0, 0.0980392) 0 1px 3px;*/
+ background-color: rgba(97, 41, 95, 0.32);
+ border-color: #361563;
 }
 .skin-blue .navbar .nav a {
 
@@ -2615,7 +2629,7 @@ Component: timeline
   height:100px;
 }
 .skin-blue .navbar .sidebar-toggle .icon-bar {
-  background: #ff4c07;
+  background: #361563;;
 }
 /* skin-blue logo */
 
@@ -2669,8 +2683,10 @@ Component: timeline
 
 }
 .skin-blue .sidebar > .sidebar-menu > li > .treeview-menu {
-  margin: 0 0px;
-  background: #f6f6f6;
+  /*margin: 0 0px;*/
+  /*background: #f6f6f6;*/
+/*  background-color: rgba(97, 41, 95, 0.32);
+    border-color: #361563;*/
 }
 .skin-blue .left-side {
   background: none;
@@ -2692,7 +2708,10 @@ Component: timeline
   text-decoration: none;
 }
 .skin-blue .treeview-menu > li {
-	background: #ff4a05;
+	/*background: #ff4a05;*/
+  /*background-color: rgba(97, 41, 95, 0.32);
+    border-color: #361563;*/
+    background-color: rgba(97, 41, 95, 0.32);
 	padding-top:2px;
 	padding-bottom:2px;
 
@@ -2831,7 +2850,7 @@ Component: timeline
 .dataTables_length select:focus{  border:1px solid #d2120f; }
 
 .dataTables_filter { color:#000000; font-size:12px; margin-top:10px;}
-.dataTables_filter input{ height:30px; padding:5px; border:1px solid #eee; }
+.dataTables_filter input{ height:30px; padding:5px; background-color: rgba(93, 41, 91, 0.28);border:1px solid #280350; }
 .dataTables_filter input:focus{  border:1px solid #d2120f; }
 
 .dataTables_info{ margin-left:10px; color:#999; font-size:12px;}
@@ -2905,7 +2924,8 @@ Component: timeline
 
 
 .otheader_title span{
-	background-color:#00C0EF;
+	/*background-color:#00C0EF;*/
+  background-color: rgba(97, 41, 95, 0.32);border-color: #361563;
 	padding: 15px 10px;
 	padding-left:10px;
 	border-left:5px solid #4E69A2;

@@ -57,7 +57,6 @@
                                             <tr>
                                             <th width="5%">No</th>
                                                 <th>Nama Cabang</th>
-                                                <th>Image</th>
                                                 <th>Phone</th>
                                                 <th>City</th>
                                                 <th>Config</th> 
@@ -71,13 +70,6 @@
                                             <tr>
                                             <td><?= $no?></td>
                                                <td><?= $row['branch_name']?></td>
-                                                <td><img src="<?php
-											   if($row['branch_img']){
-											   		$image = "../img/branch/".$row['branch_img'];
-											   }else{
-												   $image = "../img/img_not_found.png";
-											    }
-											    echo $image ?>" height="80" /></td>
                                                  <td><?= $row['branch_phone'] ?></td>
                                                   <td><?= $row['branch_city'] ?></td>
                                                <td style="text-align:center;">

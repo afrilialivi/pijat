@@ -34,13 +34,7 @@ function update($data, $id){
 function delete($id){
 	mysql_query("delete from branches where branch_id = '$id'");
 }
-function get_img_old($id){
-	$query = mysql_query("select branch_img
-			from branches
-			where branch_id = '$id'");
-	$result = mysql_fetch_array($query);
-	return $result['branch_img'];
-}
+
 
 
 ?>
