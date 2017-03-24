@@ -35,13 +35,17 @@
     .bg-white{
         background-color: rgba(255, 255, 255, 0.39)!important;
     }
-    
+
     .form-control {
-        background-color: rgba(255, 255, 255, 0.46); 
+        background-color: rgba(255, 255, 255, 0.46);
     }
     .btn-block:hover{
         background-color: rgba(179, 58, 193, 0.40)!important;
         border-color: rgba(125, 10, 197, 0.44);
+    }
+    #login_btn{
+      background-color: rgba(204, 111, 222, 0.42);
+      border-color: rgba(125, 10, 197, 0.44);
     }
 </style>
 
@@ -78,7 +82,7 @@
                         <input style="border:1px solid #eee;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
+                      <button id="login_btn" type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
                     </div>
 
                 </div>
