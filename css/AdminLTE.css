@@ -231,7 +231,8 @@ img {
   background-color: #3c8dbc !important;
 }
 .bg-new-red{
-   background-color: #ff4c07  !important;
+   /*background-color: #ff4c07  !important;*/
+    background-color:rgba(108, 71, 115, 0.87)!important;
 }
 .bg-green {
   background-color: #00a65a !important;
@@ -452,7 +453,8 @@ body > .header .logo {
   height: 100px;
   display: block;
   /*border: 1px solid #d2120f;*/
-  background-color: rgba(97, 41, 95, 0.32);border-color: #361563;
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
 }
 body > .header .logo .icon {
   margin-right: 10px;
@@ -927,7 +929,7 @@ body > .header .logo .icon {
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
   height: 175px;
   padding: 10px;
-  background: #ff4c07;
+  background:rgba(108, 71, 115, 0.87);
   text-align: center;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
@@ -2621,7 +2623,7 @@ Component: timeline
 .skin-blue .navbar .nav .open > a,
 .skin-blue .navbar .nav .open > a:hover,
 .skin-blue .navbar .nav .open > a:focus {
-  background: #ff4c07;
+  background: #6c4773;
   color: #f6f6f6;
 }
 .skin-blue .navbar .navbar-right > .nav a {
@@ -2679,7 +2681,7 @@ Component: timeline
 .skin-blue .sidebar > .sidebar-menu > li > a:hover,
 .skin-blue .sidebar > .sidebar-menu > li.active > a {
   color: #fff;
-  background:#ff4a05;
+  background:#6c4773;
 
 }
 .skin-blue .sidebar > .sidebar-menu > li > .treeview-menu {
