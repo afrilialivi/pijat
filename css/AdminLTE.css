@@ -388,7 +388,7 @@ body > .header .navbar {
   height: 100px;
   margin-bottom: 0;
   margin-left: 250px;
-  border: 1px solid #d2120f;
+  border: 1px solid #430358;
 }
 body > .header .navbar .sidebar-toggle {
   float: left;
@@ -1331,7 +1331,7 @@ body > .header .logo .icon {
   background-color: rgba(97, 41, 95, 0.32);
   border-color: #361563;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #FF3030;
+  border: 1px solid #430358;
 
 }
 
@@ -1916,22 +1916,22 @@ Component: timeline
   background-color: #00acd6;
 }
 .btn.btn-danger {
-   background-color: #ff4c07;
-  border-color: #d2120f;
+   background-color: rgba(81, 10, 99, 0.79);
+  border-color: #2e074c;
 }
 .btn.btn-danger:hover,
 .btn.btn-danger:active,
 .btn.btn-danger.hover {
-  background-color: #ff8207;
+  background-color: rgba(64, 2, 103, 0.92);
 }
 .btn.btn-warning {
-  background-color: #f39c12;
-  border-color: #e08e0b;
+  background-color: rgba(85, 18, 93, 0.63);
+  border-color: #430358;
 }
 .btn.btn-warning:hover,
 .btn.btn-warning:active,
 .btn.btn-warning.hover {
-  background-color: #e08e0b;
+  background-color: rgba(80, 1, 78, 0.92);;
 }
 .btn.btn-sm {
   font-size: 12px;
@@ -2659,7 +2659,7 @@ Component: timeline
 /* skin-blue sidebar */
 .skin-blue .sidebar {
   border-bottom:1px solid #ddd;
-  border: 1px solid #ff3f00;
+  border: 1px solid #430358;
 }
 .skin-blue .sidebar > .sidebar-menu > li {
   border-top:1px solid  #ddd;

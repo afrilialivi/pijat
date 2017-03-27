@@ -72,17 +72,6 @@
                                             <label>Confirm Password</label>
                                             <input required type="password" name="i_confirm_password" class="form-control" placeholder="Enter confirm password ..." value=""/>
                                         </div>
-                                      <div class="form-group">
-                                          <label>Image :</label>
-                                         <div class="input-group  ">
-                                            <label class="input-group-btn">
-                                                <span class="btn btn-warning">
-                                                    Browse… <input type="file" style="display: none;" name="i_img" id="i_img" class="btn-file" />
-                                                </span>
-                                            </label>
-                                            <input type="text" class="form-control" readonly="" value="<?= $row->user_img ?>">
-                                        </div>
-                                        </div>
                                   </div>
                                         <div style="clear:both;"></div>
 
