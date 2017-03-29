@@ -94,17 +94,11 @@
                     </div>
                     <div class="form-group">
                         <input style="border:1px solid #eee;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
-<<<<<<< HEAD
+
                       </div>
                       <div class="form-group">
                        <button id="login_btn" type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
                       </div>
-=======
-                    </div>
-                    <div class="form-group">
-                      <button id="login_btn" type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
-                    </div>
->>>>>>> fccdf188832f5e3aef1c0d819eebd64f99eb7553
 
                 </div>
 
