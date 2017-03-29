@@ -34,12 +34,11 @@
         background-color: rgb(233, 30, 107);
         border-color: #f3a7a7;
     }
-<<<<<<< HEAD
      .bg-white{
           background-color: rgba(255, 255, 255, 0.39)!important;
       }
       .form-control {
-        background-color: rgba(255, 255, 255, 0.46); 
+        background-color: rgba(255, 255, 255, 0.46);
         background-color: rgba(255, 255, 255, 0.46);
       }
       .btn-block:hover{
@@ -50,7 +49,6 @@
        background-color: rgba(204, 111, 222, 0.42);
        border-color: rgba(125, 10, 197, 0.44);
      }
-=======
     .bg-white{
         background-color: rgba(255, 255, 255, 0.39)!important;
     }
@@ -66,7 +64,6 @@
       background-color: rgba(204, 111, 222, 0.42);
       border-color: rgba(125, 10, 197, 0.44);
     }
->>>>>>> fccdf188832f5e3aef1c0d819eebd64f99eb7553
 </style>
 
     </head>

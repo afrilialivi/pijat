@@ -16,7 +16,8 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-       background: url('../img/new/bg.jpg');
+  background: url('../img/new/bg.jpg');
+  background-size: cover;
 
 }
 body {
