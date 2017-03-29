@@ -40,32 +40,7 @@
                                              ?>
                                            </select>                                      
                                       </div>
-
-                                      
-                                    
-                                        <div class="form-group">
-                                         <label>Gambar Denah </label>
-                                          <?php
-                                        if($id){
-											 $gambar = ($row->building_img) ? $row->building_img : "img_not_found.png";
-										?>
-                                        <br />
-                                        <img src="<?= "../img/building/".$gambar ?>" style="max-width:100%;"/>
-                                        <?php
-										}
-										?>
-                                           
-                                         <div class="input-group  ">
-                                            <label class="input-group-btn">
-                                                <span class="btn btn-warning">
-                                                    Browse… <input type="file" style="display: none;" name="i_img" id="i_img" class="btn-file" />
-                                                </span>
-                                            </label>
-                                            <input type="text" class="form-control" readonly="" value="<?= $row->building_img ?>">
-                                        </div>
-                                        </div>
-                                        
-                                        
+         
                                         </div>
                                        
                                         <div style="clear:both;"></div>

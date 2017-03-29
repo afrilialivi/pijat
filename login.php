@@ -34,6 +34,23 @@
         background-color: rgb(233, 30, 107);
         border-color: #f3a7a7;
     }
+<<<<<<< HEAD
+     .bg-white{
+          background-color: rgba(255, 255, 255, 0.39)!important;
+      }
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.46); 
+        background-color: rgba(255, 255, 255, 0.46);
+      }
+      .btn-block:hover{
+          background-color: rgba(179, 58, 193, 0.40)!important;
+          border-color: rgba(125, 10, 197, 0.44);
+      }
+     #login_btn{
+       background-color: rgba(204, 111, 222, 0.42);
+       border-color: rgba(125, 10, 197, 0.44);
+     }
+=======
     .bg-white{
         background-color: rgba(255, 255, 255, 0.39)!important;
     }
@@ -49,6 +66,7 @@
       background-color: rgba(204, 111, 222, 0.42);
       border-color: rgba(125, 10, 197, 0.44);
     }
+>>>>>>> fccdf188832f5e3aef1c0d819eebd64f99eb7553
 </style>
 
     </head>
@@ -76,10 +94,17 @@
                     </div>
                     <div class="form-group">
                         <input style="border:1px solid #eee;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
+<<<<<<< HEAD
+                      </div>
+                      <div class="form-group">
+                       <button id="login_btn" type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
+                      </div>
+=======
                     </div>
                     <div class="form-group">
                       <button id="login_btn" type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>
                     </div>
+>>>>>>> fccdf188832f5e3aef1c0d819eebd64f99eb7553
 
                 </div>
 

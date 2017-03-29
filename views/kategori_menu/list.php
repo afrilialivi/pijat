@@ -63,7 +63,7 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                           $no = 1;
+                                           $no =1;
                                             while($row = mysql_fetch_array($query)){
                                             ?>
                                             <tr>

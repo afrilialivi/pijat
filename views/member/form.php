@@ -84,7 +84,7 @@ function add_menu(id)
                                         </div> -->
                                         <?php } ?>
                                         </div>
-
+                                </div><!-- /.box -->
                                         <div style="clear:both;"></div>
 
                                 </div><!-- /.box-body -->
@@ -95,7 +95,6 @@ function add_menu(id)
 
                              </div>
 
-                            </div><!-- /.box -->
 
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->

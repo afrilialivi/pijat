@@ -38,7 +38,6 @@ switch ($page) {
 			$row = new stdClass();
 	
 			$row->building_name = false;
-			$row->building_img = false;
 			$row->branch_id = false;
 			
 			$action = "building.php?page=save";
@@ -55,17 +54,9 @@ switch ($page) {
 		$i_name = get_isset($i_name);
 		$i_branch_id = get_isset($i_branch_id);
 		
-		$path = "../img/building/";
-		$i_img_tmp = $_FILES['i_img']['tmp_name'];
-		$i_img = ($_FILES['i_img']['name']) ? $_FILES['i_img']['name'] : "";
-		$i_img = str_replace(" ","",$i_img);
-		
-		$date = ($_FILES['i_img']['name']) ? time()."_" : "";
-		
 		$data = "'',
 					
 					'$i_name',
-					'".$date.$i_img."',
 					'$i_branch_id'
 					
 			";
@@ -73,9 +64,6 @@ switch ($page) {
 			//echo $data;
 
 			create($data);
-			if($i_img){
-				move_uploaded_file($i_img_tmp, $path.$date.$i_img);
-			}
 			
 			header("Location: building.php?page=list&did=1");
 		
@@ -89,37 +77,11 @@ switch ($page) {
 		$id = get_isset($_GET['id']);
 		$i_name = get_isset($i_name);
 		$i_branch_id = get_isset($i_branch_id);
-		
-		$path = "../img/building/";
-		$i_img_tmp = $_FILES['i_img']['tmp_name'];
-		$i_img = ($_FILES['i_img']['name']) ? $_FILES['i_img']['name'] : "";
-		$i_img = str_replace(" ","",$i_img);
-		
-		$date = ($_FILES['i_img']['name']) ? time()."_" : "";
-		
-				if($i_img){
-				
-			
-				if(move_uploaded_file($i_img_tmp, $path.$date.$i_img)){
-					$get_img_old = get_img_old($id);
-					if(file_exists($path.$get_img_old)){
-						unlink($path.$get_img_old);
-					}
 					
 					$data = "building_name = '$i_name',
-							
-							building_img = '$date$i_img',
 							branch_id = '$i_branch_id'
 
 					";
-				}
-			
-			
-			}else{
-				$data = "building_name = '$i_name',
-						branch_id = '$i_branch_id'
-					";
-			}
 			
 		update($data, $id);
 			
@@ -132,17 +94,7 @@ switch ($page) {
 	case 'delete':
 
 		$id = get_isset($_GET['id']);
-
-		$path = "../img/building/";	
-		
-		$get_img_old = get_img_old($id);
-					if(file_exists($path.$get_img_old)){
-						unlink($path.$get_img_old);
-					}
-
-
 		delete($id);
-
 		header('Location: building.php?page=list&did=3');
 
 	break;
