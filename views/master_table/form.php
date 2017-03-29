@@ -41,10 +41,19 @@
                                   		</div>
             							
                                         <div class="form-group">
+                                            <label>Jumlah Sofa</label>
+                                            <input required type="number" min="0" name="i_chair_number" class="form-control" placeholder="Masukkan jumlah sofa..." value="<?= $row->chair_number ?>"/>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Jumlah Kursi </label>
+                                            <input required type="number" min="0" name="i_chair_number" class="form-control" placeholder="Masukkan jumlah kursi ..." value="<?= $row->chair_number ?>"/>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label>Jumlah Kursi</label>
                                             <input required type="number" min="0" name="i_chair_number" class="form-control" placeholder="Masukkan jumlah kursi..." value="<?= $row->chair_number ?>"/>
                                         </div>
-                                        
                                         
                                         </div>
                                        

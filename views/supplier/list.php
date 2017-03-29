@@ -92,7 +92,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <td colspan="5"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
+                                                <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
                                                
                                             </tr>
                                         </tfoot>

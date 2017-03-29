@@ -28,7 +28,7 @@
                                                 <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama ..." value="<?= $row->kategori_utama_name ?>"/>
                                                 </div>
                                         </div>
-<!--                                         <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label>Status</label>
                                             <select class="selectpicker show-tick form-control" name="i_status" id="i_status">
                                               <option value="1">Active</option>
