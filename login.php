@@ -31,6 +31,8 @@
 
     .alert {
         display: none;
+        background-color: rgb(233, 30, 107);
+        border-color: #f3a7a7;
     }
     .bg-white{
         background-color: rgba(255, 255, 255, 0.39)!important;
@@ -62,19 +64,13 @@
             </div>
             <form id="form_login">
                 <div class="body bg-white">
-                    <?php
-                    if(isset($_GET['err'])){
-                    ?>
                     <br>
                      <div class="alert alert-warning alert-dismissable">
-                    <i class="fa fa-warning"></i>
-                    <button class="close" aria-hidden="true" data-dismiss="alert" type="button"></button>
-                    <b>Error !</b>
-                   User Login or Password tidak benar
+                      <i class="fa fa-warning"></i>
+                      <button class="close" aria-hidden="true" data-dismiss="alert" type="button"></button>
+                      <b>Error !</b>
+                     User Login or Password tidak benar
                     </div>
-                    <?php
-                    }
-                    ?>
                     <div class="form-group">
                         <input style="border:1px solid #eee;" required type="text" name="i_login" class="form-control" placeholder="User Login"/>
                     </div>
