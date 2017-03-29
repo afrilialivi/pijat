@@ -36,113 +36,22 @@ if(!$_SESSION['login']){
     <link rel="stylesheet" type="text/css" href="../css/responsive/jquery-ui.css" />
     <link href="../css/responsive/media.css" rel="stylesheet">
     <script src="../js/responsive/jquery.js"></script>
-    <script>
-      $( function() {
-        $( "#accordion" ).accordion({
-          collapsible: true,
-          active : false,
-          heightStyle: "content",
-          autoHeight: false,
-          clearStyle: true,
-        });
-      });
-    </script>
     <!-- end accordion -->
-    <script type="text/javascript">
-    	  function startRefresh() {
-    			$.get('', function(data) {
-    				$(document.body).html(data);
-    			  });
-    		  }
-    		$(function() {
-    			setTimeout(startRefresh,30000);
-    		});
-        function cancel_order(id){
-    		 	var question = confirm("Anda yakin ingin cancel order ?");
-    			if(question==true){
-    				window.location.href = 'order.php?page=cancel_order&table_id='+id+'&building_id='+<?= $building_id ?>;
-    			}
-    	   }
-    	  function cancel_reserved(id){
-    		 	var question = confirm("Anda yakin ingin cancel reservasi ?");
-    			if(question==true){
-    				window.location.href = 'order.php?page=cancel_reserved&table_id='+id+'&building_id='+<?= $building_id ?>;
-    			}
-    	   }
-    	  function order_status(id){
-    			window.location.href = 'order.php?page=order_status&id='+id+'&building_id='+<?= $building_id ?>;
-    		}
-    </script>
 
 		<script src="../js/button_component/modernizr.custom.js"></script>
-    <style>
-    .border_meja{
-    	background:url(../img/building/<?= $building_img ?>) no-repeat;
-    }
-    <?php
-    	$q_building1 = 1;
-    	$q_building1 = mysql_query("select * from buildings where building_id = '$building_id' order by building_id");
-    	while($r_building1 = mysql_fetch_array($q_building1)){
-    		$color = array("", "#bbb", "#ccc", "#ddd", "#eee");
-    	?>
-    	<?php
-    	$q3 = mysql_query("select * from tables where building_id = '".$r_building1['building_id']."' order by table_id");
-    	while($r3 = mysql_fetch_array($q3)){
-    	?>
-    	#makeMeDraggable_<?= $r3['table_id']?> {
-    	position: absolute;
-    	width: 100px; height: 100px;
-    	margin-left:
-    	<?php
-    	$data_x = ($r3['data_x']) ? $r3['data_x'] : 0;
-    	echo $data_x ?>px;
-    	margin-top:
-    	<?php
-    	$data_y = ($r3['data_y']) ? $r3['data_y'] : 0;
-    	echo $data_y ?>px;
-    	background: red; cursor: pointer;
-    	}
-    	<?php
-    	}
-    	$q_building1++;
-    	}
-    	?>
-    	.meja1 {
-        background: url(../img/table_hikaru.png) no-repeat !important;
-        display: table;
-        width: 100%;
-    	}
-    	.meja2 {
-        background: url(../img/table_hikaru2.png) no-repeat !important;
-        display: table;
-        width: 100%;
-    	}
-    </style>
+    
   <script type="text/javascript" src="../js/table/jquery.js"></script>
   <script type="text/javascript" src="../js/table/jquery.min.js"></script>
 </head>
 <body margin-left="0" margin-top="0">
  <div class="header_fixed">
 					<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
-						<button class="blue_color_button"  type="button"  onClick="javascript: window.location.href = 'home.php'; "><i class="fa fa-bars show-on-mobile"></i><span class="hide-on-mobile">BACK TO MENU</span></button>BACK TO MENU</button>
+						<button class="blue_color_button"  type="button"  onClick="javascript: window.location.href = 'home.php'; "><i class="fa fa-bars show-on-mobile"></i>
+            <span class="hide-on-mobile">BACK TO MENU</span>
+            </button>BACK TO MENU</button>
 					</div><!-- morph-button -->
 					<div class="logo_order"></div>
-					<div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed" style="float:right; right:20px;">
-						<button class="logout_color_button" type="button">LOGOUT</button>
-						<div class="morph-content">
-							<div>
-								<div class="content-style-form content-style-form-2" >
-									<span class="icon icon-close">Close the dialog</span>
-									<h2 style="font-size:42px; padding-top:50px;">Anda yakin ingin <br><strong>logout</strong> ?</h2>
-									<form action="<?= $action_logout?>" method="post" enctype="multipart/form-data" role="form">
-										<p>
-										  <input type="submit" name="button" id="button" value="YA" class="button_building">
-										</p>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div><!-- morph-button -->
+					
  </div>
 
 

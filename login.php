@@ -32,7 +32,7 @@
     .alert {
         display: none;
     }
-<<<<<<< HEAD
+
      .bg-white{
           background-color: rgba(255, 255, 255, 0.39)!important;
       }
@@ -48,7 +48,7 @@
        background-color: rgba(204, 111, 222, 0.42);
        border-color: rgba(125, 10, 197, 0.44);
      }
-=======
+
     .bg-white{
         background-color: rgba(255, 255, 255, 0.39)!important;
     }
@@ -64,7 +64,7 @@
       background-color: rgba(204, 111, 222, 0.42);
       border-color: rgba(125, 10, 197, 0.44);
     }
->>>>>>> fccdf188832f5e3aef1c0d819eebd64f99eb7553
+
 </style>
 
     </head>
