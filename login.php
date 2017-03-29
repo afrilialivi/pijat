@@ -34,6 +34,10 @@
         background-color: rgb(233, 30, 107);
         border-color: #f3a7a7;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d54b3dc5fc035ef222c4464cf788207975094c8
      .bg-white{
           background-color: rgba(255, 255, 255, 0.39)!important;
       }
@@ -49,6 +53,10 @@
        background-color: rgba(204, 111, 222, 0.42);
        border-color: rgba(125, 10, 197, 0.44);
      }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d54b3dc5fc035ef222c4464cf788207975094c8
     .bg-white{
         background-color: rgba(255, 255, 255, 0.39)!important;
     }
@@ -64,6 +72,10 @@
       background-color: rgba(204, 111, 222, 0.42);
       border-color: rgba(125, 10, 197, 0.44);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d54b3dc5fc035ef222c4464cf788207975094c8
 </style>
 
     </head>
