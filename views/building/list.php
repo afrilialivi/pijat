@@ -75,7 +75,7 @@
                                             ?>
                                             <tr>
                                             <td><?= $no?></td>
-                                               <td><?= $row['building_name']?></td>
+                                               <td><?= $row['ruangan_name']?></td>
                                                <td><?= $row['branch_name']?></td>
                                                <td style="text-align:center;">
 

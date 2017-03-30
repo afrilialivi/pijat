@@ -40,7 +40,7 @@
               <div class="small-box bg-white home_back1">
                   <div class="inner">
                       <h3>
-                          <?= $date_now ?>
+                          <!-- <?= $date_now ?> -->
                       </h3>
                       <p>
                          Tanggal
@@ -55,7 +55,7 @@
               <div class="small-box bg-white home_back2">
                   <div class="inner">
                       <h3>
-                          <?= $jumlah_penjualan ?>
+                          <!-- <?= $jumlah_penjualan ?> -->
                       </h3>
                       <p>
                           Jumlah Penjualan
@@ -69,7 +69,7 @@
               <!-- small box -->
               <div class="small-box bg-white home_back3">
                   <div class="inner">
-                    <?php echo "<span style='font-size:20px'>Rp. </span>".$total_omset ?>
+                    <!-- <?php echo "<span style='font-size:20px'>Rp. </span>".$total_omset ?> -->
                       <h3>
                       </h3>
                       <p>
@@ -84,7 +84,7 @@
               <div class="small-box bg-white home_back4" >
                   <div class="inner" style="height:90px;">
                       <h3 class="hide-on-mobile320" style="font-size:16px;">
-                         <?= $menu_terlaris?>
+                         <!-- <?= $menu_terlaris?> -->
                       </h3>
                       <p>
                          Menu Terlaris

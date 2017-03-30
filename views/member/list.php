@@ -1,4 +1,11 @@
-
+<style type="text/css">
+    .table-striped > tr,
+     .table-striped td
+     {
+        background-color: rgba(97, 41, 95, 0.32);
+        border-color: #361563;
+     }
+</style>
                 <?php
                 if(isset($_GET['did']) && $_GET['did'] == 1){
                 ?>

@@ -1,4 +1,11 @@
-
+<style type="text/css">
+    .table-striped > tr,
+     .table-striped td
+     {
+        background-color: rgba(97, 41, 95, 0.32);
+        border-color: #361563;
+     }
+</style>
                 <?php
                 if(isset($_GET['did']) && $_GET['did'] == 1){
                 ?>
@@ -55,14 +62,11 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                            <!--<th width="5%">No</th>-->
-                                                <th>Nomor Meja</th>
-                                                <th>Ruang</th>
-                                                <th>Jumlah Sofa</th>
-                                                <th>Jumlah Kursi</th>
-                                                <th>Jumlah Kursi</th>
-                                                 <th>Cabang</th>
-                                                   <th>Config</th> 
+                                            <th width="5%">No</th>
+                                                <th>Nama Infrastruktur</th>
+                                                <th>Warna Infrastruktur</th>
+                                                <th>Image Infrastruktur</th>
+                                                    <th style="text-align: center;">Config</th> 
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,17 +75,21 @@
 										   while($row = mysql_fetch_array($query)){
                                             ?>
                                             <tr>
-                                            <!--<td><?= $no?></td>-->
-                                               <td><?= $row['table_name']?></td>
-                                                <td><?php echo $row['nama_gedung']?></td>
-                                                <td><?php echo $row['chair_number']?></td>
-                                                <td><?php echo $row['chair_number']?></td>
-                                                <td><?php echo $row['chair_number']?></td>
-                                                <td><?php echo $row['branch_name']?></td>
+                                            <td><?= $no?></td>
+                                                <td><?= $row['infrastruktur_name']?></td>
+                                                <td><?= $row['infrastruktur_warna']?></td>
+                                                <td><img src="<?php
+                                               if($row['infrastruktur_img']){
+                                                    $image = "../img/infrastruktur/".$row['infrastruktur_img'];
+                                               }else{
+                                                   $image = "../img/img_not_found.png";
+                                                }
+                                                echo $image ?>" height="80" /></td>
                                               <td style="text-align:center;">
 
-                                                    <a href="master_table.php?page=form&id=<?= $row['table_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['table_id']; ?>,'master_table.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                                    <a href="infrastruktur.php?page=form&id=<?= $row['infrastruktur_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['infrastruktur_id']; ?>,'infrastruktur.php?page=delete&id=')" class="btn btn-default" >
+                                                    <i class="fa fa-trash-o"></i></a>
 
                                                 </td> 
                                             </tr>
@@ -95,7 +103,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <td colspan="7"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
+                                                <td colspan="5"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
                                                
                                             </tr>
                                         </tfoot>

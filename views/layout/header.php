@@ -154,7 +154,7 @@ if(!$_SESSION['login']){
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
-                                <span class="label label-warning"><?= count_stock_limit(); ?></span>
+                                <!-- <span class="label label-warning"><?= count_stock_limit(); ?></span> -->
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">Stok limit : <?= count_stock_limit(); ?></li>
