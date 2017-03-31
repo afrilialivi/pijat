@@ -42,6 +42,15 @@ if(!$_SESSION['login']){
 
   <script type="text/javascript" src="../js/table/jquery.js"></script>
   <script type="text/javascript" src="../js/table/jquery.min.js"></script>
+  <style media="screen">
+  section {
+    padding: 2em;
+    text-align: justify;
+    max-width: 1300px;
+    margin: 0 auto;
+    clear: both;
+  }
+  </style>
 </head>
 <body margin-left="0" margin-top="0">
   <div class="header_fixed">
@@ -53,16 +62,10 @@ if(!$_SESSION['login']){
 		<!-- <div class="logo_order"></div> -->
   </div>
   <br>
-  <section class="content">
-    <center>
-      <div class="box">
-        <div class="box-body">
-          <div class="">
-
-          </div>
-        </div>
-      </div>
-    </center>
+  <section>
+    <div class="box">
+      <div class="box-body" style="background-color:rgba(255, 255, 255, 0.85);height:100vh;"></div>
+    </div>
   </section>
    <div class="footer_fixed">
      <div class="morph-button morph-button-sidebar morph-button-fixed">

@@ -1,10 +1,5 @@
 <?php
 
-function create_config($table, $data, $con_C_trans){
-  mysql_query("insert into $table values(".$data.")", $db_1);
-  return mysql_insert_id();
-}
-
 function update_config($table, $data, $where){
   mysql_query("update $table set $data $where");
 }

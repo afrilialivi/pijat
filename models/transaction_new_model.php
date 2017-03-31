@@ -53,11 +53,6 @@ function select_menu($keyword){
 	return $row['menu_id'];
 }
 
-function create_config($table, $data){
-	mysql_query("insert into $table values(".$data.")");
-	return mysql_insert_id();
-}
-
 function update_config($table, $data, $column, $id){
 	mysql_query("update $table set $data where $column = $id");
 }

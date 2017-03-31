@@ -1,5 +1,5 @@
 <?php
-$s_cabang = $_SESSION['branch_id'];
+// $s_cabang = $_SESSION['branch_id'];
 
 function create_config($table, $data){
 	mysql_query("insert into $table values(".$data.")");
