@@ -46,28 +46,16 @@ if(!$_SESSION['login']){
        <link href="../css/export/buttons.dataTables.min.css" rel="stylesheet">
        <!-- responsive -->
 	     <link href="../css/responsive/layout.css" rel="stylesheet">
-             <script src="../js/chart/Chart.js" type="text/javascript"></script>
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- footable
-           <link href="../css/footable/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
-            <link href="../css/footable/footable.standalone.css" rel="stylesheet" type="text/css"/>
-
-
-            <script src="../js/footable/footable.js?v=2-0-1" type="text/javascript"></script>
-            <script src="../js/footable/footable.sort.js?v=2-0-1" type="text/javascript"></script>
-            <script src="../js/footable/footable.filter.js?v=2-0-1" type="text/javascript"></script>
-            <script src="../js/footable/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
-            <script src="../js/footable/bootstrap-tab.js" type="text/javascript"></script>
-         -->
-
+       <?php
+       $q_img = mysql_query("select office_img as result from office");
+       $r_img = mysql_fetch_array($q_img);
+       $img   = $r_img['result'];
+       $path  = "../img/office/";
+       ?>
+        <script src="../js/chart/Chart.js" type="text/javascript"></script>
         <script src="../js/jquery.js"></script>
         <script type="text/javascript">
+
         $(function(){
         $('a#logout').click(function(){
             if(confirm('Are you sure to logout')) {
@@ -76,19 +64,13 @@ if(!$_SESSION['login']){
                 return false;
             });
         });
+
         </script>
     </head>
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="../index.php" class="logo" >
-
-
-                <!-- Add the class icon to your logo image or logo icon to add the margining -->
-
-            </a>
-
-
+            <a href="../index.php" class="logo" style="background:url('<?= $path.$img?>'); background-repeat: no-repeat; background-position: center;  background-color: rgba(97, 41, 95, 0.32);border-color: #361563;"></a>
             <!-- Header Navbar: style can be found in header.less -->
 
             <nav class="navbar navbar-static-top" role="navigation">
@@ -176,10 +158,10 @@ if(!$_SESSION['login']){
                                            while($row_stock_limit = mysql_fetch_array($query_stock_limit)){
                                             ?>
                                             <tr>
-                                            <?php 
-                                            
+                                            <?php
+
 //                                                echo $row_stock_limit['item_name'];
-//                                                echo $row_stock_limit['item_stock_qty']; 
+//                                                echo $row_stock_limit['item_stock_qty'];
 //                                                echo $row_stock_limit['unit_name'];
                                             ?>
                                                <td><?= $row_stock_limit['item_name']; ?></td>

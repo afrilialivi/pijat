@@ -12,13 +12,26 @@ switch ($page) {
 	case 'list':
 		$where_branch = "";
 		$where = '';
-		$first_building_id = select_config_by('buildings', 'MIN(building_id)', $where);
-		$building_id = (isset($_GET['building_id'])) ? $_GET['building_id'] : $first_building_id;
+		$first_ruangan_id = select_config_by('ruangan', 'min(ruangan_id)', '');
+
+		$ruangan_id = (isset($_GET['ruangan_id'])) ? $_GET['ruangan_id'] : $first_ruangan_id;
 		$branch_id = (isset($_GET['branch_id'])) ? $_GET['branch_id'] : $_SESSION['branch_id'];
+
+		$q_branch = select_config('branches', '');
+
 		$where_branch_id = "where branch_id = '$branch_id'";
-		$where_building_id = "where building_id = '$building_id'";
+		$where_ruangan_id = "WHERE ruangan_id = '$ruangan_id'";
+
 		$branch_name = select_config_by('branches', 'branch_name', $where_branch_id);
-		$building_name = select_config_by('buildings', 'building_name', $where_branch_id);
+		$ruangan_name = select_config_by('ruangan', 'ruangan_name', $where_ruangan_id);
+
+		$q_ruangan = select_config('ruangan', $where_branch_id);
+
+		$q_infrastruktur = select_config('ruangan_infrastruktur', '');
+		$q_infrastruktur_ = select_config('ruangan_infrastruktur', '');
+		$q_infrastruktur__ = select_config('ruangan_infrastruktur', '');
+
+
 		$action_logout = "logout.php";
 		include '../views/order/list.php';
 	break;

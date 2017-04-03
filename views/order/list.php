@@ -50,6 +50,25 @@ if(!$_SESSION['login']){
     margin: 0 auto;
     clear: both;
   }
+
+  <?php while ($r_infrastruktur__ = mysql_fetch_array($q_infrastruktur__)) {?>
+
+  #theImg_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?> {
+          position: absolute;
+          /*width: 100px;
+          height: 100px;*/
+          margin-left:
+          <?php
+          $data_x = ($r_infrastruktur__['koordinat_x']) ? $r_infrastruktur__['koordinat_x'] : 0;
+          echo $data_x ?>px;
+          margin-top:
+          <?php
+          $data_y = ($r_infrastruktur__['koordinat_y']) ? $r_infrastruktur__['koordinat_y'] : 0;
+          echo $data_y ?>px;
+          cursor: pointer;
+  }
+  <?php } ?>
+
   </style>
 </head>
 <body margin-left="0" margin-top="0">
@@ -64,7 +83,14 @@ if(!$_SESSION['login']){
   <br>
   <section>
     <div class="box">
-      <div class="box-body" style="background-color:rgba(255, 255, 255, 0.85);height:100vh;"></div>
+      <div id="ruangan_box" name="ruangan_box" class="box-body" style="background-color:rgba(255, 255, 255, 0.85);height:100vh;">
+        <?php while ($r_infrastruktur_ = mysql_fetch_array($q_infrastruktur_)) {
+          $where_infrastruktur_id = "WHERE infrastruktur_id = '".$r_infrastruktur_['infrastruktur']."'";
+          $img = select_config_by('infrastruktur','infrastruktur_img', $where_infrastruktur_id);?>
+          <img id="theImg_<?= $r_infrastruktur_['ruangan_infrastruktur_id']?>" src="../img/infrastruktur/<?= $img?>" alt="">
+        <?} ?>
+        <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
+      </div>
     </div>
   </section>
    <div class="footer_fixed">
@@ -77,7 +103,6 @@ if(!$_SESSION['login']){
              <h2>Cabang</h2>
              <ul>
                <?php
-               $q_branch = mysql_query("select * from branches $where_branch order by branch_id");
                while($r_branch = mysql_fetch_array($q_branch)){
                  ?>
                  <li><a href="order.php?branch_id=<?= $r_branch['branch_id']?>"><?= $r_branch['branch_name']?></a></li>
@@ -90,7 +115,7 @@ if(!$_SESSION['login']){
          </div>
        </div><!-- morph-button -->
        <div class="morph-button morph-button-sidebar morph-button-fixed" style=" bottom: 10px; left: 240px;">
-         <button type="button" class="reds_color_button"><?= $building_name?></button>
+         <button type="button" class="reds_color_button"><?= $ruangan_name?></button>
          <div class="morph-content reds_color_button">
            <div>
              <div class="content-style-sidebar">
@@ -98,13 +123,13 @@ if(!$_SESSION['login']){
                <h2>Ruangan</h2>
                <ul>
                  <?php
-                 $q_building5 = mysql_query("select * from buildings where branch_id = '".$branch_id."' order by building_id");
-                 while($r_building5 = mysql_fetch_array($q_building5)){
-                   ?>
-                   <li><a href="order.php?branch_id=<?= $branch_id?>&building_id=<?= $r_building5['building_id']?>"><?= $r_building5['building_name']?></a></li>
-                   <?php
-                 }
-                 ?>
+                 while($r_ruangan = mysql_fetch_array($q_ruangan)){ ?>
+                   <li>
+                     <a href="order.php?branch_id=<?= $branch_id?>&ruangan_id=<?= $r_ruangan['ruangan_id']?>">
+                       <?= $r_ruangan['ruangan_name']?>
+                     </a>
+                   </li>
+                   <?php } ?>
                </ul>
              </div>
            </div>

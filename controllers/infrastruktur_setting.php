@@ -11,28 +11,33 @@ $_SESSION['menu_active'] = 6;
 switch ($page) {
 	case 'list':
 
-		$first_building_id = select_config_by('buildings', 'min(building_id)', '');
-		$building_id = (isset($_GET['building_id'])) ? $_GET['building_id'] : $first_building_id;
-		$where_building_id = "WHERE building_id = '$building_id'";
-		$building_name = select_config_by('buildings', 'building_name', $where_building_id);
-		$building_img = select_config_by('buildings', 'building_img', $where_building_id);
+		$first_ruangan_id = select_config_by('ruangan', 'min(ruangan_id)', '');
+		$ruangan_id = (isset($_GET['ruangan_id'])) ? $_GET['ruangan_id'] : $first_ruangan_id;
+		$where_ruangan_id = "WHERE ruangan_id = '$ruangan_id'";
+		$building_name = select_config_by('ruangan', 'ruangan_name', $where_ruangan_id);
 		$action_room = "infrastruktur_setting.php?page=save_room";
-		$action_infrastruktur = "infrastruktur_setting.php?page=save_infrastruktur&building_id=$building_id";
-		$action_logout = "logout.php";
+		$action_infrastruktur = "infrastruktur_setting.php?page=save_infrastruktur&ruangan=$ruangan_id";
+		$q_infrastruktur = select_config('ruangan_infrastruktur', '');
+		$q_infrastruktur_ = select_config('ruangan_infrastruktur', '');
+		$q_infrastruktur__ = select_config('ruangan_infrastruktur', '');
 
+		$action_logout = "logout.php";
 		include '../views/infrastruktur_setting/list.php';
 		//get_footer();
 	break;
 
 	case 'save_infrastruktur_location':
 
-		$id=$_GET['id'];
-		$data_x=$_GET['data_x'];
-		$data_y=$_GET['data_y'];
-		$data_top = $_GET['data_top'];
+		$id			=	$_POST['ruangan_infrastruktur_id'];
+		$data_x	=	$_POST['x'];
+		$data_y	=	$_POST['y'];
 
-		save_infrastruktur_location($id, $data_x, $data_y, $data_top);
+		$data = "koordinat_x 	= '$data_x',
+						 koordinat_y	= '$data_y'
+						 ";
 
+		$where_ruangan_infrastruktur_id = "ruangan_infrastruktur_id = '$id'";
+		update_config2('ruangan_infrastruktur', $data, $where_ruangan_infrastruktur_id);
 
 	break;
 
@@ -43,60 +48,39 @@ switch ($page) {
 		header('location: infrastruktur_setting.php');
 	break;
 
-	case 'save_infrastruktur':
-		$building_id = $_GET['building_id'];
-		$infrastruktur_name = $_POST['i_infrastruktur_name'];
-		$data = "'',
-				'$building_id',
-				'".$infrastruktur_name."',
-				'200',
-				'200',
-				'2',
-				'1',
-				'0'
-				";
-		save_infrastruktur($data);
-		header("location: infrastruktur_setting.php?building_id=$building_id");
-	break;
+case 'save_infrastruktur':
+	$ruangan_id = $_POST['ruangan_id'];
+	$infrastruktur_id = $_POST['infrastruktur_id'];
+	$inf_name = $_POST['inf_name'];
+	$branch_id = $_SESSION['branch_id'];
 
-	case 'save_payment':
-		$infrastruktur_id = $_GET['infrastruktur_id'];
-		$building_id = $_GET['building_id'];
-
-		$query =  mysql_query("select *
-								from transactions_tmp a
-								where a.infrastruktur_id = '$infrastruktur_id'
-								");
-		while($row = mysql_fetch_array($query)){
-			$data = "'',
+	$data = "'',
+					'$ruangan_id',
+					'$branch_id',
 					'$infrastruktur_id',
-					'".$row['transaction_date']."',
-					'".$row['transaction_total']."'
-			";
-			create_config("transactions", $data);
-			$transaction_id = mysql_insert_id();
-
-			$query_detail =  mysql_query("select *
-								from transaction_tmp_details a
-								where a.transaction_id = '".$row['transaction_id']."'
-								");
-			while($row_detail = mysql_fetch_array($query_detail)){
-				$data_detail = "'',
-									'$transaction_id',
-									'".$row_detail['menu_id']."',
-									'".$row_detail['transaction_detail_price']."',
-									'".$row_detail['transaction_detail_qty']."',
-									'".$row_detail['transaction_detail_total']."'
-									";
-					create_config("transaction_details", $data_detail);
-			}
-
-			delete_tmp($infrastruktur_id);
-
-		}
-		header("location: infrastruktur_setting.php?building_id=$building_id");
+					'$inf_name',
+					'',
+					'',
+					''
+					";
+	create_config('ruangan_infrastruktur', $data);
+	$ruangan_infrastruktur_id = mysql_insert_id();
+	echo json_encode($ruangan_infrastruktur_id);
 	break;
 
+
+case 'popmodal_add_infrastruktur':
+	$ruangan_id = $_GET['ruangan_id'];
+	$q_infrastruktur = select_config('infrastruktur', '');
+	include '../views/infrastruktur_setting/popmodal_infrastruktur.php';
+	break;
+
+case 'get_img_infrastruktur':
+	$infrastruktur_id = $_POST['infrastruktur_id'];
+	$where_infrastruktur_id = "WHERE infrastruktur_id = '$infrastruktur_id'";
+	$infrastruktur_img = select_config_by('infrastruktur', 'infrastruktur_img', $where_infrastruktur_id);
+	echo json_encode($infrastruktur_img);
+	break;
 
 }
 

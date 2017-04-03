@@ -2637,10 +2637,11 @@ Component: timeline
 /* skin-blue logo */
 
 .skin-blue .logo {
-  background-color: #fff;
+  background-color: rgba(97, 41, 95, 0.32);
+  border-color: #361563;
   color: #333;
   font-family: arial;
-  background: url('../img/new/logo.png') #fff no-repeat top center;
+  /*background: url('../img/new/logo.png') #fff no-repeat top center;*/
 }
 .skin-blue .logo > a {
   color: #333;

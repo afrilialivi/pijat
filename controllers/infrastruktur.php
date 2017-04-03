@@ -11,14 +11,14 @@ $_SESSION['menu_active'] = 1;
 switch ($page) {
 	case 'list':
 		get_header($title);
-		
+
 		$query = select();
 		$add_button = "infrastruktur.php?page=form";
 
 		include '../views/infrastruktur/list.php';
 		get_footer();
 	break;
-	
+
 	case 'form':
 		get_header();
 
@@ -29,17 +29,17 @@ switch ($page) {
 		if($id){
 
 			$row = read_id($id);
-		
+
 			$action = "infrastruktur.php?page=edit&id=$id";
 		} else{
-			
+
 			//inisialisasi
 			$row = new stdClass();
-	
+
 			$row->infrastruktur_name = false;
 			$row->infrastruktur_warna = false;
 			$row->infrastruktur_img = false;
-			
+
 			$action = "infrastruktur.php?page=save";
 		}
 
@@ -48,7 +48,7 @@ switch ($page) {
 	break;
 
 	case 'save':
-	
+
 		extract($_POST);
 
 		$i_name 	= get_isset($i_name);
@@ -61,19 +61,21 @@ switch ($page) {
 
 		$date = ($_FILES['i_img']['name']) ? time()."_" : "";
 
-	    $data 		= "'',
-			          '$i_name',
-			          '$i_warna',
-			          '".$date.$i_img."'
-			      		";
-			
-			// echo $data;
+		$data = "'',
+		      '$i_name',
+		      '$i_warna',
+		      '".$date.$i_img."'
+		  		";
+
+			if($i_img){
+				move_uploaded_file($i_img_tmp, $path.$i_img);
+			}
 
 			create($data);
-		
+
 			header("Location: infrastruktur.php?page=list&did=1");
-		
-		
+
+
 	break;
 
 	case 'edit':
@@ -88,7 +90,7 @@ switch ($page) {
 		$i_img_tmp = $_FILES['i_img']['tmp_name'];
 		$i_img = ($_FILES['i_img']['name']) ? $_FILES['i_img']['name'] : "";
 		$i_img = str_replace(" ","",$i_img);
-		
+
 		$date = ($_FILES['i_img']['name']) ? time()."_" : "";
 
 			if($i_img){
@@ -102,7 +104,7 @@ switch ($page) {
 								infrastruktur_img = '$date$i_img'
 								";
 				}
-			
+
 			}else{
 				$data 	= "infrastruktur_name = '$i_name',
 							infrastruktur_warna = '$i_warna'
@@ -117,8 +119,8 @@ switch ($page) {
 
 		$id = get_isset($_GET['id']);
 
-		$path = "../img/building/";	
-		
+		$path = "../img/building/";
+
 		$get_img_old = get_img_old($id);
 					if(file_exists($path.$get_img_old)){
 						unlink($path.$get_img_old);
