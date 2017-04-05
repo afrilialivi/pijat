@@ -99,23 +99,9 @@ function add_menu(id)
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
 
-                    <?php
-                    if($id){
-
-
-                 include 'form_statement.php';
-					}
-?>
+            
 
                 </section><!-- /.content -->
 
-                <?php
-
-                if(!$id){
-                    ?>
-
-                    </form>
-
-                    <?php
-                    }
-                    ?>
+ </form>
+<?php if($id){ include 'form_statement.php';}?>

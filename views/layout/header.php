@@ -7,7 +7,7 @@ if(!$_SESSION['login']){
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Bakmi Gili</title>
+        <title>Zee Holistic</title>
         <link rel="icon" href="../img/new/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="../img/new/favicon.ico" type="image/x-icon" />
 
