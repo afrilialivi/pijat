@@ -451,11 +451,11 @@ CREATE TABLE `statement` (
   `tidak_menyembunyikan` int(11) NOT NULL,
   `tanggung_jawab` int(11) NOT NULL,
   PRIMARY KEY (`statement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `statement` */
 
-insert  into `statement`(`statement_id`,`member_id`,`tekanan`,`asma`,`inhaler`,`leher`,`kulit`,`kulit_jabarkan`,`selain_diatas`,`selain_jabarkan`,`alergi`,`alergi_jabarkan`,`hamil`,`usia_kandungan`,`kontak_lens`,`melepas_lens`,`level`,`spesial`,`jawaban`,`tidak_menyembunyikan`,`tanggung_jawab`) values (3,21,2,2,2,2,2,'',2,'',2,'',2,'',2,2,3,2,2,2,2),(4,22,2,2,2,2,2,'luka',1,'jantung',1,'jahe',1,'4',2,2,2,1,1,1,1),(5,22,2,2,2,2,2,'luka',1,'jantung',1,'jahe',1,'4',2,2,2,1,1,1,1),(6,22,2,2,2,2,2,'',2,'',2,'',2,'',2,2,2,1,1,1,1),(7,22,2,2,2,2,2,'',2,'',2,'',2,'',2,2,2,1,1,1,1),(8,22,2,2,2,2,2,'',2,'',2,'',2,'',2,2,2,1,1,1,1),(9,22,2,2,2,2,2,'',2,'',2,'',2,'',2,2,2,1,1,1,1),(10,22,2,2,2,2,2,'luka',2,'jantung',2,'jahe',2,'4',2,2,2,1,1,1,1),(11,22,2,2,2,2,2,'',2,'',2,'',2,'',2,2,2,1,1,1,1);
+insert  into `statement`(`statement_id`,`member_id`,`tekanan`,`asma`,`inhaler`,`leher`,`kulit`,`kulit_jabarkan`,`selain_diatas`,`selain_jabarkan`,`alergi`,`alergi_jabarkan`,`hamil`,`usia_kandungan`,`kontak_lens`,`melepas_lens`,`level`,`spesial`,`jawaban`,`tidak_menyembunyikan`,`tanggung_jawab`) values (3,21,2,2,2,2,2,'',2,'',2,'',2,'',2,2,3,2,2,2,2),(4,22,2,2,2,2,2,'luka',1,'jantung',1,'jahe',1,'4',2,2,2,1,1,1,1);
 
 /*Table structure for table `suppliers` */
 

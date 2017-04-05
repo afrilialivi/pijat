@@ -223,7 +223,7 @@ switch ($page) {
 				// create_config('statement',$data);
 				$statement_id = create_config('statement', $data);
 				// var_dump($_POST); 
-				header("Location: member.php?page=list");
+				header("Location: member.php?page=list&did=2");
 				// echo "string";
 			break;	
 
@@ -252,8 +252,7 @@ switch ($page) {
 				$i_menyembunyikan = get_isset($i_menyembunyikan);
 				$i_bertanggung_jawab = get_isset($i_bertanggung_jawab);
 
-				$data = "'',
-						'$i_tekanan',
+				$data = "'$i_tekanan',
 						'$i_asma',
 						'$i_inhaler',
 						'$i_leher',
@@ -272,11 +271,12 @@ switch ($page) {
 						'$i_jawaban',
 						'$i_menyembunyikan',
 						'$i_bertanggung_jawab'
-
 						";
-				update($data,$id);
+				echo $data;
+				$where_statement_id = "statement_id = '$id'";				
+				// update_config2('statement', $data, $where_statement_id);
 
-			header("Location: member.php?page=form&id=$id&did=1");
+				// header("Location: member.php?page=form&id=$id&did=2");
 		break;
 }
 
