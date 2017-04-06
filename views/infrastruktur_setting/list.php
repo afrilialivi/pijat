@@ -52,10 +52,10 @@ header("location: ../login.php");
           background-color: #000;
       }
       section {
-        padding: 2em;
+        /*padding: 2em;*/
         text-align: justify;
-        max-width: 1300px;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0;
         clear: both;
       }
       <?php while ($r_infrastruktur__ = mysql_fetch_array($q_infrastruktur__)) {?>
@@ -90,9 +90,9 @@ header("location: ../login.php");
           <button type="button" class="red_color_button"   onClick="javascript: window.location.href = 'home.php'; ">BACK TO MENU</button>
         </div><!-- morph-button -->
       </div>
-      <section>
-        <div class="box">
-          <div id="ruangan_box" name="ruangan_box" class="box-body" style="background-color:rgba(255, 255, 255, 0.85);height:100vh;">
+      <section id="ruangan_box" >
+        <div class="box" style="z-index:2;">
+          <div name="ruangan_box" class=""  style="background-color:rgba(255, 255, 255, 0.85);height:100vh;">
             <?php while ($r_infrastruktur_ = mysql_fetch_array($q_infrastruktur_)) {
               $where_infrastruktur_id = "WHERE infrastruktur_id = '".$r_infrastruktur_['infrastruktur']."'";
               $img = select_config_by('infrastruktur','infrastruktur_img', $where_infrastruktur_id);?>
@@ -101,6 +101,7 @@ header("location: ../login.php");
             <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
           </div>
         </div>
+        <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
       </section>
       <div class="footer_fixed">
         <div class="morph-button morph-button-sidebar morph-button-fixed">
