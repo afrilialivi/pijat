@@ -37,7 +37,7 @@ switch ($page) {
 			//inisialisasi
 			$row = new stdClass();
 	
-			$row->building_name = false;
+			$row->ruangan_name = false;
 			$row->branch_id = false;
 			
 			$action = "building.php?page=save";

@@ -453,7 +453,11 @@ body > .header .logo {
   width: 230px;
   height: 100px;
   display: block;
+<<<<<<< HEAD
   border: 1px solid #d2120f;
+=======
+  /*border: 1px solid #d2120f;*/
+>>>>>>> 8ec01ec2332727cc137b6b2560a486ae079c4bcd
   background-color: rgba(97, 41, 95, 0.32);
   border-color: #361563;
 }

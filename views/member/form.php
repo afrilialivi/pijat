@@ -17,9 +17,9 @@
 <script>
 function add_menu(id)
 {
-	if(id!=0){
-	window.location.href = 'member.php?page=add_menu&menu_id='+id+'&member_id=<?php echo $id ?>';
-	}
+  if(id!=0){
+  window.location.href = 'member.php?page=add_menu&menu_id='+id+'&member_id=<?php echo $id ?>';
+  }
 }
 </script>
  <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
@@ -69,7 +69,7 @@ function add_menu(id)
                                              <option value="1"  <?php if($row->member_discount_type == 1){ echo "selected='selected'"; } ?>>Diskon Langsung</option>
                                            <option value="2" <?php if($row->member_discount_type == 2){ echo "selected='selected'"; } ?>>Diskon POIN</option>
                                            </select>
-                                  		</div> -->
+                                      </div> -->
 
                                      <!-- <div class="form-group">
                                             <label>Diskon (%)</label>
@@ -77,7 +77,7 @@ function add_menu(id)
                                         </div> -->
                                         <?php
                                         if($id){
-										?>
+                    ?>
                                          <!-- <div class="form-group">
                                             <label>Settlement (Rp)</label>
                                             <input required type="text" name="i_settlement" class="form-control" placeholder="Masukkan diskon..." value="<?= $row->member_settlement ?>" readonly="readonly"/>
