@@ -34,7 +34,7 @@ switch ($page) {
 			$row = read_id($id);
 			$where_member_id = "where member_id = '$id'";
 			$r_statement = select_object_config('statement', $where_member_id);
-			$action_statement = "member.php?page=save_statement&id=$id";
+			
 			$action = "member.php?page=edit&id=$id"; 
 
 			$check_statement = select_config_by('statement', 'count(*)', $where_member_id);
@@ -62,6 +62,9 @@ switch ($page) {
 				$r_statement->jawaban = false;
 				$r_statement->tidak_menyembunyikan = false;
 				$r_statement->tanggung_jawab = false;
+				$action_statement = "member.php?page=save_statement&id=$id";
+			} else {
+				$action_statement = "member.php?page=edit_statement&id=$id";
 			}
 
 		} else {
@@ -174,7 +177,6 @@ switch ($page) {
 	break;
 
 	case 'save_statement':
-			var_dump($_POST);
 				extract($_POST);
 				$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 				$i_tekanan = get_isset($i_tekanan);
@@ -228,9 +230,9 @@ switch ($page) {
 			break;	
 
 	case 'edit_statement':
-			var_dump($_POST);
 				
 				extract($_POST);
+
 				$id = get_isset($_GET['id']);
 				$i_tekanan = get_isset($i_tekanan);
 				$i_asma = get_isset($i_asma);
@@ -252,32 +254,44 @@ switch ($page) {
 				$i_menyembunyikan = get_isset($i_menyembunyikan);
 				$i_bertanggung_jawab = get_isset($i_bertanggung_jawab);
 
-				$data = "'$i_tekanan',
-						'$i_asma',
-						'$i_inhaler',
-						'$i_leher',
-						'$i_kulit',
-						'$i_kulit_jabarkan',
-						'$i_selain',
-						'$i_selain_jabarkan',
-						'$i_alergi',
-						'$i_alergi_jabarkan',
-						'$i_hamil',
-						'$i_usia_kandungan',
-						'$i_lens',
-						'$i_melepasnya',
-						'$i_level',
-						'$i_spesial',
-						'$i_jawaban',
-						'$i_menyembunyikan',
-						'$i_bertanggung_jawab'
+				$data = " tekanan = '$i_tekanan',
+						  asma = '$i_asma',
+						  inhaler = '$i_inhaler',
+						  leher = '$i_leher',
+						  kulit = '$i_kulit',
+						  kulit_jabarkan = '$i_kulit_jabarkan',
+						  selain_diatas =  '$i_selain',
+						  selain_jabarkan = '$i_selain_jabarkan',
+						  alergi = '$i_alergi',
+						  alergi_jabarkan = '$i_alergi_jabarkan',
+						  hamil = '$i_hamil',
+						  usia_kandungan = '$i_usia_kandungan',
+						  kontak_lens = '$i_lens',
+						  melepas_lens = '$i_melepasnya',
+						  level = '$i_level',
+						  spesial = '$i_spesial',
+						  jawaban = '$i_jawaban',
+						  tidak_menyembunyikan = '$i_menyembunyikan',
+						  tanggung_jawab = '$i_bertanggung_jawab'
 						";
-				echo $data;
-				$where_statement_id = "statement_id = '$id'";				
-				// update_config2('statement', $data, $where_statement_id);
 
-				// header("Location: member.php?page=form&id=$id&did=2");
+				// update($data,$id);
+
+				echo $data;
+				$where_member_id = "member_id = '$id'";	
+				update_config2('statement', $data, $where_member_id);
+
+				header("Location: member.php?page=list&id=$id&did=2");
+		break;
+
+	case 'delete_statement':
+			$id = get_isset($_GET['id']);
+			$member_id = get_isset($_GET['member_id']);
+
+			$where_member_id = "member_id = '$id'";
+			delete('statement',$id,$where_member_id);
+			// delete_statements(id);
 		break;
 }
-
+	
 ?>

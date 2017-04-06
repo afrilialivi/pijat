@@ -39,8 +39,8 @@ Edit Berhasil
   div.img_frame{
     width: 98%;
     height: 300px;
-    background: #fff;
-    border: 1px solid;
+    background:0;
+    border: 0px solid;
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
@@ -62,7 +62,7 @@ Edit Berhasil
             <div class="img_frame">
               <center>
                 <?php $gambar = ($row->office_img) ? $row->office_img : "default.jpg"; ?>
-                <img src="<?= "../img/office/".$gambar ?>" id="output_1" style="max-width:100%;max-heigth:250px;"/>
+                <img src="<?= "../img/office/".$gambar ?>" id="output_1" style="max-width:100%; max-height:320px;"/>
               </center>
             </div>
           </div>

@@ -44,7 +44,7 @@
                             <!-- general form elements disabled -->
 
                           
-                          <div class="title_page"> <?= $title ?></div>
+                          <!-- <div class="title_page"> <?= $title ?></div> -->
                              <form action="<?= $action_statement?>" method="post" enctype="multipart/form-data" role="form">
 
                                     <div class="box box-cokelat">

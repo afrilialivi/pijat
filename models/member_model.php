@@ -52,7 +52,7 @@ function delete($id){
 	mysql_query("delete from members where member_id = '$id'");
 }
 
-function delete_statemenr($id){
+function delete_statemens($id){
 	mysql_query("delete from statement where statement_id = '$id'");
 }
 
