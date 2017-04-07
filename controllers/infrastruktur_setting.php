@@ -82,6 +82,24 @@ case 'get_img_infrastruktur':
 	echo json_encode($infrastruktur_img);
 	break;
 
+case 'popmodal_hapus_infrastruktur':
+	$ruangan_id = $_GET['ruangan_id'];
+	$where_ruangan_id = "WHERE ruangan = '$ruangan_id'";
+	$where_ruangan_id_ = "WHERE ruangan_id = '$ruangan_id'";
+	$action = "infrastruktur_setting.php?page=hapus_infrastruktur";
+	$ruangan_name = select_config_by('ruangan', 'ruangan_name', $where_ruangan_id_);
+	$q_infrastruktur = select_config('ruangan_infrastruktur', $where_ruangan_id);
+	include '../views/infrastruktur_setting/popmodal_hapus_infrastruktur.php';
+	break;
+
+case 'hapus_infrastruktur':
+	$ruangan_id = $_POST['ruangan_id'];
+	$infrastruktur_id = $_POST['infrastruktur_id'];
+	$where_ruangan_id_infrastruktur_id = "ruangan = '$ruangan_id' and ruangan_infrastruktur_id = '$infrastruktur_id'";
+	echo $where_ruangan_id_infrastruktur_id;
+	delete_config('ruangan_infrastruktur', $where_ruangan_id_infrastruktur_id);
+	header("location:infrastruktur_setting.php?page=list&ruangan_id=$ruangan_id");
+	break;
 }
 
 ?>

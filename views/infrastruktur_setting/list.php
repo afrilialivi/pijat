@@ -87,6 +87,9 @@ header("location: ../login.php");
           <button type="button" class="blue_color_button" onclick="popmodal_add_infrastruktur()">ADD</button>
         </div><!-- morph-button -->
         <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+          <button type="button" class="blue_color_button"   onClick="hapus_infrastruktur()">HAPUS</button>
+        </div><!-- morph-button -->
+        <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
           <button type="button" class="red_color_button"   onClick="javascript: window.location.href = 'home.php'; ">BACK TO MENU</button>
         </div><!-- morph-button -->
       </div>
@@ -96,6 +99,7 @@ header("location: ../login.php");
             <?php while ($r_infrastruktur_ = mysql_fetch_array($q_infrastruktur_)) {
               $where_infrastruktur_id = "WHERE infrastruktur_id = '".$r_infrastruktur_['infrastruktur']."'";
               $img = select_config_by('infrastruktur','infrastruktur_img', $where_infrastruktur_id);?>
+              <!-- <label for=""><?= $r_infrastruktur_['infrastruktur_name']?></label> -->
               <img id="theImg_<?= $r_infrastruktur_['ruangan_infrastruktur_id']?>" src="../img/infrastruktur/<?= $img?>" alt="">
             <?} ?>
             <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
@@ -180,5 +184,11 @@ header("location: ../login.php");
     <?} ?>
   });
 
+function hapus_infrastruktur(){
+  var ruangan_id = $('#ruangan_id').val();
+  $('#medium_modal').modal();
+  var url = 'infrastruktur_setting.php?page=popmodal_hapus_infrastruktur&ruangan_id='+ruangan_id;
+    $('#medium_modal_content').load(url,function(result){});
+}
 
 </script>
