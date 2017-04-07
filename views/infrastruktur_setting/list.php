@@ -75,7 +75,13 @@ header("location: ../login.php");
               cursor: pointer;
       }
       <?php } ?>
-
+      /*.infrastruktur_box {
+        padding: 2em;
+        text-align: justify;
+        max-width: 1300px;
+        margin: 0 auto;
+        clear: both;
+      }*/
       </style>
     </head>
     <body margin-left="0" margin-top="0">
@@ -95,7 +101,7 @@ header("location: ../login.php");
       </div>
       <section id="ruangan_box" >
         <div class="box" style="z-index:2;">
-          <div name="ruangan_box" class=""  style="background-color:rgba(255, 255, 255, 0.85);height:100vh;">
+          <!-- <div name="ruangan_box" class="infrastruktur_box"  style="background-color:rgba(255, 255, 255, 0.85);height:100vh;"> -->
             <?php while ($r_infrastruktur_ = mysql_fetch_array($q_infrastruktur_)) {
               $where_infrastruktur_id = "WHERE infrastruktur_id = '".$r_infrastruktur_['infrastruktur']."'";
               $img = select_config_by('infrastruktur','infrastruktur_img', $where_infrastruktur_id);?>
@@ -103,7 +109,7 @@ header("location: ../login.php");
               <img id="theImg_<?= $r_infrastruktur_['ruangan_infrastruktur_id']?>" src="../img/infrastruktur/<?= $img?>" alt="">
             <?} ?>
             <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
-          </div>
+          <!-- </div> -->
         </div>
         <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
       </section>

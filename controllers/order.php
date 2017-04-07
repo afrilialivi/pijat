@@ -17,7 +17,7 @@ switch ($page) {
 		$ruangan_id = (isset($_GET['ruangan_id'])) ? $_GET['ruangan_id'] : $first_ruangan_id;
 		$branch_id = (isset($_GET['branch_id'])) ? $_GET['branch_id'] : $_SESSION['branch_id'];
 
-		$q_branch = select_config('branches', '');
+		$q_branch = select_config('branches', $where);
 
 		$where_branch_id = "where branch_id = '$branch_id'";
 		$where_ruangan_id = "WHERE ruangan_id = '$ruangan_id'";
@@ -31,9 +31,14 @@ switch ($page) {
 		$q_infrastruktur_ = select_config('ruangan_infrastruktur', '');
 		$q_infrastruktur__ = select_config('ruangan_infrastruktur', '');
 
-
 		$action_logout = "logout.php";
+		$action_order = "order.php?page=order_form&infrastruktur_id=";
 		include '../views/order/list.php';
 	break;
+
+	case 'order_form':
+		$infrastruktur_id = $_GET['infrastruktur_id'];
+		header("location:transaction.php?page=list&infrastruktur_id=$infrastruktur_id");
+		break;
 	}
 ?>

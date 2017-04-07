@@ -117,9 +117,9 @@ switch ($page) {
 		$i_login = get_isset($i_login);
 		$i_password = get_isset($i_password);
 		$i_name = get_isset($i_name);
-		$i_code = get_isset($i_code);
+		$i_code = '';
 		$i_phone = get_isset($i_phone);
-		$i_city_id = get_isset($i_city_id);
+		$i_city_id = '';
 
 		$path = "../img/user/";
 		$i_img_tmp = $_FILES['i_img']['tmp_name'];
@@ -139,13 +139,12 @@ switch ($page) {
 					unlink("../img/user/" . $row[gambar]);
 
 					$data = " user_login = '$i_login',
-
-					user_type_id = '$i_type'
-					user_name = '$i_name',
-					user_code = '$i_code',
-					user_phone = '$i_phone'
-					user_img = '$i_img',
-					branch_id = '$i_branch_id'
+										user_type_id = '$i_type',
+										user_name = '$i_name',
+										user_code = '$i_code',
+										user_phone = '$i_phone',
+										user_img = '$i_img',
+										branch_id = '$i_branch_id'
 
 			";
 					};
@@ -153,18 +152,15 @@ switch ($page) {
 
 			}else{
 				$data = " user_login = '$i_login',
-
-					user_type_id = '$i_type'
-					user_name = '$i_name',
-					user_code = '$i_code'
-					user_phone = '$i_phone',
-					branch_id = '$i_branch_id'
-					";
+									user_type_id = '$i_type',
+									user_name = '$i_name',
+									user_code = '$i_code',
+									user_phone = '$i_phone',
+									branch_id = '$i_branch_id'
+									";
 			}
-
-
-			update($data, $id);
-
+			$where_user_id = "user_id = '$id'";
+			update_config2('users', $data, $where_user_id);
 			header('Location: user.php?page=list&did=2');
 
 		}

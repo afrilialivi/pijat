@@ -26,8 +26,8 @@ if(!$_SESSION['login']){
 		<link rel="stylesheet" type="text/css" href="../css/button_component/demo.css" />
 		<link rel="stylesheet" type="text/css" href="../css/button_component/component.css" />
 		<link rel="stylesheet" type="text/css" href="../css/button_component/content.css" />
-    <!-- vertical scroll
-    <link rel="stylesheet" href="../css/vertical_scroll/main.css">-->
+    <!-- vertical scroll -->
+    <link rel="stylesheet" href="../css/vertical_scroll/main.css">
     <!-- vertical scroll new -->
     <link rel="stylesheet" href="../css/vertical_scroll_new/style.css">
 		<link rel="stylesheet" href="../css/vertical_scroll_new/jquery.mCustomScrollbar.css">         <!-- modal -->
@@ -53,7 +53,8 @@ if(!$_SESSION['login']){
 
   <?php while ($r_infrastruktur__ = mysql_fetch_array($q_infrastruktur__)) {?>
 
-  #theImg_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?> {
+  #theImg_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?>,
+  #text_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?> {
           position: absolute;
           /*width: 100px;
           height: 100px;*/
@@ -67,8 +68,47 @@ if(!$_SESSION['login']){
           echo $data_y ?>px;
           cursor: pointer;
   }
-  <?php } ?>
+  #text_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?> {
+    position: absolute;
+    /*width: 100px;
+    height: 100px;*/
+    margin-left:
+    <?php
+    $data_x = ($r_infrastruktur__['koordinat_x']) ? $r_infrastruktur__['koordinat_x'] : 0;
+    $data_x=$data_x-10;
+    echo $data_x ?>px;
+    margin-top:
+    <?php
+    $data_y = ($r_infrastruktur__['koordinat_y']) ? $r_infrastruktur__['koordinat_y'] : 0;
+    echo $data_y ?>px;
+    cursor: pointer;
+  }
+  h2#text_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?> {
+     font-size: 14px;
+     position: absolute;
+     top: 5px;
+     left: 0;
+     width: 130px;
+  }
+  h2#text_<?= $r_infrastruktur__['ruangan_infrastruktur_id']?>:hover{
+    top: -20px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    width: 130px;
+  }
 
+  <?php } ?>
+  .reds_color_button{
+    background-color: #665073!important;
+  }
+  .morph-button-fixed > button {
+    z-index: 2;
+}
+
+  .morph-button-sidebar .morph-content {
+      background: rgb(102, 80, 115);
+  }
   </style>
 </head>
 <body margin-left="0" margin-top="0">
@@ -87,10 +127,15 @@ if(!$_SESSION['login']){
         <?php while ($r_infrastruktur_ = mysql_fetch_array($q_infrastruktur_)) {
           $where_infrastruktur_id = "WHERE infrastruktur_id = '".$r_infrastruktur_['infrastruktur']."'";
           $img = select_config_by('infrastruktur','infrastruktur_img', $where_infrastruktur_id);?>
-          <img id="theImg_<?= $r_infrastruktur_['ruangan_infrastruktur_id']?>" src="../img/infrastruktur/<?= $img?>" alt="">
-        <?} ?>
-        <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
+          <div class="imgHolder">
+            <a href="<?= $action_order.$r_infrastruktur_['ruangan_infrastruktur_id'] ?>">
+              <img id="theImg_<?= $r_infrastruktur_['ruangan_infrastruktur_id']?>" src="../img/infrastruktur/<?= $img?>" alt="">
+              <h2 id="text_<?= $r_infrastruktur_['ruangan_infrastruktur_id']?>"><?= $r_infrastruktur_['infrastruktur_name']?></h2>
+            </a>
+          </div>
+        <?}?>
       </div>
+      <input type="hidden" name="ruangan_id" id="ruangan_id" value="<?= $ruangan_id?>">
     </div>
   </section>
    <div class="footer_fixed">
@@ -103,14 +148,11 @@ if(!$_SESSION['login']){
              <h2>Cabang</h2>
              <ul>
                <?php
-               while($r_branch = mysql_fetch_array($q_branch)){
-                 ?>
+               while($r_branch = mysql_fetch_array($q_branch)){?>
                  <li><a href="order.php?branch_id=<?= $r_branch['branch_id']?>"><?= $r_branch['branch_name']?></a></li>
-                 <?php
-               }
-               ?>
+                 <?php } ?>
              </ul>
-             </div>
+            </div>
            </div>
          </div>
        </div><!-- morph-button -->
@@ -158,5 +200,70 @@ if(!$_SESSION['login']){
   <!-- modal -->
   <script src="../js/modal/classie.js"></script>
   <script src="../js/modal/modalEffects.js"></script>
+  <script>
+			(function() {
+				var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+				// trick to prevent scrolling when opening/closing button
+				function noScrollFn() {
+					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+				}
+
+				function noScroll() {
+					window.removeEventListener( 'scroll', scrollHandler );
+					window.addEventListener( 'scroll', noScrollFn );
+				}
+
+				function scrollFn() {
+					window.addEventListener( 'scroll', scrollHandler );
+				}
+
+				function canScroll() {
+					window.removeEventListener( 'scroll', noScrollFn );
+					scrollFn();
+				}
+
+				function scrollHandler() {
+					if( !didScroll ) {
+						didScroll = true;
+						setTimeout( function() { scrollPage(); }, 60 );
+					}
+				};
+
+				function scrollPage() {
+					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+					didScroll = false;
+				};
+
+				scrollFn();
+
+				[].slice.call( document.querySelectorAll( '.morph-button' ) ).forEach( function( bttn ) {
+					new UIMorphingButton( bttn, {
+						closeEl : '.icon-close',
+						onBeforeOpen : function() {
+							// don't allow to scroll
+							noScroll();
+						},
+						onAfterOpen : function() {
+							// can scroll again
+							canScroll();
+						},
+						onBeforeClose : function() {
+							// don't allow to scroll
+							noScroll();
+						},
+						onAfterClose : function() {
+							// can scroll again
+							canScroll();
+						}
+					} );
+				} );
+
+				// for demo purposes only
+				[].slice.call( document.querySelectorAll( 'form button' ) ).forEach( function( bttn ) {
+					bttn.addEventListener( 'click', function( ev ) { ev.preventDefault(); } );
+				} );
+			})();
+		</script>
 </body>
 </html>
