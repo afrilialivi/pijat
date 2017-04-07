@@ -23,12 +23,14 @@ switch ($page) {
 		get_header($title);
 		
 		$close_button = "paket_pijat.php?page=list";
-		
+
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
+		
 		if($id){
 
 			$row = read_id($id);
-		
+			$query_detail = select_detail($id);	
+
 			$action = "paket_pijat.php?page=edit&id=$id";
 		} else {
 			
@@ -52,7 +54,7 @@ switch ($page) {
 			$i_harga = get_isset($i_harga);
 			$data = "'',
 						'$i_name',
-						'$i_harga'
+						'$i_harga',
 				";
 				
 				//echo $data;
@@ -69,9 +71,9 @@ switch ($page) {
 		$id = get_isset($_GET['id']);
 		$i_name = get_isset($i_name);
 		$i_harga = get_isset($i_harga);
-
 		$data = "paket_pijat_name = '$i_name',
-				paket_pijat_harga = '$i_harga'
+				 paket_pijat_harga = '$i_harga'
+
 				";
 			
 		update($data, $id);
@@ -84,6 +86,27 @@ switch ($page) {
 			delete($id);
 			header('Location: paket_pijat.php?page=list&did=3');
 	break;
+
+	case 'tambah_paket_recipe':
+			$paket_pijat_id = $_GET['paket_pijat_id'];
+			$detail_id = (isset($_GET['detail_id'])) ? $_GET['detail_id'] : null;
+			$q_item = select_config('item', '');
+
+			if ($detail_id) {
+				$action = "paket_pijat.php?page=edit_detail";
+				$where_paket_pijat_detail = "where where_paket_pijat_detail = '$detail_id'";
+				$row = select_object_config('paket_pijat_detail',$where_paket_pijat_detail);
+			} else {
+				$action = "paket_pijat.php?page=save_detail";
+				$row = new stdClass();
+				$where_paket_pijat = $paket_pijat;
+				$row->item = false;
+				$row->item_qty = false;
+			}
+
+			include '../views/paket_pijat/popmodal_item.php';
+
+		break;
 }
 
 ?>

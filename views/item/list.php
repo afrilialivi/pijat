@@ -1,45 +1,50 @@
+<style type="text/css">
+    .table-striped > tr,
+     .table-striped td
+     {
+        background-color: rgba(97, 41, 95, 0.32);
+        border-color: #361563;
+     }
+</style>
 
                 <?php
-                if(isset($_GET['did']) && $_GET['did'] == 1){
+                    if(isset($_GET['did']) && $_GET['did'] == 1){
                 ?>
-                <section class="content_new">
-                   
-                <div class="alert alert-info alert-dismissable">
+        <section class="content_new">    
+            <div class="alert alert-info alert-dismissable">
                 <i class="fa fa-check"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
                 <b>Sukses !</b>
                Simpan Berhasil
-                </div>
-           
-                </section>
+            </div>
+         </section>
+
                 <?php
-                }else if(isset($_GET['did']) && $_GET['did'] == 2){
+                    }else if(isset($_GET['did']) && $_GET['did'] == 2){
                 ?>
-                <section class="content_new">
-                   
-                <div class="alert alert-info alert-dismissable">
+        <section class="content_new">    
+            <div class="alert alert-info alert-dismissable">
                 <i class="fa fa-check"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
                 <b>Sukses !</b>
                Edit Berhasil
-                </div>
-           
-                </section>
+             </div>
+         </section>
+
                 <?php
-                }else if(isset($_GET['did']) && $_GET['did'] == 3){
+                    }else if(isset($_GET['did']) && $_GET['did'] == 3){
                 ?>
-                <section class="content_new">
-                   
-                <div class="alert alert-info alert-dismissable">
+        <section class="content_new">
+             <div class="alert alert-info alert-dismissable">
                 <i class="fa fa-check"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
                 <b>Sukses !</b>
                Delete Berhasil
-                </div>
-           
-                </section>
+            </div>
+        </section>
+                
                 <?php
-                }
+                     }
                 ?>
 
                 <!-- Main content -->
@@ -56,10 +61,10 @@
                                         <thead>
                                             <tr>
                                             	<th width="5%">No</th>
-                                            	<th>Nama Supplier</th>
-                                                <th>Nomor Telepon</th>
-                                                <th>Email</th>
-                                                <th>Alamat</th>
+                                            	<th>Nama Item</th>
+                                                <th>HPP</th>
+                                                <th>Margin</th>
+                                                <th>Harga Jual</th>
                                                 <th>Config</th>
                                             </tr>
                                         </thead>
@@ -70,15 +75,15 @@
                                             ?>
                                             <tr>
                                             <td><?= $no?></td>
-                                               <td><?= $row['supplier_name']?></td>
-                                                <td><?= $row['supplier_phone']?></td>
-                                                <td><?= $row['supplier_email']?></td>
-                                                <td><?= $row['supplier_addres']?></td>
+                                               <td><?= $row['item_name']?></td>
+                                                <td><?= $row['item_hpp']?></td>
+                                                <td><?= $row['item_margin']?></td>
+                                                <td><?= $row['item_harga_jual']?></td>
                                                 
                                               <td style="text-align:center;">
 
-                                                    <a href="supplier.php?page=form&id=<?= $row['supplier_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['supplier_id']; ?>,'supplier.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                                    <a href="item.php?page=form&id=<?= $row['item_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['item_id']; ?>,'item.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
 
                                                 </td> 
                                             </tr>

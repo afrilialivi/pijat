@@ -40,30 +40,20 @@
                                         <div class="col-md-12">
                                         
                                         <div class="form-group">
-                                            <label>Nama Supplier</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-user"></i>
-                                                </div>
-                                            <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama supplier..." value="<?= $row->supplier_name ?>"/>
-                                            </div>
+                                            <label>Nama Item :</label>
+                                            <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama item..." value="<?= $row->item_name ?>"/>
                                         </div>
                                         <div class="form-group">
-                                            <label>No Telp</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-phone"></i>
-                                                </div>
-                                                <input required min="0" type="number" name="i_telp" id="i_telp" class="form-control" placeholder="Masukkan nomor telepon..." value="<?= $row->supplier_phone ?>"/>
-                                            </div>
+                                            <label>HPP :</label>
+                                            <input required type="number" name="i_hpp" class="form-control" placeholder="Masukkan HPP..." value="<?= $row->item_hpp ?>"/>
                                         </div>
                                          <div class="form-group">
-                                            <label>Email</label>
-                                            <input required type="email" name="i_email" id="i_email" class="form-control" placeholder="Masukkan email..." value="<?= $row->supplier_email ?>"/>
+                                            <label>Margin :</label>
+                                            <input required type="number" name="i_margin" class="form-control" placeholder="Masukkan margin..." value="<?= $row->item_margin ?>"/>
                                         </div>
                                         <div class="form-group">
-                                          <label>Alamat</label>
-                                          <textarea name="i_alamat" id="i_alamat" cols="45" rows="5" class="form-control"><?= $row->supplier_addres ?></textarea>
+                                          <label>Harga Jual :</label>
+                                          <input required type="number" name="i_jual" class="form-control" placeholder="Masukkan harga jual..." value="<?= $row->item_harga_jual ?>"/>
                                         </div>
                                         </div>
                                         

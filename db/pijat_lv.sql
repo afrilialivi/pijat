@@ -65,6 +65,23 @@ CREATE TABLE `infrastruktur` (
 
 insert  into `infrastruktur`(`infrastruktur_id`,`infrastruktur_name`,`infrastruktur_warna`,`infrastruktur_img`) values (1,'nama 1','warna 1','1491202890_1490933442_kursi_relax2.png'),(3,'nama 2','warna 2','1490927932_unnamed(1).jpg'),(4,'DV','SFSFF','1491202901_1490933442_kursi_relax2.png');
 
+/*Table structure for table `item` */
+
+DROP TABLE IF EXISTS `item`;
+
+CREATE TABLE `item` (
+  `item_id` int(20) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(200) NOT NULL,
+  `item_hpp` int(50) NOT NULL,
+  `item_margin` int(50) NOT NULL,
+  `item_harga_jual` int(50) NOT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+/*Data for the table `item` */
+
+insert  into `item`(`item_id`,`item_name`,`item_hpp`,`item_margin`,`item_harga_jual`) values (1,'minyak',30000,5000,50000),(5,'minyak Zaitun',20000,5000,30000),(6,'Lulur Kunyit',20000,10000,40000);
+
 /*Table structure for table `item_stocks` */
 
 DROP TABLE IF EXISTS `item_stocks`;
@@ -78,20 +95,6 @@ CREATE TABLE `item_stocks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `item_stocks` */
-
-/*Table structure for table `items` */
-
-DROP TABLE IF EXISTS `items`;
-
-CREATE TABLE `items` (
-  `item_id` int(11) NOT NULL AUTO_INCREMENT,
-  `item_name` varchar(200) NOT NULL,
-  `item_hpp` int(11) NOT NULL,
-  `item_harga` int(11) NOT NULL,
-  PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `items` */
 
 /*Table structure for table `journal_types` */
 
@@ -260,11 +263,11 @@ CREATE TABLE `paket_pijat` (
   `paket_pijat_name` varchar(200) NOT NULL,
   `paket_pijat_harga` int(11) NOT NULL,
   PRIMARY KEY (`paket_pijat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `paket_pijat` */
 
-insert  into `paket_pijat`(`paket_pijat_id`,`paket_pijat_name`,`paket_pijat_harga`) values (1,'Pijat Enak',1500000),(3,'Pijat Ples Ples',2500000);
+insert  into `paket_pijat`(`paket_pijat_id`,`paket_pijat_name`,`paket_pijat_harga`) values (1,'Pijat Enak',150000),(3,'Pijat Ples Ples',2500000),(4,'Paket A',200000),(5,'Paket B',50000);
 
 /*Table structure for table `paket_pijat_details` */
 
@@ -397,6 +400,7 @@ CREATE TABLE `ruangan_infrastruktur` (
   `ruangan` int(11) NOT NULL,
   `branch` int(11) NOT NULL,
   `infrastruktur` int(11) NOT NULL,
+  `infrastruktur_name` varchar(200) NOT NULL,
   `koordinat_x` int(11) NOT NULL,
   `koordinat_y` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -405,7 +409,7 @@ CREATE TABLE `ruangan_infrastruktur` (
 
 /*Data for the table `ruangan_infrastruktur` */
 
-insert  into `ruangan_infrastruktur`(`ruangan_infrastruktur_id`,`ruangan`,`branch`,`infrastruktur`,`koordinat_x`,`koordinat_y`,`status`) values (0,0,0,0,0,0,0);
+insert  into `ruangan_infrastruktur`(`ruangan_infrastruktur_id`,`ruangan`,`branch`,`infrastruktur`,`infrastruktur_name`,`koordinat_x`,`koordinat_y`,`status`) values (0,0,0,0,'',-159,9,0);
 
 /*Table structure for table `side_menus` */
 
@@ -424,7 +428,7 @@ CREATE TABLE `side_menus` (
 
 /*Data for the table `side_menus` */
 
-insert  into `side_menus`(`side_menu_id`,`side_menu_name`,`side_menu_url`,`side_menu_parent`,`side_menu_icon`,`side_menu_level`,`side_menu_type_parent`) values (1,'Master','#',0,'fa fa-edit',1,0),(2,'Order','order.php',0,'fa fa-cutlery',1,1),(3,'Transaksi','#',0,'fa fa-shopping-cart',1,0),(4,'Accounting','#',0,'fa fa-list-alt',1,0),(5,'Laporan','#',0,'fa fa-list-alt',1,0),(6,'Setting','#',0,'fa fa-cog',1,0),(7,'Cabang','branch.php',1,'',2,1),(8,'Ruangan','building.php',1,'',2,1),(9,'Infrastruktur','infrastruktur.php',1,'',2,1),(10,'Paket Pijat','paket_pijat.php',1,'',2,1),(11,'Partner','partner.php',1,'',2,0),(12,'Member','member.php',1,'',2,1),(13,'Supplier','supplier.php',1,'',2,0),(14,'Voucher','voucher.php',0,'',0,0),(15,'Reservasi','reserved.php',3,'',2,1),(16,'Pembelian','purchase.php',3,'',2,1),(17,'Stok','stock.php',3,'',2,1),(18,'Arus Kas','arus_kas.php',4,'',2,1),(19,'Pemasukan Dan Pengeluaran Lainnya','jurnal_umum.php',4,'',2,1),(20,'Laporan Detail','report_detail.php',5,'',2,1),(21,'Laporan Harian','report_harian.php',5,'',2,1),(22,'Infrastruktur','infrastruktur_setting.php',6,'',2,1),(23,'User','user.php',6,'',2,1),(24,'Type User','user_type.php',6,'',2,1),(25,'Penyesuaian Stock','penyesuaian_stock.php',0,'',0,1),(26,'Laporan Penyesuaian Stock','report_penyesuaian_stock.php',5,'',2,1),(27,'Kategori Menu','kategori_menu.php',0,'',0,1),(28,'Profil','office.php',6,'',2,1);
+insert  into `side_menus`(`side_menu_id`,`side_menu_name`,`side_menu_url`,`side_menu_parent`,`side_menu_icon`,`side_menu_level`,`side_menu_type_parent`) values (1,'Master','#',0,'fa fa-edit',1,0),(2,'Order','order.php',0,'fa fa-cutlery',1,1),(3,'Transaksi','#',0,'fa fa-shopping-cart',1,0),(4,'Accounting','#',0,'fa fa-list-alt',1,0),(5,'Laporan','#',0,'fa fa-list-alt',1,0),(6,'Setting','#',0,'fa fa-cog',1,0),(7,'Cabang','branch.php',1,'',2,1),(8,'Ruangan','building.php',1,'',2,1),(9,'Infrastruktur','infrastruktur.php',1,'',2,1),(10,'Paket Pijat','paket_pijat.php',1,'',2,1),(11,'Partner','partner.php',1,'',2,0),(12,'Member','member.php',1,'',2,1),(13,'item','item.php',1,'',2,1),(14,'Voucher','voucher.php',0,'',0,0),(15,'Reservasi','reserved.php',3,'',2,1),(16,'Pembelian','purchase.php',3,'',2,1),(17,'Stok','stock.php',3,'',2,1),(18,'Arus Kas','arus_kas.php',4,'',2,1),(19,'Pemasukan Dan Pengeluaran Lainnya','jurnal_umum.php',4,'',2,1),(20,'Laporan Detail','report_detail.php',5,'',2,1),(21,'Laporan Harian','report_harian.php',5,'',2,1),(22,'Infrastruktur','infrastruktur_setting.php',6,'',2,1),(23,'User','user.php',6,'',2,1),(24,'Type User','user_type.php',6,'',2,1),(25,'Penyesuaian Stock','penyesuaian_stock.php',0,'',0,1),(26,'Laporan Penyesuaian Stock','report_penyesuaian_stock.php',5,'',2,1),(27,'Kategori Menu','kategori_menu.php',0,'',0,1),(28,'Profil','office.php',6,'',2,1);
 
 /*Table structure for table `statement` */
 

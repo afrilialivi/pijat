@@ -67,59 +67,46 @@
                        </form>
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
+                </section><!-- /.content -->
 
+<<<<<<< HEAD
                     <?php
                     // if($id){ include '../views/paket_pijat/form_add_infrastruktur.php';}?>
                 </section><!-- /.content -->
+=======
+<?php if($id){ include 'add_item_infrastruktur.php';}?>
+
+>>>>>>> bfce94036be80843fa9ab7d0eee165cf68d4b15c
   <script type="text/javascript">
 
-    function menu_kategori(){
-  			var x = document.getElementById("kategori_utama").value;
-  			//alert(x);
-  			$.ajax
-          ({
-  						type: 'POST',
-  						url: 'menu.php?page=menu_type',
-              data: {x:x},
-  						dataType: 'json',
-          }).done(function(data) {
-  					$('#menu_type_v').html("");
-  					// alert(data.data[0]['menu_type_name']);
-  						for(var inn = 0; inn<data.data.length; inn++){
-                $("#menu_type_v").append("<option value='"+data.data[inn]['menu_type_id']+"'>"+data.data[inn]['menu_type_name']+"</option>");
-  						}
-  						$('#menu_type_v').selectpicker("refresh");
-  				});
-  		}
+    // function number_currency(elem){
+    //     var elem_id = '#'+elem.id;
+    //     var elem_val    = $(elem_id).val();
+    //     var elem_no_cur = elem_id.replace(/_currency/g,'');
 
-    function number_currency(elem){
-        var elem_id = '#'+elem.id;
-        var elem_val    = $(elem_id).val();
-        var elem_no_cur = elem_id.replace(/_currency/g,'');
+    //     var str = elem_val.toString(), parts = false, output = [], i = 1, formatted = null;
 
-        var str = elem_val.toString(), parts = false, output = [], i = 1, formatted = null;
+    //     parts = str.split(".");
+    //     var gabung = '';
+    //     for (var i = 0; i < parts.length; i++) {
+    //       var gabung = gabung+parts[i];
+    //     }
 
-        parts = str.split(".");
-        var gabung = '';
-        for (var i = 0; i < parts.length; i++) {
-          var gabung = gabung+parts[i];
-        }
+    //     str = gabung.split("").reverse();
+    //     var i = 1;
+    //     for(var j = 0, len = gabung.length; j < len; j++) {
+    //       if(str[j] != ".") {
+    //         output.push(str[j]);
+    //         if(i%3 == 0 && j < (len - 1)) {
+    //           output.push(".");
+    //         }
+    //         i++;
+    //       }
+    //     }
 
-        str = gabung.split("").reverse();
-        var i = 1;
-        for(var j = 0, len = gabung.length; j < len; j++) {
-          if(str[j] != ".") {
-            output.push(str[j]);
-            if(i%3 == 0 && j < (len - 1)) {
-              output.push(".");
-            }
-            i++;
-          }
-        }
-
-        formatted = output.reverse().join("");
-        $(elem_id).val(formatted);
-        $(elem_no_cur).val(gabung);
-      }
+    //     formatted = output.reverse().join("");
+    //     $(elem_id).val(formatted);
+    //     $(elem_no_cur).val(gabung);
+    //   }
 
   </script>

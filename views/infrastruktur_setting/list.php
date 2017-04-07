@@ -150,18 +150,18 @@ header("location: ../login.php");
   function popmodal_add_infrastruktur(){
     var ruangan_id = $('#ruangan_id').val();
     $('#medium_modal').modal();
-	  var url = 'infrastruktur_setting.php?page=popmodal_add_infrastruktur&ruangan_id='+ruangan_id;
-	    $('#medium_modal_content').load(url,function(result){});
+    var url = 'infrastruktur_setting.php?page=popmodal_add_infrastruktur&ruangan_id='+ruangan_id;
+      $('#medium_modal_content').load(url,function(result){});
   }
 
   $(function() {
     <?php while($r_infrastruktur = mysql_fetch_array($q_infrastruktur)){?>
       // $('#theImg_<?= $r_infrastruktur['ruangan_infrastruktur_id']?>').draggable( {
-  	  //   containment: '#ruangan_box',
-  	  //   cursor: 'move',
-  	  //   snap: '',
-  	  //   stop: ''
-  	  // } );
+      //   containment: '#ruangan_box',
+      //   cursor: 'move',
+      //   snap: '',
+      //   stop: ''
+      // } );
 
       $('#theImg_<?= $r_infrastruktur['ruangan_infrastruktur_id']?>').draggable({
           stack: "#ruangan_box",

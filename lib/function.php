@@ -48,10 +48,10 @@ function get_last_id($table,$id){
 	return $result;
 }
 
-function get_item_name($id){
-	$query = mysql_query("SELECT * FROM items WHERE item_id = '$id'");
-	return $query;
-}
+// function get_item_name($id){
+// 	$query = mysql_query("SELECT * FROM items WHERE item_id = '$id'");
+// 	return $query;
+// }
 
 
 function get_land_code(){
