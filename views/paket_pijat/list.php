@@ -72,7 +72,7 @@
                                             <tr>
                                                 <td><?= $no?></td>
                                                 <td><?= $row['paket_pijat_name']?></td>
-                                                <td><?= format_rupiah($row['paket_pijat_harga'])?></td>   
+                                                <td><?= format_rupiah($row['paket_pijat_harga'])?></td>
                                                 <td style="text-align:center;">
                                                     <a href="paket_pijat.php?page=form&id=<?= $row['paket_pijat_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
                                                     <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['paket_pijat_id']; ?>,'paket_pijat.php?page=delete&id=')" class="btn btn-default" >

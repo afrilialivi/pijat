@@ -18,7 +18,7 @@ function select_branch(){
 
 function read_id($id){
 	$query = mysql_query("select *
-			from user_types 
+			from user_types
 			where user_type_id = '$id'");
 	$result = mysql_fetch_object($query);
 	return $result;
@@ -44,7 +44,7 @@ function delete($id){
 }
 function cek_name_login($name){
 	$query = mysql_query("select count(user_id)
-							from users 
+							from users
 						where user_login = '".$name."'");
 	$result = mysql_fetch_array($query);
 	$row = $result['0'];
@@ -60,21 +60,21 @@ function manu($type){
 		$query = mysql_query("select * from side_menus where side_menu_level = 1");
 		return $query;
 	}
-	
+
 }
 
 function menu_parent($id,$type){
-	
-	
+
+
 	if($type){
-		$query2 = mysql_query("select a.*,(select permit_acces from permits b where b.side_menu_id = a.side_menu_id and b.user_type_id = '".$type."') as permit_acces from side_menus a 
+		$query2 = mysql_query("select a.*,(select permit_acces from permits b where b.side_menu_id = a.side_menu_id and b.user_type_id = '".$type."') as permit_acces from side_menus a
 				  where a.side_menu_parent ='".$id."'");
 		return $query2;
 	}else{
 		$query = mysql_query("select * from side_menus where side_menu_parent = '".$id."' ");
 		return $query;
 	}
-	
+
 }
 
 function read_side_menu(){

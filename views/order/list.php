@@ -43,6 +43,13 @@ if(!$_SESSION['login']){
   <script type="text/javascript" src="../js/table/jquery.js"></script>
   <script type="text/javascript" src="../js/table/jquery.min.js"></script>
   <style media="screen">
+
+  .blue_color_button{
+    background-color: #fff !important;
+    color: rgba(102, 80, 115, 0.51) !important;
+    border: 1px solid #665073 !important;
+  }
+
   section {
     padding: 2em;
     text-align: justify;

@@ -69,14 +69,10 @@
                     </div>   <!-- /.row -->
                 </section><!-- /.content -->
 
-<<<<<<< HEAD
                     <?php
                     // if($id){ include '../views/paket_pijat/form_add_infrastruktur.php';}?>
                 </section><!-- /.content -->
-=======
 <?php if($id){ include 'add_item_infrastruktur.php';}?>
-
->>>>>>> bfce94036be80843fa9ab7d0eee165cf68d4b15c
   <script type="text/javascript">
 
     // function number_currency(elem){

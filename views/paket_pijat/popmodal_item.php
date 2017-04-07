@@ -9,7 +9,7 @@
       <label>Nama Item</label>
       <select class="selectpicker form-control" name="item_id" id="item_id" value="0">
         <option value="0"></option>
-        <?php 
+        <?php
         while ($r_item = mysql_fetch_array($q_item)) {?>
           <option value="<?= $r_item['item_id'] ?>"
           <?php if ($row->item_id == $r_item['item_id']){ ?> selected="selected"<?php } ?>>
@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
       <label>Jumlah Item</label>
-      <input type="textarea" name="item_qty_currency" id="item_qty_currency" class="form-control" 
+      <input type="textarea" name="item_qty_currency" id="item_qty_currency" class="form-control"
       value="<?= $row->item_qty?>" onkeyup="number_currency_(this);" placeholder="Masukkan jumlah item ...">
 
       <input required type="hidden" name="item_qty" id="item_qty" class="form-control" placeholder="Masukkan jumlah item ..."

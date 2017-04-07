@@ -111,36 +111,32 @@ switch ($page) {
 		update($data, $id);
 
 		$query = read_side_menu();
-
-            while($row = mysql_fetch_array($query)){
-
-            	$value = '$permit'.$row['side_menu_id'];
-            	$crud = $_POST['permit'.$row['side_menu_id']];
-            	if(is_array($crud)){
+		while($row = mysql_fetch_array($query)){
+				$value = '$permit'.$row['side_menu_id'];
+				$crud = $_POST['permit'.$row['side_menu_id']];
+				if(is_array($crud)){
 					$crud_value = implode(',',$crud);
 				}else{
 					$crud_value = '';
-				}
+			}
 
-				//echo $crud_value;
+		$user_type_id = $id;
+		$side_menu_id = $row['side_menu_id'];
 
-				$user_type_id = $id;
-				$side_menu_id = $row['side_menu_id'];
-				if($row['side_menu_type_parent'] == 0){
-					$permit_acces = 0;
-				}else{
-					$permit_acces = $crud_value;
-				}
+		if($row['side_menu_type_parent'] == 0){
+				$permit_acces = 0;
+			}else{
+				$permit_acces = $crud_value;
+			}
 
-				$data_detail = "'',
-						'$user_type_id',
-						'$side_menu_id',
-						'$permit_acces'";
+		$data_detail = "'',
+										'$user_type_id',
+										'$side_menu_id',
+										'$permit_acces'";
+		create_permit($data_detail);
+		}
 
-						create_permit($data_detail);
-            }
-
-		header('Location: user_type.php?page=list&did=2');
+		// header('Location: user_type.php?page=list&did=2');
 
 	break;
 
