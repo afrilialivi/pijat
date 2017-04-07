@@ -84,12 +84,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-<<<<<<< HEAD
                                                 <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
-=======
-                                                <td colspan="5"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
->>>>>>> 8ec01ec2332727cc137b6b2560a486ae079c4bcd
-
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -69,8 +69,8 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                           $no = 1;
-										   while($row = mysql_fetch_array($query)){
+                                               $no = 1;
+    										   while($row = mysql_fetch_array($query)){
                                             ?>
                                             <tr>
                                             <td><?= $no?></td>

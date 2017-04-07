@@ -4,7 +4,7 @@ function select($where){
 	$query = mysql_query("select a.* , b.supplier_name,c.unit_name, d.item_name, e.branch_name
 							from purchases a
 							join suppliers b on b.supplier_id = a.supplier_id
-							join items d on d.item_id = a.item_id
+							join item d on d.item_id = a.item_id
 							join units c on c.unit_id = d.unit_id
 							join branches e on e.branch_id = a.branch_id
 							$where
@@ -19,14 +19,14 @@ function select_supplier(){
 
 function select_item(){
 	$query = mysql_query("select a.*, b.unit_name 
-							from items a 
+							from item a 
 							join units b on b.unit_id = a.unit_id
 							order by item_id");
 	return $query;
 }
 
 function select_branch(){
-	$query = mysql_query("select * from branches order by branch_id");
+	$query = mysql_query("select * from branches order by branch_isd");
 	return $query;
 }
 
