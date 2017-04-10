@@ -27,9 +27,9 @@ switch ($page) {
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 		if($id){
-
+			$paket_pijat_id = $id;
 			$row = read_id($id);
-			$query_detail = select_detail($id);
+			$q_paket_pijat_details = select_paket_pijat_details($id);
 
 			$action = "paket_pijat.php?page=edit&id=$id";
 		} else {
@@ -87,25 +87,71 @@ switch ($page) {
 			header('Location: paket_pijat.php?page=list&did=3');
 	break;
 
-	case 'tambah_paket_recipe':
-			$paket_pijat_id = $_GET['paket_pijat_id'];
-			$detail_id = (isset($_GET['detail_id'])) ? $_GET['detail_id'] : null;
-			$q_item = select_config('item', '');
+	case 'popmodal_add_pijat':
 
-			if ($detail_id) {
-				$action = "paket_pijat.php?page=edit_detail";
-				$where_paket_pijat_detail = "where where_paket_pijat_detail = '$detail_id'";
-				$row = select_object_config('paket_pijat_detail',$where_paket_pijat_detail);
+			$paket_pijat_id = (isset($_GET['paket_pijat_id'])) ? $_GET['paket_pijat_id'] : null;
+			$paket_pijat_detail_id = (isset($_GET['paket_pijat_detail_id'])) ? $_GET['paket_pijat_detail_id'] : null;
+
+
+			if ($paket_pijat_detail_id) {
+
+				$action = "paket_pijat.php?page=edit_paket_pijat_detail";
+				$where_paket_pijat_detail = "where paket_pijat_detail_id = '$paket_pijat_detail_id'";
+				$row = select_object_config('paket_pijat_details',$where_paket_pijat_detail);
+
 			} else {
-				$action = "paket_pijat.php?page=save_detail";
+
 				$row = new stdClass();
-				$where_paket_pijat = $paket_pijat;
-				$row->item = false;
-				$row->item_qty = false;
+
+				$row->pijat_id = false;
+				$row->pijat = false;
+
+				$action = "paket_pijat.php?page=save_paket_pijat_detail";
+
 			}
 
-			include '../views/paket_pijat/popmodal_item.php';
+			$q_pijat = select_config('pijat', '');
+			include '../views/paket_pijat/popmodal_add_pijat.php';
 
+			break;
+
+	case 'save_paket_pijat_detail':
+
+		$paket_pijat_id = $_POST['paket_pijat_id'];
+		$pijat_id = $_POST['pijat_id'];
+
+		$data = "'',
+						 '$paket_pijat_id',
+						 '$pijat_id'";
+		create_config('paket_pijat_details', $data);
+
+		header("Location: paket_pijat.php?page=form&id=$paket_pijat_id");
+		break;
+
+	case 'edit_paket_pijat_detail':
+
+		$paket_pijat_detail_id = $_POST['paket_pijat_detail_id'];
+		$paket_pijat_id = $_POST['paket_pijat_id'];
+		$pijat_id = $_POST['pijat_id'];
+
+		$where_paket_pijat_detail_id = "paket_pijat_detail_id = '$paket_pijat_detail_id'";
+		$data_update = "pijat = '$pijat_id'";
+
+		update_config2('paket_pijat_details', $data_update, $where_paket_pijat_detail_id);
+
+		header("Location: paket_pijat.php?page=form&id=$paket_pijat_id");
+		// var_dump($_POST);
+		break;
+
+	case 'delete_paket_pijat_detail':
+
+		$paket_pijat_detail_id = (isset($_GET['paket_pijat_detail_id'])) ? $_GET['paket_pijat_detail_id'] : null;
+		$paket_pijat_id = $_GET['paket_pijat_id'];
+
+		$where_paket_pijat_detail_id = "paket_pijat_detail_id = '$paket_pijat_detail_id'";
+		delete_config('paket_pijat_details', $where_paket_pijat_detail_id);
+		
+		header("Location: paket_pijat.php?page=form&id=$paket_pijat_id");
 		break;
 }
 

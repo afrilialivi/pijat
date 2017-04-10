@@ -2,6 +2,12 @@
   .tampil{
     opacity: 1 !important;
   }
+  .box-body {
+      background-color: #fff!important;
+  }
+  .box-footer{
+    background-color: rgba(#bf00d5, 0.92)!important;
+  }
 
   input[type=checkbox].css-checkbox {
     position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
@@ -74,28 +80,34 @@
                   <div class="form_category col-md-3 col-sm-3 col-xs-3" style="text-align:center">Hak Akses</div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                <div style="padding-top:10px;" class="item form-group" >
-                <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left;"></label>
-                <div class="col-md-3 col-sm-3 col-xs-3">
-                <p style="font-size:20px;"><strong>&nbsp;&nbsp;&nbsp; C &nbsp;&nbsp;R &nbsp;&nbsp;U &nbsp;&nbsp;&nbsp;D</strong></p>
-                </div>
-                </div>
+                  <div style="padding-top:10px;" class="item form-group" >
+                  <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left;"></label>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <p style="font-size:20px;"><strong>&nbsp;&nbsp;&nbsp; C &nbsp;&nbsp;R &nbsp;&nbsp;U &nbsp;&nbsp;&nbsp;D</strong></p>
+                    </div>
+                  </div>
                 <?
                 $user_type_id = $row->user_type_id;
                 $query = manu($user_type_id);
                 while($row = mysql_fetch_array($query)){ ?>
                 <div class="form-group" >
-                <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; border-bottom-style:inset;"><?=$row['side_menu_name']?></label>
+                <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; border-bottom-style:inset;">
+                  <?=$row['side_menu_name']?>
+                </label>
                 <? if($row['side_menu_type_parent'] == 1){ ?>
                       <div class="col-md-3 col-sm-3 col-xs-3">
                         <label style="text-align:left; padding-left:1em;"></label>
-                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]" <? if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'c') !== false){?>checked="checked"<? }?> value="c"/>
+                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]"
+                        <? if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'c') !== false){?>checked="checked"<? }?> value="c"/>
                         <label style="text-align:left; padding-left:1em;"></label>
-                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]" <?  if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'r') !== false){?>checked="checked"<? }?> value="r" />
+                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]"
+                        <?  if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'r') !== false){?>checked="checked"<? }?> value="r"/>
                         <label style="text-align:left; padding-left:1em;"></label>
-                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]" <? if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'u') !== false){?>checked="checked"<? }?> value="u"/>
+                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]"
+                        <? if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'u') !== false){?>checked="checked"<? }?> value="u"/>
                         <label style="text-align:left; padding-left:1em;"></label>
-                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]" <? if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'd') !== false){?>checked="checked"<? }?> value="d"/>
+                        <input type="checkbox" name="permit<?=$row['side_menu_id']?>[]"
+                        <? if(isset($row['permit_acces'])) if (strpos($row['permit_acces'], 'd') !== false){?>checked="checked"<? }?> value="d"/>
                       </div>
                 <? } ?>
                 </div>
@@ -103,17 +115,23 @@
                 $query2 = menu_parent($row['side_menu_id'],$user_type_id);
                 while($row2 = mysql_fetch_array($query2)){?>
                   <div class="item form-group" >
-                    <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; padding-left:5em; border-bottom-style:inset;"><?=$row2['side_menu_name']?></label>
+                    <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; padding-left:5em; border-bottom-style:inset;">
+                      <?=$row2['side_menu_name']?>
+                    </label>
                     <? if($row2['side_menu_url'] != '#'){?>
                           <div class="col-md-3 col-sm-3 col-xs-3">
                             <label style="text-align:left; padding-left:1em;"></label>
-                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]"  <? if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'c') !== false){?>checked="checked"<? }?> value="c"/>
+                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]"
+                            <? if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'c') !== false){?>checked="checked"<? }?> value="c"/>
                             <label style="text-align:left; padding-left:1em;"></label>
-                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]" <?  if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'r') !== false){?>checked="checked"<? }?> value="r" />
+                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]"
+                            <?  if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'r') !== false){?>checked="checked"<? }?> value="r" />
                             <label style="text-align:left; padding-left:1em;"></label>
-                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]" <? if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'u') !== false){?>checked="checked"<? }?> value="u"/>
+                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]"
+                            <? if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'u') !== false){?>checked="checked"<? }?> value="u"/>
                             <label style="text-align:left; padding-left:1em;"></label>
-                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]" <? if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'd') !== false){?>checked="checked"<? }?> value="d"/>
+                            <input type="checkbox" name="permit<?=$row2['side_menu_id']?>[]"
+                            <? if(isset($row2['permit_acces'])) if (strpos($row2['permit_acces'], 'd') !== false){?>checked="checked"<? }?> value="d"/>
                           </div>
                     <? }?>
                   </div>
@@ -124,8 +142,8 @@
               <div style="clear:both;"></div>
             </div><!-- /.box-body -->
           <div class="box-footer">
-          <input class="btn btn-success" type="submit" value="Save"/>
-          <a href="<?= $close_button?>" class="btn btn-success" >Close</a>
+          <input class="btn btn-danger" type="submit" value="Save"/>
+          <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
           </div>
           </div><!-- /.box -->
         </form>

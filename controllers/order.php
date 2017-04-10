@@ -38,7 +38,7 @@ switch ($page) {
 
 	case 'order_form':
 		$infrastruktur_id = $_GET['infrastruktur_id'];
-		header("location:transaction.php?page=list&infrastruktur_id=$infrastruktur_id");
+		header("location:transaction.php?page=list&ruangan_infrastruktur_id=$infrastruktur_id");
 		break;
 	}
 ?>

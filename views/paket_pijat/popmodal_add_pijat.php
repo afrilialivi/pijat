@@ -4,35 +4,26 @@
 <form action="<?= $action?>" method="post">
   <div class="modal-body">
     <div class="form-group">
-      <input type="hidden" name="menu_recipe_id" id="menu_recipe_id" value="<?= $recipe_id ?>">
-      <input type="hidden" name="menu_id" id="menu_id" value="<?= $menu_id ?>">
-      <label>Nama Item</label>
-      <select class="selectpicker form-control" name="item_id" id="item_id" value="0">
+      <input type="hidden" name="paket_pijat_id" id="paket_pijat_id" value="<?= $paket_pijat_id ?>">
+      <input type="hidden" name="paket_pijat_detail_id" id="paket_pijat_detail_id" value="<?= $paket_pijat_detail_id ?>">
+      <label>Pijat</label>
+      <select class="selectpicker form-control" name="pijat_id" id="pijat_id">
         <option value="0"></option>
         <?php
-        while ($r_item = mysql_fetch_array($q_item)) {?>
-          <option value="<?= $r_item['item_id'] ?>"
-          <?php if ($row->item_id == $r_item['item_id']){ ?> selected="selected"<?php } ?>>
-          <?= $r_item['item_name']?>
+        while ($r_pijat = mysql_fetch_array($q_pijat)) {?>
+          <option value="<?= $r_pijat['pijat_id'] ?>"
+          <?php if ($row->pijat == $r_pijat['pijat_id']){ echo "selected"; } ?>>
+            <?= $r_pijat['pijat_name']?>
           </option>
         <?php }?>
       </select>
     </div>
-    <div class="form-group">
-      <label>Jumlah Item</label>
-      <input type="textarea" name="item_qty_currency" id="item_qty_currency" class="form-control"
-      value="<?= $row->item_qty?>" onkeyup="number_currency_(this);" placeholder="Masukkan jumlah item ...">
-
-      <input required type="hidden" name="item_qty" id="item_qty" class="form-control" placeholder="Masukkan jumlah item ..."
-      value="<?= $row->item_qty?>"/>
-    </div>
   </div>
   <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-            <input type="submit" class="btn btn-primary" value="Simpan">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+    <input type="submit" class="btn btn-primary" value="Simpan">
   </div>
 </form>
-
 <script type="text/javascript">
   function number_currency_(elem){
   var elem_id = '#'+elem.id;
@@ -63,4 +54,8 @@
   $(elem_id).val(formatted);
   $(elem_no_cur).val(gabung);
 }
+
+$(document).ready(function(){
+  $('.selectpicker').selectpicker('refresh');
+});
 </script>

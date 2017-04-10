@@ -108,9 +108,63 @@ switch ($page) {
       break;
 
     case 'add_new_item':
-      $id = $_GET['id'];
+      $id = (isset($_GET['id'])) ? $_GET['id'] : null;
+      $pijat_detail_id = (isset($_GET['pijat_detail_id'])) ? $_GET['pijat_detail_id'] : null;
+
+      if ($pijat_detail_id) {
+
+        $where_pijat_detail_id = "WHERE pijat_detail_id = '$pijat_detail_id'";
+        $row = select_object_config('pijat_details', $where_pijat_detail_id);
+
+        $action = "pijat.php?page=edit_pijat_item&pijat_detail_id=$pijat_detail_id";
+
+      } else {
+
+        $row = new stdClass();
+
+        $row->item = false;
+        $row->item_qty = false;
+
+        $action = "pijat.php?page=simpan_pijat_item";
+      }
+      $q_item = select_config('item', '');
+      $where_pijat_id = "WHERE pijat_id = '$id'";
+      $pijat_name = select_config_by('pijat', 'pijat_name', $where_pijat_id);
       include '../views/pijat/popmodal_add_item.php';
       break;
 
+    case 'simpan_pijat_item':
+
+      var_dump($_POST);
+
+      $pijat_id = $_POST['pijat_id'];
+      $item_jml = $_POST['item_jml'];
+      $item_id = $_POST['item_id'];
+
+      $data = "'',
+               '$pijat_id',
+               '$item_id',
+               '$item_jml'";
+
+      create_config('pijat_details', $data);
+      header("Location: pijat.php?page=form&id=$pijat_id");
+      break;
+
+    case 'edit_pijat_item':
+
+      $pijat_detail_id = $_GET['pijat_detail_id'];
+      $pijat_id = $_POST['pijat_id'];
+      $item_jml = $_POST['item_jml'];
+      $item_id = $_POST['item_id'];
+
+      $data = "item = '$item_id',
+               item_qty = '$item_jml'";
+
+      $where_pijat_detail_id = "pijat_detail_id = '$pijat_detail_id'";
+
+      update_config2('pijat_details', $data, $where_pijat_detail_id);
+
+      header("Location: pijat.php?page=form&id=$pijat_id");
+      break;
 }
 ?>

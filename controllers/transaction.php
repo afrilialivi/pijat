@@ -24,7 +24,28 @@ switch ($page) {
     $q_member = select_config('members', '');
 		$q_branch = select_config('branches','');
 
-    $infrastruktur_id = $_GET['infrastruktur_id'];
+    $ruangan_infrastruktur_id = get_isset($_GET['ruangan_infrastruktur_id']);
+    $paket_pijat_id = isset($_GET['paket_pijat_id']) ? $_GET['paket_pijat_id'] : null;
+
+    $where_ruangan_infrastruktur_id = "where ruangan_infrastruktur_id = '$ruangan_infrastruktur_id'";
+    $infrastruktur_name = select_config_by('ruangan_infrastruktur', 'infrastruktur_name', $where_ruangan_infrastruktur_id);
+    $infrastruktur_id = select_config_by('ruangan_infrastruktur', 'infrastruktur', $where_ruangan_infrastruktur_id);
+
+    if ($ruangan_infrastruktur_id!=null) {
+      $keterangan = '<center>
+                        <span class="span_title">'.$infrastruktur_name.'</span>
+                     </center>';
+    }
+
+    if ($paket_pijat_id!=null) {
+      $keterangan=1;
+    }
+
+    // $pijat
+
+    // $where_infrastruktur_id = "WHERE infrastruktur_id = '$infrastruktur_id'";
+    // $infrastruktur_name = select_config_by('infrastruktur', 'infrastruktur_name', $where_infrastruktur_id);
+
     include '../views/transaction/list.php';
     get_footer();
     break;

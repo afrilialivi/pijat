@@ -386,9 +386,9 @@ function select_transaction_delete(){
 
 function menu_lv1($id){
 		$query = mysql_query("select a.* from side_menus a
-								join permits b on b.side_menu_id = a.side_menu_id
-								join users c on c.user_type_id = b.user_type_id
-								where a.side_menu_level = 1 and c.user_id = '".$id."' and b.permit_acces != ''");
+													join permits b on b.side_menu_id = a.side_menu_id
+													join users c on c.user_type_id = b.user_type_id
+													where a.side_menu_level = 1 and c.user_id = '".$id."' and b.permit_acces != ''");
 	return $query;
 }
 

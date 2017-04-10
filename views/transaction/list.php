@@ -1,9 +1,19 @@
+<style media="screen">
+	.span_title{
+		text-align: center;
+		font-size: 25px;
+		font-family: monospace;
+	}
+</style>
 <link href="../css/transaction.css" rel="stylesheet" type="text/css"/>
 <section class="content">
 	<div class="box">
 		<div class="box-body">
 			<div class="row">
 				<div class="col-md-12">
+
+					<?php echo $keterangan; ?>
+					
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">

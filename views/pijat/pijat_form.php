@@ -61,9 +61,8 @@
           </form>
         </div><!--/.col (right) -->
       </div>   <!-- /.row -->
-    </section><!-- /.content -->
-  </section><!-- /.content -->
 <?php if($id){ include 'add_item_infrastruktur.php';}?>
+</section><!-- /.content -->
   <script type="text/javascript">
 
     // function number_currency(elem){

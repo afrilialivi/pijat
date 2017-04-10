@@ -1,3 +1,22 @@
+.table-striped > tr,
+ .table-striped td
+ {
+    background-color: rgba(97, 41, 95, 0.32)!important;
+    border-color: #361563!important;
+ }
+
+ .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    /*z-index: 2;
+    color: #fff;*/
+    background-color: #5b1b62!Important;
+    border-color: #5b1b62!Important;
+}
+
+.navbar-static-top {
+    z-index: 2!important;
+    /*border-width: 0 0 1px;*/
+}
+
   .show-on-mobile{
     display: none;
   }

@@ -184,6 +184,27 @@ if(!$_SESSION['login']){
            </div>
          </div>
        </div><!-- morph-button -->
+       <div class="morph-button morph-button-sidebar morph-button-fixed" style=" bottom: 10px; float:;">
+         <button type="button" class="reds_color_button">clnlcnkcn</button>
+         <div class="morph-content reds_color_button">
+           <div>
+             <!-- <div class="content-style-sidebar">
+               <span class="icon icon-close">Close the overlay</span>
+               <h2>Ruangan</h2>
+               <ul>
+                 <?php
+                 while($r_ruangan = mysql_fetch_array($q_ruangan)){ ?>
+                   <li>
+                     <a href="order.php?branch_id=<?= $branch_id?>&ruangan_id=<?= $r_ruangan['ruangan_id']?>">
+                       <?= $r_ruangan['ruangan_name']?>
+                     </a>
+                   </li>
+                   <?php } ?>
+               </ul>
+             </div> -->
+           </div>
+         </div>
+       </div><!-- morph-button -->
      </div>
   <script src="../js/function.js" type="text/javascript"></script>
   <!-- Bootstrap

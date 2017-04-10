@@ -3,7 +3,7 @@
 function select(){
 	$query = mysql_query("select a.*
 								from paket_pijat a
-								join item b on b.item_id = a.item_id 
+								join item b on b.item_id = a.item_id
 								order by paket_pijat_id");
 	return $query;
 }
@@ -18,11 +18,10 @@ function select_item(){
 	return $query;
 }
 
-function select_detail($id){
-	$query = mysql_query("SELECT a.*, b.item_name 
-						  FROM paket_pijat_details a
-						  LEFT JOIN item b ON b.item_id = a.item
-						  WHERE a.paket_pijat = '$id' ORDER BY a.paket_pijat");
+function select_paket_pijat_details($id){
+	$query = mysql_query("SELECT a.*, b.pijat_name FROM paket_pijat_details a
+												LEFT JOIN pijat b on b.pijat_id = a.pijat
+												WHERE a.paket_pijat = '$id'");
 	return $query;
 }
 

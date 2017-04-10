@@ -133,10 +133,10 @@ switch ($page) {
 										'$user_type_id',
 										'$side_menu_id',
 										'$permit_acces'";
-		create_permit($data_detail);
+										create_permit($data_detail);
 		}
 
-		// header('Location: user_type.php?page=list&did=2');
+		header('Location: user_type.php?page=list&did=2');
 
 	break;
 

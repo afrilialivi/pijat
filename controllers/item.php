@@ -63,13 +63,9 @@ switch ($page) {
 					'$i_jual'
 			";
 
-			//echo $data;
-
-			create($data);
-
+			echo $data;
+			create_config('item',$data);
 			header("Location: item.php?page=list&did=1");
-
-
 	break;
 
 	case 'edit':
