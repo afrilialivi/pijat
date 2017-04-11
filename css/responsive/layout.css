@@ -1,7 +1,7 @@
 .table-striped > tr,
  .table-striped td
  {
-    background-color: rgba(97, 41, 95, 0.32)!important;
+    background-color: #f6f7f9!important;
     border-color: #361563!important;
  }
 
@@ -16,6 +16,11 @@
     z-index: 2!important;
     /*border-width: 0 0 1px;*/
 }
+
+.table-striped > tfoot > tr > td{
+  background-color: #fff!important;
+}
+
 
   .show-on-mobile{
     display: none;

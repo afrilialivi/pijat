@@ -1,10 +1,3 @@
-<style type="text/css">
-    .table-striped > tr,
-     .table-striped td
-     {
-        background-color: rgba(97, 41, 95, 0.32);
-        border-color: #361563;
-     }
 </style>
 
                 <?php
@@ -58,7 +51,7 @@
                              
                                 <div class="box-body2 table-responsive">
                                     <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
+                                        <thead style="background-color: #9975a1; color: #fff;">
                                             <tr>
                                             	<th width="5%">No</th>
                                             	<th>Nama Item</th>

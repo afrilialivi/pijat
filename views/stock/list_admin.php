@@ -116,8 +116,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <td colspan="<?php $col = $count_branch + 5; echo $col; ?>"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
-
+                                                <td colspan="8"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
                                             </tr>
                                         </tfoot>
                                     </table>

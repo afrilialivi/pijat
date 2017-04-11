@@ -233,7 +233,7 @@ img {
 }
 .bg-new-red{
    /*background-color: #ff4c07  !important;*/
-    background-color:rgba(108, 71, 115, 0.87)!important;
+    background-color:rgb(160, 88, 158)!important;
 }
 .bg-green {
   background-color: #00a65a !important;
@@ -453,11 +453,7 @@ body > .header .logo {
   width: 230px;
   height: 100px;
   display: block;
-<<<<<<< HEAD
   border: 1px solid #d2120f;
-=======
-  /*border: 1px solid #d2120f;*/
->>>>>>> 8ec01ec2332727cc137b6b2560a486ae079c4bcd
   background-color: rgba(97, 41, 95, 0.32);
   border-color: #361563;
 }
@@ -610,7 +606,7 @@ body > .header .logo .icon {
 .user-panel {
   padding: 10px;
   /*background: #ff4c07;*/
-  background-color: rgba(97, 41, 95, 0.32);
+  background-color:rgb(107, 52, 106);
   border-color: #361563;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -702,7 +698,7 @@ body > .header .logo .icon {
   margin-right: 10px;
 }
 .dropdown-menu > li > a:hover {
-  background-color: #008BCC;
+  background-color: #6b346a;
   color: #f9f9f9;
 }
 /*Drodown in navbars*/
@@ -1433,12 +1429,13 @@ body > .header .logo .icon {
   border-bottom-left-radius: 3px;
   border-radius:3px;
   padding-bottom:10px;
-  background-color: rgba(97, 41, 95, 0.32);
+  background-color: #9975a1;
   border-color: #361563;
+  color: #fff;
 }
 
 .box .box-body2 {
-  background:#ff;
+  background:#fff;
   -webkit-border-top-left-radius: 0;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
@@ -1452,7 +1449,7 @@ body > .header .logo .icon {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  background-color: rgba(97, 41, 95, 0.32);
+  background-color: #fff;
   border-color: #361563;
 }
 .box .box-body > table,
@@ -1527,7 +1524,7 @@ body > .header .logo .icon {
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  background-color: rgba(97, 41, 95, 0.32);
+  background-color: #9975a1;
   padding: 10px;
 }
 .box.box-solid {
@@ -2614,12 +2611,12 @@ Component: timeline
 .skin-blue .navbar {
   /*background-color: #fff;
  box-shadow:rgba(0, 0, 0, 0.0980392) 0 1px 3px;*/
- background-color: rgba(97, 41, 95, 0.32);
+ background-color: rgb(153, 117, 161);
  border-color: #361563;
 }
 .skin-blue .navbar .nav a {
 
-  color: #666 ;
+  color: #fff ;
 
 }
 .skin-blue .navbar .nav > li > a:hover,
@@ -2636,7 +2633,7 @@ Component: timeline
   height:100px;
 }
 .skin-blue .navbar .sidebar-toggle .icon-bar {
-  background: #361563;;
+  background: #fff;
 }
 /* skin-blue logo */
 
@@ -2676,7 +2673,7 @@ Component: timeline
 }
 
 .skin-blue .sidebar > .sidebar-menu > li:first-of-type {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #361563;
 }
 .skin-blue .sidebar > .sidebar-menu > li:first-of-type > a {
   border-top:0px solid  #eee;
@@ -2706,7 +2703,7 @@ Component: timeline
 
 }
 .skin-blue .sidebar a {
-  color: #373737;
+  color: #fff;
    text-transform:uppercase;
 
   font-size:14px;

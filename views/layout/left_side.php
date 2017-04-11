@@ -1,7 +1,7 @@
  <style type="text/css">
    .skin-blue .sidebar > .sidebar-menu > li,
    .treeview>a{
-    background-color: rgba(97, 41, 95, 0.32);
+    background-color: rgb(153, 117, 161);
     border-color: #361563;
    }
  </style>

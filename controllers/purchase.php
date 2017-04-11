@@ -3,7 +3,7 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/purchase_model.php';
 $page = null;
-$page = (isset($_GET['page'])) ? $_GET['page'] : "list";
+$page = (isset($_GET['page'])) ? $_GET['page'] : "form";
 $title = ucfirst("Pembelian");
 
 $_SESSION['menu_active'] = 7;
@@ -72,18 +72,19 @@ switch ($page) {
 		$i_item_id = get_isset($i_item_id);
 		$i_harga = get_isset($i_harga);
 		$i_qty = get_isset($i_qty);
-		//$i_total = get_isset($i_total);
+		$i_total = get_isset($i_total);
 		$i_supplier = get_isset($i_supplier);
 		$i_branch_id = get_isset($i_branch_id);
-		
 		$get_item_name = get_item_name($i_item_id);
-		
+		$i_code = '2'.time();
+
 		$data = "'',
+					'$i_code',
 					'$i_date', 
 					'$i_item_id', 
 					'$i_qty',
 					'$i_harga',
-					'0',
+					'$i_total',
 					'$i_supplier',
 					'$i_branch_id'
 			";
@@ -91,49 +92,31 @@ switch ($page) {
 			//echo $data;
 
 			create($data);
+			
 			$data_id = mysql_insert_id();
-			
-			// simpan jurnal
-			create_journal($data_id, "purchase.php?page=form&id=", 2, $i_harga, $get_item_name, '', $i_branch_id);
-			
-			add_stock($i_item_id, $i_branch_id, $i_qty);
-		
-			header("Location: purchase.php?page=list&did=1");
-		
-		
-	break;
+			$where_item_id_branch_id = "where item_id = '$i_item_id' and branch_id = '$i_branch_id'";
 
-	case 'edit':
+			$cek_stok = select_config_by('item_stocks', 'count(*)', $where_item_id_branch_id);
+			if ($cek_stok > 0) {
+					add_stock($i_item_id, $i_qty, $i_branch_id);
+			}
+			else{	
 
-		extract($_POST);
+				$data_i = "'',
+						 '$i_item_id',
+						 '$i_qty',
+						 '$i_branch_id'
+						";
 
-		$id = get_isset($_GET['id']);
+			create_config('item_stocks', $data_i);
+			}
+
+		// simpan jurnal
+		create_journal($i_code, "purchase.php?page=form&id=", 2, $i_harga, $i_user_id, $i_branch_id);
+		unset($_SESSION['item_id']);
+		header("Location: purchase.php?page=form&did=1");
 		
-		$i_date = get_isset($i_date);
-		$i_date = format_back_date($i_date);
-		$i_item_id = get_isset($i_stock_id);
-		$i_harga = get_isset($i_harga);
-		$i_qty = get_isset($i_qty);
-		//$i_total = get_isset($i_total);
-		$i_supplier = get_isset($i_supplier);
-		$i_branch_id = get_isset($i_branch_id);
 		
-					$data = " purchase_date = '$i_date',
-					stock_id = '$i_stock_id', 
-					purchase_qty = '$i_qty',
-					purchase_price = '$i_harga',
-					purchase_total = '0',
-					supplier_id = '$i_supplier',
-					branch_id = '$i_branch_id'
-
-					";
-			
-			update($data, $id);
-			
-			header('Location: purchase.php?page=list&did=2');
-
-		
-
 	break;
 
 	case 'delete':
@@ -145,6 +128,10 @@ switch ($page) {
 		header('Location: purchase.php?page=list&did=3');
 
 	break;
+
+	case 'save_pembelian':
+		extract($_POST);
+		break;
 }
 
 ?>

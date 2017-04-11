@@ -27,7 +27,7 @@ Password dan confirm password tidak sama
       <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
         <div class="box box-cokelat">
           <div class="box-body">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 ">
               <div class="form-group">
                 <label>Nama Paket</label>
                 <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama paket ..." value="<?= $row->paket_pijat_name ?>"/>

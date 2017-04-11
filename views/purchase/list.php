@@ -58,7 +58,6 @@
                                             	<th width="5%">No</th>
                                             	<th width="5%">Tanggal Pembelian</th>
                                                 <th>Nama Barang</th>
-                                                <th>Satuan</th>
                                                 <th width="5%">Jumlah</th>
                                                 <th>Harga</th> 
                                                 
@@ -76,7 +75,6 @@
                                             <td><?= $no?></td>
                                                <td><?= format_date($row['purchase_date']); ?></td>
                                                 <td><?= $row['item_name']?></td>
-                                                <td><?= $row['unit_name']?></td>
                                                 <td><?= $row['purchase_qty']?></td>
                                                 <td><?= $row['purchase_price']?></td>
                                                

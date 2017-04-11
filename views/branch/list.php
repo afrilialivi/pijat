@@ -1,11 +1,3 @@
-<!-- /*<style type="text/css">
-.table-striped > tr,
-.table-striped td
-{
-background-color: rgba(97, 41, 95, 0.32);
-border-color: #361563;
-}
-</style>*/ -->
   <?php
   if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
     <section class="content_new">
@@ -40,12 +32,12 @@ border-color: #361563;
 <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
         <div class="title_page"> <?= $title ?></div>
         <div class="box">
           <div class="box-body2 table-responsive">
             <table id="example1" class="table table-bordered table-striped">
-              <thead>
+              <thead style="background-color: #9975a1; color: #fff;">
                 <tr>
                   <th width="5%">No</th>
                   <th>Nama Cabang</th>
@@ -59,26 +51,26 @@ border-color: #361563;
               $no = 1;
               while($row = mysql_fetch_array($query)){ ?>
                     <tr>
-                    <td><?= $no?></td>
-                    <td><?= $row['branch_name']?></td>
-                    <td><?= $row['branch_phone'] ?></td>
-                    <td><?= $row['branch_city'] ?></td>
-                    <td style="text-align:center;">
-                      <a href="branch.php?page=form&id=<?= $row['branch_id']?>" class="btn btn-default" >
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['branch_id']; ?>,'branch.php?page=delete&id=')"
-                        class="btn btn-default">
-                        <i class="fa fa-trash-o"></i>
-                      </a>
-                    </td>
+                      <td><?= $no?></td>
+                      <td><?= $row['branch_name']?></td>
+                      <td><?= $row['branch_phone'] ?></td>
+                      <td><?= $row['branch_city'] ?></td>
+                      <td style="text-align:center;">
+                        <a href="branch.php?page=form&id=<?= $row['branch_id']?>" class="btn btn-default" >
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['branch_id']; ?>,'branch.php?page=delete&id=')"
+                          class="btn btn-default">
+                          <i class="fa fa-trash-o"></i>
+                        </a>
+                      </td>
                     </tr>
               <?php $no++; } ?>
               </tbody>
               <tfoot>
                 <tr>
-                  <td colspan="6">
-                    <a href="<?= $add_button ?>" class="btn btn-danger " >Add</a>
+                  <td colspan="5">
+                    <a href="<?= $add_button ?>" class="btn btn-danger">Add</a>
                   </td>
                 </tr>
               </tfoot>
