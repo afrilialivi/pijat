@@ -40,7 +40,7 @@ switch ($page) {
 
 		$close_button = "stock.php?page=list";
 		
-		$query_unit = select_unit();
+		// $query_unit = select_unit();
 		
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;

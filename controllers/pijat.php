@@ -35,6 +35,7 @@ switch ($page) {
         $row = new stdClass();
 
         $row->pijat_name = false;
+        $row->pijat_waktu = false;
         $row->pijat_harga = false;
         $row->infrastruktur = false;
 
@@ -48,15 +49,17 @@ switch ($page) {
     case 'save':
         extract($_POST);
         $i_name = get_isset($i_name);
+        $i_waktu = get_isset($i_waktu);
         $i_harga = get_isset($i_harga);
         $i_infrastruktur = get_isset($i_infrastruktur);
         $data = "'',
                 '$i_name',
+                '$i_waktu',
                 '$i_harga',
                 '$i_infrastruktur'
           ";
 
-        $pijat_id = $create_config('pijat', $data);
+        $pijat_id = create_config('pijat', $data);
 
         header("Location: pijat.php?page=form&id=$pijat_id");
     break;
@@ -67,10 +70,12 @@ switch ($page) {
 
       $id = get_isset($_GET['id']);
       $i_name = get_isset($i_name);
+      $i_waktu = get_isset($i_waktu);
       $i_harga = get_isset($i_harga);
       $i_infrastruktur = get_isset($i_infrastruktur);
 
       $data = "pijat_name = '$i_name',
+               pijat_waktu = '$i_waktu',
                pijat_harga = '$i_harga',
                infrastruktur = '$i_infrastruktur'
           ";

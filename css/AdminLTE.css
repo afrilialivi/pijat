@@ -407,7 +407,7 @@ body > .header .navbar .sidebar-toggle {
 
 }
 body > .header .navbar .sidebar-toggle:hover .icon-bar {
-  background: #f39c12;;
+  background: #6b346a !important;
 }
 body > .header .navbar .sidebar-toggle .icon-bar {
   display: block;
@@ -1215,9 +1215,9 @@ body > .header .logo .icon {
   -moz-border-radius: 2px;
   border-radius: 2px;
   margin-bottom: 15px;
-  color: #d2120f;
+  color: #7b0a8e;
   font-weight: bold;
-  border: 1px solid #d2120f;
+  border: 1px solid #6b346a;
   height: 110px;
 }
 
@@ -1431,7 +1431,7 @@ body > .header .logo .icon {
   padding-bottom:10px;
   background-color: #9975a1;
   border-color: #361563;
-  color: #fff;
+  color: #280250 !important;
 }
 
 .box .box-body2 {
@@ -2454,8 +2454,8 @@ Component: timeline
   text-align: center;
 
   font-weight: 300;
-  color: #454140;
-  background:#fff;
+  color: #000;
+  background:rgb(255, 255, 255);
 
 }
 .form-box .body{
@@ -3444,9 +3444,9 @@ legend{
 
 .form_category {
   /*background: #E5EFD5; */
-  background-color:#FFC;
+  background-color:#9975a1;
   font-weight: bold;
-  color: #666;
+  color: #fff;
   padding: 5px 5px 5px 15px;
   font-size: 11px;
   border:1px solid #e8e8e8;

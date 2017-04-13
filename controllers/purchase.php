@@ -29,7 +29,7 @@ switch ($page) {
 	case 'form':
 		get_header();
 
-		$close_button = "purchase.php?page=list";
+		$close_button = "home.php";
 		
 		$query_supplier = select_supplier();
 		$query_item = select_item();

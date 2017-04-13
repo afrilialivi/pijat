@@ -52,7 +52,7 @@
 
                                 <div class="box-body2 table-responsive">
                                     <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
+                                        <thead style="background-color: #9975a1; color: #fff;">
                                             <tr>
                                             	<th width="5%">No</th>
 

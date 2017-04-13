@@ -35,11 +35,10 @@
         border-color: #f3a7a7;
     }
      .bg-white{
-          background-color: rgba(255, 255, 255, 0.39)!important;
+          background-color: rgba(255, 255, 255, 0.65)!important;
       }
       .form-control {
-        background-color: rgba(255, 255, 255, 0.46);
-        background-color: rgba(255, 255, 255, 0.46);
+        background-color: rgba(255, 255, 255, 0.49);
       }
       .btn-block:hover{
           background-color: rgba(179, 58, 193, 0.40)!important;
@@ -47,31 +46,15 @@
       }
      #login_btn{
        background-color: rgba(204, 111, 222, 0.42);
-       border-color: rgba(125, 10, 197, 0.44);
+       border-color: #eee;
      }
-    .bg-white{
-        background-color: rgba(255, 255, 255, 0.39)!important;
-    }
-
-    .form-control {
-        background-color: rgba(255, 255, 255, 0.46);
-    }
-    .btn-block:hover{
-        background-color: rgba(179, 58, 193, 0.40)!important;
-        border-color: rgba(125, 10, 197, 0.44);
-    }
-    #login_btn{
-      background-color: rgba(204, 111, 222, 0.42);
-      border-color: rgba(125, 10, 197, 0.44);
-    }
-
 </style>
 
     </head>
     <body>
         <div class="login_logo"></div>
         <div class="form-box" id="">
-            <div class="header" style="background-color: rgba(255, 255, 255, 0.39);">
+            <div class="header" style="background-color: rgba(255, 255, 255, 0.65); color:rgb(69, 65, 64);">
                 <div class="bg-logo">
                     <span style="font-size: 3em !important;">
                         <strong>Login</strong>
@@ -88,11 +71,10 @@
                      User Login or Password tidak benar
                     </div>
                     <div class="form-group">
-                        <input style="border:1px solid #eee;" required type="text" name="i_login" class="form-control" placeholder="User Login"/>
+                        <input style="border:1px solid #c3c3c3;" required type="text" name="i_login" class="form-control" placeholder="User Login"/>
                     </div>
                     <div class="form-group">
-                        <input style="border:1px solid #eee;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
-
+                        <input style="border:1px solid #c3c3c3;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
                       </div>
                       <div class="form-group">
                        <button id="login_btn" type="submit" class="btn btn-danger btn-block" style="margin-top:10px;">LOGIN</button>

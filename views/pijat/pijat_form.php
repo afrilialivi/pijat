@@ -1,3 +1,6 @@
+ <link rel="stylesheet" type="text/css" href="../assets/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+
+
 <!-- Content Header (Page header) -->
 
                  <?php
@@ -17,21 +20,36 @@
                 }
                 ?>
 
-                <!-- Main content -->
-    <section class="content" id="staticParent">
-      <div class="row">
+<!-- Main content -->
+<section class="content" id="staticParent">
+  <div class="row">
       <!-- right column -->
-        <div class="col-md-12">
-        <!-- general form elements disabled -->
-          <div class="title_page"> <?= $title ?></div>
+      <div class="col-md-12">
+      <!-- general form elements disabled -->
+        <div class="title_page"> <?= $title ?></div>
           <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
             <div class="box box-cokelat">
               <div class="box-body">
-                <div class="col-md-10">
+                <div class="col-md-10 col-md-offset-1">
                   <div class="form-group">
                     <label>Nama Pijat</label>
                     <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama paket ..." value="<?= $row->pijat_name ?>"/>
                   </div>
+                  <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                      <label>Waktu</label>
+                      <div class="input-group">                                            
+                          <input type="text" name="i_hour" class="form-control timepicker"/>
+                          <div class="input-group-addon">
+                              <i class="fa fa-clock-o"></i>
+                          </div>
+                      </div><!-- /.input group -->
+                    </div><!-- /.form group -->
+                  </div>
+                  <!-- <div class="form-group">
+                    <label>Waktu</label>
+                    <input required type="text" name="i_waktu" class="form-control" placeholder="Masukkan waktu ..." value="<?= $row->pijat_waktu ?>"/>
+                  </div> -->
                   <div class="form-group">
                     <label>Harga </label>
                     <input required type="textarea" name="i_harga_currency" id="i_harga_currency"
@@ -51,18 +69,20 @@
                     </select>
                   </div>
                 </div>
-              <div style="clear:both;"></div>
+                <div style="clear:both;"></div>
               </div><!-- /.box-body -->
-            <div class="box-footer">
-              <input class="btn btn-danger" type="submit" value="Save"/>
-              <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
-            </div>
+              <div class="box-footer">
+                <input class="btn btn-danger" type="submit" value="Save"/>
+                <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+              </div>
             </div><!-- /.box -->
           </form>
-        </div><!--/.col (right) -->
-      </div>   <!-- /.row -->
-<?php if($id){ include 'add_item_infrastruktur.php';}?>
+      </div><!--/.col (right) -->
+  </div>   <!-- /.row -->
 </section><!-- /.content -->
+
+<script src="../assets/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+
   <script type="text/javascript">
 
     // function number_currency(elem){
@@ -94,5 +114,12 @@
     //     $(elem_id).val(formatted);
     //     $(elem_no_cur).val(gabung);
     //   }
+
+    $(document).ready(function(){
+      $('#datetimepicker3').datetimepicker({
+       showMeridian: false
+      });
+    });    
+      
 
   </script>

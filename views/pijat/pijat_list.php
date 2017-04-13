@@ -54,6 +54,7 @@
                             <tr>
                                 <th width="5%">No</th>
                                 <th>Nama Pijat</th>
+                                <th>Waktu</th>
                                 <th>Harga</th>
                                 <th>Config</th>
                             </tr>
@@ -65,6 +66,7 @@
                             <tr>
                                 <td><?= $no?></td>
                                 <td><?= $row['pijat_name']?></td>
+                                <td><?= $row['pijat_waktu']?></td>
                                 <td><?= format_rupiah($row['pijat_harga'])?></td>
                                 <td style="text-align:center;">
                                     <a href="pijat.php?page=form&id=<?= $row['pijat_id']?>" class="btn btn-default" >
@@ -79,8 +81,8 @@
                         <?php $no++; } ?>
                         </tbody>
                         <tfoot>
-                            <tr colspan="4">
-                                <td colspan="4"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
+                            <tr colspan="5">
+                                <td colspan="5"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
                             </tr>
                         </tfoot>
                     </table>
