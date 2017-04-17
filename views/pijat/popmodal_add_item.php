@@ -15,6 +15,17 @@
         <?} ?>
       </select>
     </div>
+     <div class="form-group">
+      <label for="">Nama satuan : </label>
+      <input type="hidden" name="pijat_id" value="<?= $id?>">
+      <select class="selectpicker form-control" id="" name="satuan_id">
+        <option value="0"></option>
+        <?php while ($r_satuan = mysql_fetch_array($q_satuan)) {?>
+          <option value="<?= $r_satuan['satuan_id']?>"
+            <?php if ($row->satuan == $r_satuan['satuan_id']){echo "selected";} ?>><?= $r_satuan['satuan_name']?></option>
+        <?} ?>
+      </select>
+    </div>
     <div class="form-group">
       <label for="">Jumlah : </label>
       <input required type="textarea" name="item_jml_currency" id="item_jml_currency"

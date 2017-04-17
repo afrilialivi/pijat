@@ -79,6 +79,7 @@
           </form>
       </div><!--/.col (right) -->
   </div>   <!-- /.row -->
+  <?php if ($id) { include 'add_item_infrastruktur.php';}?>
 </section><!-- /.content -->
 
 <script src="../assets/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
