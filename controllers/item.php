@@ -13,6 +13,7 @@ switch ($page) {
 		get_header($title);
 
 		$query = select();
+		$q_satuan = select_config('satuan','');
 		$add_button = "item.php?page=form";
 
 		include '../views/item/list.php';
@@ -23,6 +24,8 @@ switch ($page) {
 		get_header();
 
 		$close_button = "item.php?page=list";
+
+		$q_satuan = select_config('satuan', '');
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		if($id){
@@ -39,6 +42,7 @@ switch ($page) {
 			$row->item_hpp = false;
 			$row->item_margin = false;
 			$row->item_harga_jual = false;
+			$row->item_satuan = false;
 
 			$action = "item.php?page=save";
 		}
@@ -55,16 +59,17 @@ switch ($page) {
 		$i_hpp = get_isset($i_hpp);
 		$i_margin = get_isset($i_margin);
 		$i_jual = get_isset($i_jual);
+		$i_satuan = get_isset($i_satuan);
 
 		$data = "'',
 					'$i_name',
 					'$i_hpp',
 					'$i_margin',
-					'$i_jual'
+					'$i_jual',
+					'$i_satuan'
 			";
-
-			echo $data;
 			create_config('item',$data);
+			// echo $data;
 			header("Location: item.php?page=list&did=1");
 	break;
 
@@ -75,20 +80,19 @@ switch ($page) {
 		$id = get_isset($_GET['id']);
 		$i_name = get_isset($i_name);
 		$i_hpp = get_isset($i_hpp);
-		$item_margin = get_isset($item_margin);
+		$i_margin = get_isset($i_margin);
 		$i_jual = get_isset($i_jual);
+		$i_satuan = get_isset($i_satuan);
 
 					$data = " item_name = '$i_name',
 							  item_hpp = '$i_hpp',
 							  item_margin = '$i_margin',
-							  item_harga_jual = '$i_jual'
-					";
-			echo $data;
+							  item_harga_jual = '$i_jual',
+							  item_Satuan = '$i_satuan'
+					";		
 			update($data, $id);
-
+			// echo $data;
 			header('Location: item.php?page=list&did=2');
-
-
 
 	break;
 

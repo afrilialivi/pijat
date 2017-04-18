@@ -5,7 +5,7 @@ include '../models/order_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Order");
-$judul = 'Bakmi Gili';
+$judul = 'Zee Holistic';
 $_SESSION['menu_active'] = 2;
 
 switch ($page) {

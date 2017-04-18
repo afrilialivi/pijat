@@ -33,6 +33,19 @@
 									value="<?= format_rupiah($row->item_margin) ?>"/>
 									<input required type="hidden" id="i_jual" name="i_jual" class="form-control" placeholder="Masukkan harga jual..." value="<?= $row->item_harga_jual ?>"/>
 								</div>
+								<div class="form-group">
+							      <label for="">Nama Satuan : </label>
+							      <input type="hidden" name="pijat_id" value="<?= $id?>">
+							      <select id="i_satuan" name="i_satuan" class="selectpicker show-tick form-control" data-live-search="true">
+							        <option value="0"></option>
+							        <?php 
+							        while ($r_satuan = mysql_fetch_array($q_satuan)) {?>
+							        <option <?php if($row->item_satuan == $r_satuan['satuan_id']){ ?> 
+							        selected="selected" <?php } ?> value="<?= $r_satuan['satuan_id'] ?>"> <?= $r_satuan['satuan_name'] ?>
+							        </option>
+							        <?php } ?>
+							      </select>
+							    </div>
 							</div>
 							<div style="clear:both;"></div>
 						</div><!-- /.box-body -->

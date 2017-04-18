@@ -81,7 +81,6 @@ switch ($page) {
 			$r_statement->tidak_menyembunyikan = false;
 			$r_statement->tanggung_jawab = false;
 
-		}
 		// echo "string";
 		include '../views/statement/form_statement.php';
 		get_footer();
@@ -99,7 +98,7 @@ switch ($page) {
 				$i_selain = get_isset($i_selain);
 				$i_selain_jabarkan = get_isset($i_selain_jabarkan);
 				$i_alergi = get_isset($i_alergi);
-				$i_alergi_jabarkan = get_isset($i_alergi_jabarkan	);
+				$i_alergi_jabarkan = get_isset($i_alergi_jabarkan);
 				$i_hamil = get_isset($i_hamil);
 				$i_usia_kandungan = get_isset($i_usia_kandungan);
 				$i_lens = get_isset($i_lens);

@@ -29,6 +29,7 @@ switch ($page) {
         $row = select_object_config('pijat', $where_pijat_id);
         $q_pijat_details = select_pijat_details($id);
         $q_item = select_config('item', '');
+        $q_satuan = select_config('satuan', '');
         $action = "pijat.php?page=edit&id=$id";
       } else {
 
@@ -95,6 +96,7 @@ switch ($page) {
         $pijat_id = $_GET['pijat_id'];
         $detail_id = (isset($_GET['detail_id'])) ? $_GET['detail_id'] : null;
         $q_item = select_config('item', '');
+        $q_satuan = select_config('satuan','');
 
         if ($detail_id) {
           $action = "pijat.php?page=edit_detail";
@@ -158,16 +160,17 @@ switch ($page) {
                '$item_jml'";
 
       create_config('pijat_details', $data);
+      // echo $data;  
       header("Location: pijat.php?page=form&id=$pijat_id");
       break;
 
     case 'edit_pijat_item':
 
-      $pijat_detail_id = $_GET['pijat_detail_id'];
       $pijat_id = $_POST['pijat_id'];
-      $item_jml = $_POST['item_jml'];
+      $pijat_detail_id = $_GET['pijat_detail_id'];
       $item_id = $_POST['item_id'];
       $satuan_id = $_POST['satuan_id'];
+      $item_jml = $_POST['item_jml'];
 
       $data = "item = '$item_id',
                satuan = '$satuan_id',

@@ -58,6 +58,7 @@
                                                 <th>HPP</th>
                                                 <th>Margin</th>
                                                 <th>Harga Jual</th>
+                                                <th>Satuan</th>
                                                 <th>Config</th>
                                             </tr>
                                         </thead>
@@ -72,6 +73,7 @@
                                                 <td><?= $row['item_hpp']?></td>
                                                 <td><?= $row['item_margin']?></td>
                                                 <td><?= $row['item_harga_jual']?></td>
+                                                <td><?= $row['satuan_name']?> </td>
                                                 
                                               <td style="text-align:center;">
 
@@ -90,7 +92,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
+                                                <td colspan="7"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
                                                
                                             </tr>
                                         </tfoot>

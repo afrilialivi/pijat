@@ -1,8 +1,9 @@
 <?php
 
 function select(){
-	$query = mysql_query("select *
-							from item
+	$query = mysql_query("select a.*, b.satuan_name 
+							from item a
+							left join satuan b on b.satuan_id = a.item_satuan
 							order by item_id");
 	return $query;
 }
