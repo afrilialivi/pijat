@@ -5,7 +5,7 @@ include '../models/order_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Order");
-$judul = 'Bakmi Gili';
+$judul = 'Zee Holistic';
 $_SESSION['menu_active'] = 2;
 
 switch ($page) {
@@ -52,14 +52,14 @@ switch ($page) {
         }
 
             // $query = select($where);
-        
+
             //inisialisasi
             $row = new stdClass();
-    
+
             $row->member_id = false;
             $row->branch_id = false;
             $row->pijat = false;
-            $row->item = false;
+            // $row->item = false;
             $row->transaction_date = date("d/m/Y");
             $row->transaction_code = false;
 
@@ -81,49 +81,86 @@ switch ($page) {
         $i_member = get_isset($i_member);
         $i_branch = get_isset($i_branch);
         $i_pijat = get_isset($i_pijat);
-        $i_item = get_isset($i_item);
+        $i_item = [];
         $i_date = get_isset($i_date);
         $i_date = format_back_date($i_date);
-        $i_hour = get_isset($i_hour);
-        
-        $i_h = explode(" ", $i_hour);
-        
-        $hour = explode(":", $i_h[0]);
-        
-        
-        
-        if($i_h[1] == "PM"){
-            if($hour[0] == 12){
-                $new_hour = $hour[0];
-            }else{
-                $new_hour = $hour[0] + 12;
+        $grand_total_currency = get_isset($grand_total_currency);
+        // $i_hour = get_isset($i_hour);
+
+        // $i_h = explode(" ", $i_hour);
+
+        // $hour = explode(":", $i_h[0]);
+
+
+
+        // if($i_h[1] == "PM"){
+        //     if($hour[0] == 12){
+        //         $new_hour = $hour[0];
+        //     }else{
+        //         $new_hour = $hour[0] + 12;
+        //     }
+        //     $new_hour = $new_hour.":".$hour[1];
+        // }else{
+        //     if($hour[0] == 12){
+        //         $new_hour = $hour[0] - 12;
+        //     }else{
+        //         $new_hour = $hour[0];
+        //     }
+
+        //     if(strlen($new_hour)==1){
+        //         $new_hour = "0".$new_hour;
+        //     }
+
+        //     $new_hour = $new_hour.":".$hour[1];
+        // }
+            if ($i_pijat) {
+                  $data = "'',
+                        '$i_member',
+                        '$i_branch',
+                        '$i_pijat',
+                        '$grand_total_currency',
+                        '$i_date',
+                        '0'
+                        ";
+
+                $transaction_id = create_config('transactions_tmp', $data);
+
+                        foreach ($i_item as $key => $value) {
+                            $data_detail = "''
+                                            '$transaction_id',
+                                            '$i_pijat',
+                                            '$i_item[$key]',
+                                            '',
+                                            '',
+                                            '',
+                                            '',
+                                            '',
+                                            '',
+                                            '',
+                                            ''";
+
+                    create_config('transaction_tmp_details', $data);
+                }
+                header("location: statement.php?page=list&id=$transaction_id&member=$i_member");
+            } else {
+                header("location: transaction.php");
             }
-            $new_hour = $new_hour.":".$hour[1];
-        }else{
-            if($hour[0] == 12){
-                $new_hour = $hour[0] - 12;
-            }else{
-                $new_hour = $hour[0];
-            }
-            
-            if(strlen($new_hour)==1){
-                $new_hour = "0".$new_hour;
-            }
-            
-            $new_hour = $new_hour.":".$hour[1];
-        }                
-                     
-                            $data = "'',
-                                '$i_member',
-                                '$i_branch',
-                                '$i_pijat',
-                                '$i_item',
-                                '$i_date $new_hour',
-                                '0'
-                                ";
-                    
-                    // create($data);
-                    $transaction_id = create_config('transaction_tmp', $data);
-            // header("location: transaction.php");
+
+
         break;
-}
+
+        case 'get_items':
+          $where = '';
+          $q_items = select_config("item", $where);
+          while ($r_items = mysql_fetch_array($q_items)) {
+            $data[] = array(
+              'item_id'          => $r_items['item_id'],
+              'item_name'        => $r_items['item_name'],
+              'item_harga_jual'  => $r_items['item_harga_jual'],
+              'status_id'        => '',
+              'status_name'        => ''
+           );
+          }
+          echo json_encode($data);
+          break;
+    }

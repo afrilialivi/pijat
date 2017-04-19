@@ -1,5 +1,3 @@
- <link rel="stylesheet" type="text/css" href="../assets/datetimepicker/css/bootstrap-datetimepicker.min.css" />
-
 
 <!-- Content Header (Page header) -->
 
@@ -36,15 +34,15 @@
                     <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama paket ..." value="<?= $row->pijat_name ?>"/>
                   </div>
                   <div class="bootstrap-timepicker">
-                    <div class="form-group">
-                      <label>Waktu</label>
-                      <div class="input-group">                                            
-                          <input type="text" name="i_hour" class="form-control timepicker"/>
-                          <div class="input-group-addon">
-                              <i class="fa fa-clock-o"></i>
-                          </div>
-                      </div><!-- /.input group -->
-                    </div><!-- /.form group -->
+                      <div class="form-group">
+                          <label>Jam</label>
+                          <div class="input-group">                                            
+                              <input type="text" name="i_hour" class="form-control timepicker"/>
+                              <div class="input-group-addon">
+                                  <i class="fa fa-clock-o"></i>
+                              </div>
+                          </div><!-- /.input group -->
+                      </div><!-- /.form group -->
                   </div>
                   <!-- <div class="form-group">
                     <label>Waktu</label>
@@ -79,9 +77,8 @@
           </form>
       </div><!--/.col (right) -->
   </div>   <!-- /.row -->
+  <?php if ($id) { include 'add_item_infrastruktur.php';}?>
 </section><!-- /.content -->
-
-<script src="../assets/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 
   <script type="text/javascript">
 

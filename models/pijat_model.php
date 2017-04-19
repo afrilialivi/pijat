@@ -5,4 +5,9 @@ function select_pijat_details($id){
                         WHERE a.pijat = '$id'");
   return $query;
 }
+
+function delete_pijat_item($id){
+	mysql_query("delete from pijat_details where pijat_detail_id = '$id'");
+}
+
  ?>

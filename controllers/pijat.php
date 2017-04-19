@@ -29,6 +29,7 @@ switch ($page) {
         $row = select_object_config('pijat', $where_pijat_id);
         $q_pijat_details = select_pijat_details($id);
         $q_item = select_config('item', '');
+        $q_satuan = select_config('satuan', '');
         $action = "pijat.php?page=edit&id=$id";
       } else {
 
@@ -91,20 +92,23 @@ switch ($page) {
         header('Location: pijat.php?page=list&did=3');
     break;
 
-    case 'tambah_paket_recipe':
+    case 'tambah_recipe':
         $pijat_id = $_GET['pijat_id'];
         $detail_id = (isset($_GET['detail_id'])) ? $_GET['detail_id'] : null;
         $q_item = select_config('item', '');
+        $q_satuan = select_config('satuan','');
 
         if ($detail_id) {
           $action = "pijat.php?page=edit_detail";
           $where_pijat_detail = "where pijat_detail_id = '$detail_id'";
           $row = select_object_config('pijat_details',$where_pijat_detail);
+
         } else {
           $action = "pijat.php?page=save_detail";
           $row = new stdClass();
           $where_pijat = $pijat;
           $row->item = false;
+          $row->satuan = false;
           $row->item_qty = false;
         }
 
@@ -128,11 +132,13 @@ switch ($page) {
         $row = new stdClass();
 
         $row->item = false;
+        $row->satuan = false;
         $row->item_qty = false;
 
         $action = "pijat.php?page=simpan_pijat_item";
       }
       $q_item = select_config('item', '');
+      $q_satuan = select_config('satuan','');
       $where_pijat_id = "WHERE pijat_id = '$id'";
       $pijat_name = select_config_by('pijat', 'pijat_name', $where_pijat_id);
       include '../views/pijat/popmodal_add_item.php';
@@ -145,24 +151,29 @@ switch ($page) {
       $pijat_id = $_POST['pijat_id'];
       $item_jml = $_POST['item_jml'];
       $item_id = $_POST['item_id'];
+      $satuan_id = $_POST['satuan_id'];
 
       $data = "'',
                '$pijat_id',
                '$item_id',
+               '$satuan_id',
                '$item_jml'";
 
       create_config('pijat_details', $data);
+      // echo $data;  
       header("Location: pijat.php?page=form&id=$pijat_id");
       break;
 
     case 'edit_pijat_item':
 
-      $pijat_detail_id = $_GET['pijat_detail_id'];
       $pijat_id = $_POST['pijat_id'];
-      $item_jml = $_POST['item_jml'];
+      $pijat_detail_id = $_GET['pijat_detail_id'];
       $item_id = $_POST['item_id'];
+      $satuan_id = $_POST['satuan_id'];
+      $item_jml = $_POST['item_jml'];
 
       $data = "item = '$item_id',
+               satuan = '$satuan_id',
                item_qty = '$item_jml'";
 
       $where_pijat_detail_id = "pijat_detail_id = '$pijat_detail_id'";
@@ -170,6 +181,14 @@ switch ($page) {
       update_config2('pijat_details', $data, $where_pijat_detail_id);
 
       header("Location: pijat.php?page=form&id=$pijat_id");
+      break;
+
+    case 'delete_pijat_item':
+         $id = get_isset($_GET['id']);
+         $where_pijat_detail_id = "pijat_detail_id = '$id'";
+        delete_config('pijat_details', $where_pijat_detail_id);
+
+        header("Location:pijat.php?page=form&id=$pijat_id");
       break;
 }
 ?>

@@ -1,4 +1,40 @@
+.span_title{
+  text-align: center;
+  font-size: 25px;
+  font-family: monospace;
+}
+table{
+  border: none;
+}
+.item-list{
+  border: 1px solid !important;
+  padding: 20px;
+  border-radius: 5px;
+  border-color: #909090;
+  height: 500px;
+}
+
+.normal {
+  border-color: #dddddd;
+}
+
 .box-body{
-  background-color: #fff!important;
-  border-color: #b658ff!important;
+  background-color: #fff !important;
+}
+
+.panel {
+  margin-top: 20px;
+}
+
+table > thead > tr > th,
+table tr td {
+  border: 1px solid !important;
+}
+
+thead {
+  background-color: #9975a1;
+  /*color: #fff;*/
+}
+.box {
+  border:none;
 }
