@@ -47,23 +47,7 @@ CREATE TABLE `branches` (
 
 /*Data for the table `branches` */
 
-insert  into `branches`(`branch_id`,`branch_name`,`branch_desc`,`branch_address`,`branch_phone`,`branch_city`) values (3,'SPA Pijat Majapahit','Pijat','Jl Majapahit','083938191981','Surabaya'),(6,'SPA Pijat Sudirman','Pijat','Jl.Panglima Sudirman','024819411939','Surabaya'),(7,'SPA Pahlawan','Pijat','Jl Pahlawan','089379397947','Jakarta');
-
-/*Table structure for table `buildings` */
-
-DROP TABLE IF EXISTS `buildings`;
-
-CREATE TABLE `buildings` (
-  `building_id` int(11) NOT NULL AUTO_INCREMENT,
-  `building_name` varchar(100) NOT NULL,
-  `building_img` text NOT NULL,
-  `branch_id` int(11) NOT NULL,
-  PRIMARY KEY (`building_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-
-/*Data for the table `buildings` */
-
-insert  into `buildings`(`building_id`,`building_name`,`building_img`,`branch_id`) values (7,'Utama Delta','1487748710_room.png',3),(8,'Utama TP ','1487748733_room.png',4),(9,'Utama','',5);
+insert  into `branches`(`branch_id`,`branch_name`,`branch_desc`,`branch_address`,`branch_phone`,`branch_city`) values (5,'SPA Pijat Majapahit','Pijat','Jl Majapahit','083938191981','Surabaya'),(6,'SPA Pijat Sudirman','Pijat','Jl.Panglima Sudirman','024819411939','Surabaya'),(7,'SPA Pahlawan','Pijat','Jl Pahlawan','089379397947','Jakarta');
 
 /*Table structure for table `infrastruktur` */
 
@@ -75,11 +59,28 @@ CREATE TABLE `infrastruktur` (
   `infrastruktur_warna` varchar(200) NOT NULL,
   `infrastruktur_img` text NOT NULL,
   PRIMARY KEY (`infrastruktur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `infrastruktur` */
 
-insert  into `infrastruktur`(`infrastruktur_id`,`infrastruktur_name`,`infrastruktur_warna`,`infrastruktur_img`) values (1,'nama 1','warna 1','1490859050_1487748757_logo.png'),(3,'nama 2','warna 2','1490933442_kursi_relax2.png');
+insert  into `infrastruktur`(`infrastruktur_id`,`infrastruktur_name`,`infrastruktur_warna`,`infrastruktur_img`) values (1,'nama 1','warna 1','1491202890_1490933442_kursi_relax2.png'),(3,'nama 2','warna 2','1490927932_unnamed(1).jpg'),(4,'DV','SFSFF','1491202901_1490933442_kursi_relax2.png');
+
+/*Table structure for table `item` */
+
+DROP TABLE IF EXISTS `item`;
+
+CREATE TABLE `item` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(200) NOT NULL,
+  `item_hpp` int(11) NOT NULL,
+  `item_margin` int(11) NOT NULL,
+  `item_harga_jual` int(11) NOT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `item` */
+
+insert  into `item`(`item_id`,`item_name`,`item_hpp`,`item_margin`,`item_harga_jual`) values (1,'ITEM A',12000,3000,15000),(2,'ITEM B',20000,5000,30000),(3,'ITEM C',30000,5000,40000);
 
 /*Table structure for table `item_stocks` */
 
@@ -91,23 +92,11 @@ CREATE TABLE `item_stocks` (
   `item_qty` int(11) NOT NULL,
   `branch` int(11) NOT NULL,
   PRIMARY KEY (`item_stock_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `item_stocks` */
 
-/*Table structure for table `items` */
-
-DROP TABLE IF EXISTS `items`;
-
-CREATE TABLE `items` (
-  `item_id` int(11) NOT NULL AUTO_INCREMENT,
-  `item_name` varchar(200) NOT NULL,
-  `item_hpp` int(11) NOT NULL,
-  `item_harga` int(11) NOT NULL,
-  PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `items` */
+insert  into `item_stocks`(`item_stock_id`,`item`,`item_qty`,`branch`) values (2,1,5,5),(3,1,5,5),(4,1,2,5),(5,1,4141,5),(6,1,3,5),(7,2,4,6),(8,2,5,5),(9,2,5,5),(10,3,10,5),(11,3,4,6),(12,2,4,5);
 
 /*Table structure for table `journal_types` */
 
@@ -130,7 +119,7 @@ DROP TABLE IF EXISTS `journals`;
 CREATE TABLE `journals` (
   `journal_id` int(11) NOT NULL AUTO_INCREMENT,
   `journal_type_id` int(11) NOT NULL,
-  `data_id` int(11) NOT NULL,
+  `data_id` varchar(11) NOT NULL,
   `data_url` text NOT NULL,
   `journal_debit` int(11) NOT NULL,
   `journal_credit` int(11) NOT NULL,
@@ -142,11 +131,11 @@ CREATE TABLE `journals` (
   `user_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   PRIMARY KEY (`journal_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 /*Data for the table `journals` */
 
-insert  into `journals`(`journal_id`,`journal_type_id`,`data_id`,`data_url`,`journal_debit`,`journal_credit`,`journal_piutang`,`journal_hutang`,`journal_date`,`journal_desc`,`bank_id`,`user_id`,`branch_id`) values (1,1,2,'',24000,0,0,0,'2017-02-28','Meja Meja 4',0,11,3),(2,1,0,'',53000,0,0,0,'2017-03-01','Meja Meja 2',0,11,3),(3,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 2',0,11,3),(4,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(5,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(6,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(7,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(8,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(9,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(10,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(11,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(12,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(13,1,0,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(14,1,15,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(15,1,16,'',55000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3),(16,1,17,'',110000,0,0,0,'2017-03-01','Meja Meja 4',0,11,3);
+insert  into `journals`(`journal_id`,`journal_type_id`,`data_id`,`data_url`,`journal_debit`,`journal_credit`,`journal_piutang`,`journal_hutang`,`journal_date`,`journal_desc`,`bank_id`,`user_id`,`branch_id`) values (13,2,'64','purchase.php?page=form&id=',0,214,0,0,'2017-04-10','',5,11,0),(14,2,'2147483647','purchase.php?page=form&id=',0,2000,0,0,'2017-04-10','',5,11,0),(15,2,'2147483647','purchase.php?page=form&id=',0,3000,0,0,'2017-04-10','',6,11,0),(16,2,'2147483647','purchase.php?page=form&id=',0,10000,0,0,'2017-04-10','',5,11,0),(17,2,'21491817647','purchase.php?page=form&id=',0,5000,0,0,'2017-04-10','',5,11,0),(18,2,'21491817760','purchase.php?page=form&id=',0,50000,0,0,'2017-04-10','',5,11,0),(19,2,'21491818353','purchase.php?page=form&id=',0,2000,0,0,'2017-04-10','',6,11,0),(20,2,'21491877231','purchase.php?page=form&id=',0,8000,0,0,'2017-04-11','',5,11,0);
 
 /*Table structure for table `kategori` */
 
@@ -197,15 +186,12 @@ CREATE TABLE `members` (
   `member_phone` varchar(100) NOT NULL,
   `member_alamat` varchar(30) NOT NULL,
   `member_email` varchar(200) NOT NULL,
-  `member_settlement` int(11) NOT NULL,
-  `member_discount` int(11) NOT NULL,
-  `member_discount_type` int(11) NOT NULL,
   PRIMARY KEY (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 /*Data for the table `members` */
 
-insert  into `members`(`member_id`,`member_name`,`member_phone`,`member_alamat`,`member_email`,`member_settlement`,`member_discount`,`member_discount_type`) values (250,'Tirta Rachmandiri','085821364004','Simo Sidomulyo 5 No. 46 B','racodex@gmail.com',0,2,0),(251,'ads','08976765576','jlhjvhjg','gfytfyd@gmail.com',0,5,0);
+insert  into `members`(`member_id`,`member_name`,`member_phone`,`member_alamat`,`member_email`) values (21,'adar','932580220','jl mana','kak@gmail.com'),(22,'kak','01491241','jl mana','kak@gmail.com'),(26,'nama 1','082385932','jl mana','nama1@gmail.com');
 
 /*Table structure for table `office` */
 
@@ -229,7 +215,7 @@ CREATE TABLE `office` (
 
 /*Data for the table `office` */
 
-insert  into `office`(`office_id`,`office_name`,`office_img`,`office_desc`,`office_address`,`office_phone`,`office_email`,`office_city`,`office_owner`,`office_owner_phone`,`office_owner_address`,`office_owner_email`) values (1,'BENGKEL','1487748757_logo.png','','																																																																																																																					JL. RAYA LONTAR 226 SURABAYA																																																																																																																								','(031)-04408-0-02','twoinone@gmail.com','SURABAYA','Danu Ariska','0856-343-423','Surabaya','danuariksa@gmail.com');
+insert  into `office`(`office_id`,`office_name`,`office_img`,`office_desc`,`office_address`,`office_phone`,`office_email`,`office_city`,`office_owner`,`office_owner_phone`,`office_owner_address`,`office_owner_email`) values (1,'ZEE HOLISTIC LIVING','1491902225_1491894433_spa 6.jpg','','																																																																																																																																																																																																																																																		JL. RAYA LONTAR 226 SURABAYA																																																																																																																																																																																																																																																								','(031)-04408-0-02','twoinone@gmail.com','SURABAYA','Danu Ariska','0856-343-423','Surabaya','danuariksa@gmail.com');
 
 /*Table structure for table `order` */
 
@@ -292,12 +278,13 @@ DROP TABLE IF EXISTS `paket_pijat_details`;
 CREATE TABLE `paket_pijat_details` (
   `paket_pijat_detail_id` int(11) NOT NULL AUTO_INCREMENT,
   `paket_pijat` int(11) NOT NULL,
-  `item` int(11) NOT NULL,
-  `item_qty` int(11) NOT NULL,
+  `pijat` int(11) NOT NULL,
   PRIMARY KEY (`paket_pijat_detail_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `paket_pijat_details` */
+
+insert  into `paket_pijat_details`(`paket_pijat_detail_id`,`paket_pijat`,`pijat`) values (2,1,3);
 
 /*Table structure for table `partners` */
 
@@ -352,11 +339,44 @@ CREATE TABLE `permits` (
   `side_menu_id` int(11) NOT NULL,
   `permit_acces` varchar(10) NOT NULL,
   PRIMARY KEY (`permit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=812 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=466 DEFAULT CHARSET=latin1;
 
 /*Data for the table `permits` */
 
-insert  into `permits`(`permit_id`,`user_type_id`,`side_menu_id`,`permit_acces`) values (241,4,1,'0'),(242,4,2,'c,r,u,d'),(243,4,3,'0'),(244,4,4,'0'),(245,4,5,'0'),(246,4,6,'0'),(247,4,7,''),(248,4,8,''),(249,4,9,'c,r,u,d'),(250,4,10,'c,r,u,d'),(251,4,11,''),(252,4,12,'c,r,u,d'),(253,4,13,''),(254,4,14,''),(255,4,15,'c,r,u,d'),(256,4,16,''),(257,4,17,''),(258,4,18,''),(259,4,19,''),(260,4,20,''),(261,4,21,''),(262,4,22,'c,r,u,d'),(263,4,23,''),(264,4,24,''),(699,1,1,'0'),(700,1,2,'c,r,u,d'),(701,1,3,'0'),(702,1,4,'0'),(703,1,5,'0'),(704,1,6,'0'),(705,1,7,'c,r,u,d'),(706,1,8,'c,r,u,d'),(707,1,9,'c,r,u,d'),(708,1,10,'c,r,u,d'),(709,1,11,'c,r,u,d'),(710,1,12,'c,r,u,d'),(711,1,13,'c,r,u,d'),(712,1,14,'c,r,u,d'),(713,1,15,'c,r,u,d'),(714,1,16,'c,r,u,d'),(715,1,17,'c,r,u,d'),(716,1,18,'c,r,u,d'),(717,1,19,'c,r,u,d'),(718,1,20,'c,r,u,d'),(719,1,21,'c,r,u,d'),(720,1,22,'c,r,u,d'),(721,1,23,'c,r,u,d'),(722,1,24,'c,r,u,d'),(723,1,25,'c,r,u,d'),(724,1,26,'c,r,u,d'),(725,1,27,'c,r,u,d'),(726,1,28,'c,r,u,d'),(727,1,30,'c,r,u,d'),(728,3,1,'0'),(729,3,2,'c,r,u,d'),(730,3,3,'0'),(731,3,4,'0'),(732,3,5,'0'),(733,3,6,'0'),(734,3,7,'c,r,u,d'),(735,3,8,'c,r,u,d'),(736,3,9,'c,r,u,d'),(737,3,10,'c,r,u,d'),(738,3,11,'c,r,u,d'),(739,3,12,'c,r,u,d'),(740,3,13,'c,r,u,d'),(741,3,14,'c,r,u,d'),(742,3,15,'c,r,u,d'),(743,3,16,'c,r,u,d'),(744,3,17,'c,r,u,d'),(745,3,18,'c,r,u,d'),(746,3,19,'c,r,u,d'),(747,3,20,'c,r,u,d'),(748,3,21,'c,r,u,d'),(749,3,22,'c,r,u,d'),(750,3,23,'c,r,u,d'),(751,3,24,'c,r,u,d'),(752,3,25,'c,r,u,d'),(753,3,26,'c,r,u,d'),(754,3,27,'c,r,u,d'),(755,3,28,'c,r,u,d'),(784,2,1,'0'),(785,2,2,'c,r,u,d'),(786,2,3,'0'),(787,2,4,'0'),(788,2,5,'0'),(789,2,6,'0'),(790,2,7,''),(791,2,8,'c,r,u,d'),(792,2,9,'c,r,u,d'),(793,2,10,'c,r,u,d'),(794,2,11,''),(795,2,12,'c,r,u,d'),(796,2,13,'c,r,u,d'),(797,2,14,'c,r,u,d'),(798,2,15,'c,r,u,d'),(799,2,16,'c,r,u,d'),(800,2,17,'c,r,u,d'),(801,2,18,'c,r,u,d'),(802,2,19,'c,r,u,d'),(803,2,20,'c,r,u,d'),(804,2,21,'c,r,u,d'),(805,2,22,'c,r,u,d'),(806,2,23,''),(807,2,24,''),(808,2,25,''),(809,2,26,''),(810,2,27,''),(811,2,28,'c,r,u,d');
+insert  into `permits`(`permit_id`,`user_type_id`,`side_menu_id`,`permit_acces`) values (437,1,1,'0'),(438,1,2,'c,r,u,d'),(439,1,3,'0'),(440,1,4,'0'),(441,1,5,'0'),(442,1,6,'0'),(443,1,7,'c,r,u,d'),(444,1,8,'c,r,u,d'),(445,1,9,'c,r,u,d'),(446,1,10,'c,r,u,d'),(447,1,11,'c,r,u,d'),(448,1,12,'0'),(449,1,13,'c,r,u,d'),(450,1,14,'c,r,u,d'),(451,1,16,'c,r,u,d'),(452,1,17,'c,r,u,d'),(453,1,18,'c,r,u,d'),(454,1,19,''),(455,1,20,''),(456,1,21,''),(457,1,22,''),(458,1,23,'c,r,u,d'),(459,1,24,'c,r,u,d'),(460,1,25,'c,r,u,d'),(461,1,26,''),(462,1,27,''),(463,1,28,''),(464,1,30,'c,r,u,d'),(465,1,31,'c,r,u,d');
+
+/*Table structure for table `pijat` */
+
+DROP TABLE IF EXISTS `pijat`;
+
+CREATE TABLE `pijat` (
+  `pijat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pijat_name` varchar(200) NOT NULL,
+  `pijat_waktu` int(11) NOT NULL,
+  `pijat_harga` int(11) NOT NULL,
+  `infrastruktur` int(11) NOT NULL,
+  PRIMARY KEY (`pijat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+/*Data for the table `pijat` */
+
+insert  into `pijat`(`pijat_id`,`pijat_name`,`pijat_waktu`,`pijat_harga`,`infrastruktur`) values (1,'Pijat Tungkak',0,32000,1),(2,'Pijat Jempol',0,32000,0),(3,'Pijat Geger',0,23000,0),(4,'Pijat Geger 2',0,23500,0),(5,'pijat kepala',0,400000,4);
+
+/*Table structure for table `pijat_details` */
+
+DROP TABLE IF EXISTS `pijat_details`;
+
+CREATE TABLE `pijat_details` (
+  `pijat_detail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pijat` int(11) NOT NULL,
+  `item` int(11) NOT NULL,
+  `item_qty` int(11) NOT NULL,
+  PRIMARY KEY (`pijat_detail_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `pijat_details` */
+
+insert  into `pijat_details`(`pijat_detail_id`,`pijat`,`item`,`item_qty`) values (1,1,1,1);
 
 /*Table structure for table `purchases` */
 
@@ -364,6 +384,7 @@ DROP TABLE IF EXISTS `purchases`;
 
 CREATE TABLE `purchases` (
   `purchase_id` int(11) NOT NULL AUTO_INCREMENT,
+  `purchase_code` varchar(200) NOT NULL,
   `purchase_date` date NOT NULL,
   `item_id` int(11) NOT NULL,
   `purchase_qty` int(11) NOT NULL,
@@ -372,9 +393,11 @@ CREATE TABLE `purchases` (
   `supplier_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   PRIMARY KEY (`purchase_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
 /*Data for the table `purchases` */
+
+insert  into `purchases`(`purchase_id`,`purchase_code`,`purchase_date`,`item_id`,`purchase_qty`,`purchase_price`,`purchase_total`,`supplier_id`,`branch_id`) values (65,'21491817245','2017-04-10',1,3,2000,6000,7,5),(64,'21491817109','2017-04-10',1,4141,214,886174,6,5),(63,'21491817040','2017-04-10',1,2,213,426,6,5),(62,'21491816974','2017-04-10',1,5,3000,15000,7,5),(61,'21491816916','2017-04-10',1,5,2000,10000,7,5),(66,'21491817294','2017-04-10',2,4,3000,12000,7,6),(67,'21491817460','2017-04-10',2,5,10000,50000,7,5),(68,'21491817647','2017-04-10',2,5,5000,25000,7,5),(69,'21491817760','2017-04-10',3,10,50000,500000,7,5),(70,'21491818353','2017-04-10',3,4,2000,8000,9,6),(71,'21491877231','2017-04-11',2,4,8000,32000,7,5);
 
 /*Table structure for table `reservasi` */
 
@@ -391,6 +414,24 @@ CREATE TABLE `reservasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `reservasi` */
+
+/*Table structure for table `reserved` */
+
+DROP TABLE IF EXISTS `reserved`;
+
+CREATE TABLE `reserved` (
+  `reserved_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `address` text NOT NULL,
+  `date` datetime NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`reserved_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `reserved` */
+
+insert  into `reserved`(`reserved_id`,`name`,`phone`,`address`,`date`,`status`) values (2,'Fitria','0315484702','Simo Sido Mulyo 5 No. 22','2017-02-24 21:00:00',0);
 
 /*Table structure for table `ruangan` */
 
@@ -421,24 +462,11 @@ CREATE TABLE `ruangan_infrastruktur` (
   `koordinat_y` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`ruangan_infrastruktur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ruangan_infrastruktur` */
 
-insert  into `ruangan_infrastruktur`(`ruangan_infrastruktur_id`,`ruangan`,`branch`,`infrastruktur`,`infrastruktur_name`,`koordinat_x`,`koordinat_y`,`status`) values (1,9,3,3,'test',558,204,0),(2,9,3,3,'dasdsadasd',704,206,0),(3,9,3,1,'dfbbrbrb',855,138,0),(4,9,3,3,'kursi 2',408,201,0);
-
-/*Table structure for table `ruangs` */
-
-DROP TABLE IF EXISTS `ruangs`;
-
-CREATE TABLE `ruangs` (
-  `ruangan_id` int(100) NOT NULL,
-  `ruangan_name` varchar(200) NOT NULL,
-  `branch` int(100) NOT NULL,
-  PRIMARY KEY (`ruangan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `ruangs` */
+insert  into `ruangan_infrastruktur`(`ruangan_infrastruktur_id`,`ruangan`,`branch`,`infrastruktur`,`infrastruktur_name`,`koordinat_x`,`koordinat_y`,`status`) values (11,9,7,1,'Kursi Pijat 2',518,205,0),(12,9,7,1,'Kursi Pijat 1',414,203,0);
 
 /*Table structure for table `side_menus` */
 
@@ -453,11 +481,44 @@ CREATE TABLE `side_menus` (
   `side_menu_level` int(11) NOT NULL,
   `side_menu_type_parent` int(11) NOT NULL,
   PRIMARY KEY (`side_menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 /*Data for the table `side_menus` */
 
-insert  into `side_menus`(`side_menu_id`,`side_menu_name`,`side_menu_url`,`side_menu_parent`,`side_menu_icon`,`side_menu_level`,`side_menu_type_parent`) values (1,'Master','#',0,'fa fa-edit',1,0),(2,'Order','order.php',0,'fa fa-cutlery',1,1),(3,'Transaksi','#',0,'fa fa-shopping-cart',1,0),(4,'Accounting','#',0,'fa fa-list-alt',1,0),(5,'Laporan','#',0,'fa fa-list-alt',1,0),(6,'Setting','#',0,'fa fa-cog',1,0),(7,'Cabang','branch.php',1,'',2,1),(8,'Ruangan','building.php',1,'',2,1),(9,'Infrastruktur','infrastruktur.php',1,'',2,1),(10,'Paket Pijat','paket_pijat.php',1,'',2,1),(11,'Partner','partner.php',1,'',2,1),(12,'Member','member.php',1,'',2,1),(13,'Supplier','supplier.php',1,'',2,1),(14,'Voucher','voucher.php',1,'',2,1),(15,'Reservasi','reserved.php',3,'',2,1),(16,'Pembelian','purchase.php',3,'',2,1),(17,'Stok','stock.php',3,'',2,1),(18,'Arus Kas','arus_kas.php',4,'',2,1),(19,'Pemasukan Dan Pengeluaran Lainnya','jurnal_umum.php',4,'',2,1),(20,'Laporan Detail','report_detail.php',5,'',2,1),(21,'Laporan Harian','report_harian.php',5,'',2,1),(22,'Infrastruktur','infrastruktur_setting.php',6,'',2,1),(23,'User','user.php',6,'',2,1),(24,'Type User','user_type.php',6,'',2,1),(25,'Penyesuaian Stock','penyesuaian_stock.php',1,'',2,1),(26,'Laporan Penyesuaian Stock','report_penyesuaian_stock.php',5,'',2,1),(27,'Kategori Menu','kategori_menu.php',1,'',2,1);
+insert  into `side_menus`(`side_menu_id`,`side_menu_name`,`side_menu_url`,`side_menu_parent`,`side_menu_icon`,`side_menu_level`,`side_menu_type_parent`) values (1,'Master','#',0,'fa fa-edit',1,0),(2,'Order','transaction.php',0,'fa fa-leaf',1,1),(3,'Transaksi','#',0,'fa fa-shopping-cart',1,0),(4,'Accounting','#',0,'fa fa-list-alt',1,0),(5,'Laporan','#',0,'fa fa-list-alt',1,0),(6,'Setting','#',0,'fa fa-cog',1,0),(7,'Cabang','branch.php',1,'',2,1),(8,'Ruangan','building.php',1,'',2,1),(9,'Infrastruktur','infrastruktur.php',1,'',2,1),(10,'Pijat','pijat.php',1,'',2,1),(11,'Paket Pijat','paket_pijat.php',0,'',0,0),(12,'Partner','partner.php',0,'',0,0),(13,'Member','member.php',1,'',2,1),(14,'Supplier','supplier.php',1,'',2,1),(16,'Reservasi','reserved.php',3,'',2,1),(17,'Pembelian','purchase.php',3,'',2,1),(18,'Stok','stock.php',3,'',2,1),(19,'Arus Kas','arus_kas.php',4,'',2,1),(20,'Pemasukan Dan Pengeluaran Lainnya','jurnal_umum.php',4,'',2,1),(21,'Laporan Detail','report_detail.php',5,'',2,1),(22,'Laporan Harian','report_harian.php',5,'',2,1),(23,'Infrastruktur','infrastruktur_setting.php',6,'',2,1),(24,'User','user.php',6,'',2,1),(25,'Type User','user_type.php',6,'',2,1),(26,'Penyesuaian Stock','penyesuaian_stock.php',0,'',0,1),(27,'Laporan Penyesuaian Stock','report_penyesuaian_stock.php',5,'',2,1),(28,'Kategori Menu','kategori_menu.php',0,'',0,1),(30,'Profil','office.php',6,'',2,1),(31,'Item','item.php',3,'',2,1);
+
+/*Table structure for table `statement` */
+
+DROP TABLE IF EXISTS `statement`;
+
+CREATE TABLE `statement` (
+  `statement_id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `tekanan` int(11) NOT NULL,
+  `asma` int(11) NOT NULL,
+  `inhaler` int(11) NOT NULL,
+  `leher` int(11) NOT NULL,
+  `kulit` int(11) NOT NULL,
+  `kulit_jabarkan` varchar(100) NOT NULL,
+  `selain_diatas` int(11) NOT NULL,
+  `selain_jabarkan` varchar(100) NOT NULL,
+  `alergi` int(11) NOT NULL,
+  `alergi_jabarkan` varchar(100) NOT NULL,
+  `hamil` int(11) NOT NULL,
+  `usia_kandungan` varchar(100) NOT NULL,
+  `kontak_lens` int(11) NOT NULL,
+  `melepas_lens` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  `spesial` int(11) NOT NULL,
+  `jawaban` int(11) NOT NULL,
+  `tidak_menyembunyikan` int(11) NOT NULL,
+  `tanggung_jawab` int(11) NOT NULL,
+  PRIMARY KEY (`statement_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+/*Data for the table `statement` */
+
+insert  into `statement`(`statement_id`,`member_id`,`tekanan`,`asma`,`inhaler`,`leher`,`kulit`,`kulit_jabarkan`,`selain_diatas`,`selain_jabarkan`,`alergi`,`alergi_jabarkan`,`hamil`,`usia_kandungan`,`kontak_lens`,`melepas_lens`,`level`,`spesial`,`jawaban`,`tidak_menyembunyikan`,`tanggung_jawab`) values (1,21,2,2,2,2,2,'',2,'',2,'',2,'',2,2,3,1,1,1,1),(2,22,2,2,2,2,2,'',2,'',2,'',2,'',1,1,2,1,1,1,1),(6,25,1,1,1,1,1,'cedera',2,'',2,'',2,'',1,1,3,1,1,1,1);
 
 /*Table structure for table `suppliers` */
 
@@ -470,11 +531,174 @@ CREATE TABLE `suppliers` (
   `supplier_email` varchar(100) NOT NULL,
   `supplier_addres` varchar(100) NOT NULL,
   PRIMARY KEY (`supplier_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `suppliers` */
 
-insert  into `suppliers`(`supplier_id`,`supplier_name`,`supplier_phone`,`supplier_email`,`supplier_addres`) values (6,'Bakmi Gili Pusat',315484702,'bakmie.gili@gmail.com','MT. Haryono No. 42'),(7,'majapahit',2147483647,'ajajiji@gmail.com','jl majapahit');
+insert  into `suppliers`(`supplier_id`,`supplier_name`,`supplier_phone`,`supplier_email`,`supplier_addres`) values (6,'Bakmi Gili Pusat',315484702,'bakmie.gili@gmail.com','MT. Haryono No. 42'),(7,'Majapahit',2147483647,'ajajiji@gmail.com','jl majapahit'),(9,'Sudirman',2147483647,'email@gmail.com','jl raya');
+
+/*Table structure for table `transaction_bills` */
+
+DROP TABLE IF EXISTS `transaction_bills`;
+
+CREATE TABLE `transaction_bills` (
+  `transaction_id` int(11) NOT NULL,
+  `table_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `tot_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `transaction_code` int(11) NOT NULL,
+  PRIMARY KEY (`transaction_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_bills` */
+
+/*Table structure for table `transaction_details` */
+
+DROP TABLE IF EXISTS `transaction_details`;
+
+CREATE TABLE `transaction_details` (
+  `transaction_detail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `transaction_detail_original_price` int(11) NOT NULL,
+  `transaction_detail_margin_price` int(11) NOT NULL,
+  `transaction_detail_price` int(11) NOT NULL,
+  `transaction_detail_price_discount` int(11) NOT NULL,
+  `transaction_detail_grand_price` int(11) NOT NULL,
+  `transaction_detail_qty` int(11) NOT NULL,
+  `transaction_detail_total` int(11) NOT NULL,
+  PRIMARY KEY (`transaction_detail_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_details` */
+
+insert  into `transaction_details`(`transaction_detail_id`,`transaction_id`,`menu_id`,`transaction_detail_original_price`,`transaction_detail_margin_price`,`transaction_detail_price`,`transaction_detail_price_discount`,`transaction_detail_grand_price`,`transaction_detail_qty`,`transaction_detail_total`) values (1,1,547,16000,0,16000,0,16000,1,16000),(2,2,547,16000,0,16000,0,16000,1,16000),(3,3,548,16000,0,16000,0,16000,1,16000),(4,1,547,16000,0,16000,0,16000,7,112000),(5,2,2,24000,0,24000,0,24000,1,24000),(6,0,5,25000,0,25000,0,25000,1,25000),(7,0,17,28000,0,28000,0,28000,1,28000),(8,0,0,25000,0,25000,0,25000,1,25000),(9,0,18,30000,0,30000,0,30000,1,30000),(10,16,5,25000,0,25000,0,25000,1,25000),(11,16,9,30000,0,30000,0,30000,1,30000),(12,17,5,25000,0,25000,0,25000,1,25000),(13,17,18,30000,0,30000,0,30000,1,30000),(14,17,5,25000,0,25000,0,25000,1,25000),(15,17,18,30000,0,30000,0,30000,1,30000),(16,18,1,21000,0,21000,0,21000,1,21000);
+
+/*Table structure for table `transaction_histories` */
+
+DROP TABLE IF EXISTS `transaction_histories`;
+
+CREATE TABLE `transaction_histories` (
+  `transaction_id` int(11) NOT NULL,
+  `table_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `transaction_total` int(11) NOT NULL,
+  `transaction_discount` int(11) NOT NULL,
+  `transaction_grand_total` int(11) NOT NULL,
+  `transaction_payment` int(11) NOT NULL,
+  `transaction_change` int(11) NOT NULL,
+  `payment_method_id` int(11) NOT NULL,
+  `bank_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `bank_account_number` varchar(100) NOT NULL,
+  `transaction_code` int(11) NOT NULL,
+  `user_delete` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`transaction_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_histories` */
+
+/*Table structure for table `transaction_order_types` */
+
+DROP TABLE IF EXISTS `transaction_order_types`;
+
+CREATE TABLE `transaction_order_types` (
+  `tot_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tot_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`tot_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_order_types` */
+
+insert  into `transaction_order_types`(`tot_id`,`tot_name`) values (1,'Dining'),(2,'Take away'),(3,'Delivery');
+
+/*Table structure for table `transaction_summary` */
+
+DROP TABLE IF EXISTS `transaction_summary`;
+
+CREATE TABLE `transaction_summary` (
+  `id_transaction_summary` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_grtotal_summary` varchar(45) NOT NULL,
+  `transaction_summarycol` varchar(45) NOT NULL,
+  `transaction_total` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_transaction_summary`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_summary` */
+
+/*Table structure for table `transaction_tmp_details` */
+
+DROP TABLE IF EXISTS `transaction_tmp_details`;
+
+CREATE TABLE `transaction_tmp_details` (
+  `transaction_detail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `transaction_detail_original_price` int(11) NOT NULL,
+  `transaction_detail_margin_price` int(11) NOT NULL,
+  `transaction_detail_price` int(11) NOT NULL,
+  `transaction_detail_price_discount` int(11) NOT NULL,
+  `transaction_detail_grand_price` int(11) NOT NULL,
+  `transaction_detail_qty` int(11) NOT NULL,
+  `transaction_detail_total` int(11) NOT NULL,
+  `transaction_detail_status` int(11) NOT NULL,
+  PRIMARY KEY (`transaction_detail_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_tmp_details` */
+
+insert  into `transaction_tmp_details`(`transaction_detail_id`,`transaction_id`,`menu_id`,`transaction_detail_original_price`,`transaction_detail_margin_price`,`transaction_detail_price`,`transaction_detail_price_discount`,`transaction_detail_grand_price`,`transaction_detail_qty`,`transaction_detail_total`,`transaction_detail_status`) values (1,1,0,25000,0,25000,0,25000,1,25000,0),(2,1,2,24000,0,24000,0,24000,1,24000,0),(3,1,37,5000,0,5000,0,5000,1,5000,0),(4,1,8,26000,0,26000,0,26000,1,26000,0);
+
+/*Table structure for table `transactions` */
+
+DROP TABLE IF EXISTS `transactions`;
+
+CREATE TABLE `transactions` (
+  `transaction_id` int(11) NOT NULL AUTO_INCREMENT,
+  `branch_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `transaction_total` int(11) NOT NULL,
+  `transaction_discount` int(11) NOT NULL,
+  `disc_member` int(11) NOT NULL,
+  `transaction_grand_total` int(11) NOT NULL,
+  `transaction_payment` int(11) NOT NULL,
+  `transaction_change` int(11) NOT NULL,
+  `transaction_disc_nominal` int(11) NOT NULL,
+  `payment_method_id` int(11) NOT NULL,
+  `bank_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `bank_account_number` varchar(100) NOT NULL,
+  `transaction_code` int(11) NOT NULL,
+  `flag_code` int(1) DEFAULT NULL,
+  PRIMARY KEY (`transaction_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+/*Data for the table `transactions` */
+
+insert  into `transactions`(`transaction_id`,`branch_id`,`member_id`,`transaction_date`,`transaction_total`,`transaction_discount`,`disc_member`,`transaction_grand_total`,`transaction_payment`,`transaction_change`,`transaction_disc_nominal`,`payment_method_id`,`bank_id`,`user_id`,`bank_account_number`,`transaction_code`,`flag_code`) values (1,3,0,'2017-02-27 04:44:06',112000,0,0,112000,112000,0,0,1,0,39,'',1488167046,0),(2,3,0,'2017-02-28 04:18:10',24000,0,0,24000,24000,0,0,1,0,11,'',1488251890,0),(3,3,0,'2017-03-01 09:05:12',53000,0,0,53000,53000,0,0,1,0,11,'',1488355512,0),(16,3,0,'2017-03-01 09:10:45',55000,0,0,55000,55000,0,0,1,0,11,'',1488355845,0),(17,3,0,'2017-03-01 17:14:10',110000,0,0,110000,110000,0,0,1,0,11,'',1488384850,0),(18,3,0,'2017-04-06 04:46:18',21000,5,0,20000,21000,1000,0,1,0,11,'',1491446778,0);
+
+/*Table structure for table `transactions_tmp` */
+
+DROP TABLE IF EXISTS `transactions_tmp`;
+
+CREATE TABLE `transactions_tmp` (
+  `transaction_id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL,
+  `pijat` int(11) NOT NULL,
+  `item` int(11) NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `transaction_code` int(11) NOT NULL,
+  PRIMARY KEY (`transaction_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `transactions_tmp` */
 
 /*Table structure for table `user_types` */
 
@@ -506,11 +730,11 @@ CREATE TABLE `users` (
   `user_active_status` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
 
-insert  into `users`(`user_id`,`user_type_id`,`user_login`,`user_password`,`user_name`,`user_code`,`user_phone`,`user_img`,`user_active_status`,`branch_id`) values (11,3,'admin','21232f297a57a5a743894a0e4a801fc3','admin','A0001','03125435432','',1,3),(32,3,'maria','fe01ce2a7fbac8fafaed7c982a04e229','maria','','1111','',1,4),(34,1,'budi','101eb6ad45137d043a8e3f8fb3990135','budi','','3232','',1,3),(39,2,'dita','fe01ce2a7fbac8fafaed7c982a04e229','Dita','','085731404513','',1,3),(40,4,'elina','fe01ce2a7fbac8fafaed7c982a04e229','Lina','','085852731314','',1,4);
+insert  into `users`(`user_id`,`user_type_id`,`user_login`,`user_password`,`user_name`,`user_code`,`user_phone`,`user_img`,`user_active_status`,`branch_id`) values (11,1,'admin','21232f297a57a5a743894a0e4a801fc3','admin','','03125435432','',1,7),(32,3,'maria','fe01ce2a7fbac8fafaed7c982a04e229','maria','','1111','',1,4),(34,1,'budi','101eb6ad45137d043a8e3f8fb3990135','budi','','3232','',1,3),(39,2,'dita','fe01ce2a7fbac8fafaed7c982a04e229','Dita','','085731404513','',1,3),(40,4,'elina','fe01ce2a7fbac8fafaed7c982a04e229','Lina','','085852731314','',1,4),(41,1,'admin12','21232f297a57a5a743894a0e4a801fc3','admin','','01491241','',1,6);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
