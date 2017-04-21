@@ -78,8 +78,8 @@ switch ($page) {
 		$i_name = get_isset($i_name);
 		$i_branch_id = get_isset($i_branch_id);
 					
-					$data = "building_name = '$i_name',
-							branch_id = '$i_branch_id'
+					$data = "ruangan_name = '$i_name',
+							 branch_id = '$i_branch_id'
 
 					";
 			

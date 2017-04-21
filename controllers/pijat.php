@@ -9,6 +9,7 @@ $title = ucfirst("pijat");
 $_SESSION['menu_active'] = 1;
 switch ($page) {
   case 'list':
+  
     get_header($title);
     $where ='';
     $query = select_config('pijat', $where);

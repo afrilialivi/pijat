@@ -36,10 +36,9 @@ switch ($page) {
 		}else{
 			$where = " and c.branch_id = '".$_SESSION['branch_id']."'";
 			$branch_name = get_branch_name($_SESSION['branch_id']);
+			$q_reserved = select_config('reserved','');
 		
 		}
-			
-		$query = select_table($where);
 		
 			//inisialisasi
 			$row = new stdClass();
@@ -47,7 +46,6 @@ switch ($page) {
 			$row->name = false;
 			$row->phone = false;
 			$row->address = false;
-			$row->amount = false;
 			$row->date = date("d/m/Y");
 			$row->hour = false;
 			
@@ -75,7 +73,6 @@ switch ($page) {
 		$i_name = get_isset($i_name);
 		$i_phone = get_isset($i_phone);
 		$i_address = get_isset($i_address);
-		$i_amount = get_isset($i_amount);
 		$i_date = get_isset($i_date);
 		$i_date = format_back_date($i_date);
 		$i_hour = get_isset($i_hour);
@@ -108,46 +105,21 @@ switch ($page) {
 		}
 
 		
-		$query_count = select_table($where);		
-		
-		$count = 0;
-	
-		while($row_count = mysql_fetch_array($query_count)){
-					if(isset($_POST['i_table_id_'.$row_count['table_id']]) && $_POST['i_table_id_'.$row_count['table_id']]  == 1){
-						$count++;
-					}
-		}
-		
+		$query_count = select_table($where);				
 
-		if($count > 0){
-		
-			$query = select_table($where);
-			while($row = mysql_fetch_array($query)){
-				
-				
-						
-						if($_POST['i_table_id_'.$row['table_id']] == 1){
-							$data = "'',
-								'".$row['table_id']."',
-								'$i_name',
-								'$i_phone',
-								'$i_address',
-								'$i_amount',
-								'$i_date $new_hour',
-								'0'
-								";
-							save($data);
-							update_status($row['table_id'], 3);
-						}
-					
-				
-			}
-			header("location: order.php");
-		}else{
-			header("Location: reserved.php?err=1");
-		}
-		
-		
+				$data = "'',
+				'$i_name',
+				'$i_phone',
+				'$i_address',
+				'$i_date $new_hour',
+				'0'
+				";
+			save($data);
+			// update_status($row['table_id'], 3);
+
+			// var_dump($_POST);	
+
+		header("location: order.php");	
 	break;
 	
 	

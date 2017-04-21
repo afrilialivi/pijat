@@ -34,7 +34,7 @@
 									<input required type="hidden" id="i_jual" name="i_jual" class="form-control" placeholder="Masukkan harga jual..." value="<?= $row->item_harga_jual ?>"/>
 								</div>
 								<div class="form-group">
-							      <label for="">Nama Satuan : </label>
+							      <label for="">Satuan Utama : </label>
 							      <input type="hidden" name="pijat_id" value="<?= $id?>">
 							      <select id="i_satuan" name="i_satuan" class="selectpicker show-tick form-control" data-live-search="true">
 							        <option value="0"></option>
@@ -50,11 +50,11 @@
 							<div style="clear:both;"></div>
 						</div><!-- /.box-body -->
 						<div class="box-footer">
-							<input class="btn btn-warning" type="submit" value="Save"/>
+			             <input class="btn btn-warning" type="submit" value="Save"/>
 							<a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
-						</div>
 					</div><!-- /.box -->
 				</form>
 			</div><!--/.col (right) -->
 		</div>   <!-- /.row -->
+		 <?php if($id){include '../views/item/form_konversi.php';}?>
 	</section><!-- /.content -->

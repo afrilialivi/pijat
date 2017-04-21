@@ -73,7 +73,7 @@
                                                         </div><br>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="color: #000;">
                                                         <div>
                                                             <label>Apakah anda mempunyai atau pernah mempunyai masalah tekanan darah tinggi ?</label>
                                                         </div>

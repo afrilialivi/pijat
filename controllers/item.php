@@ -6,7 +6,10 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("item");
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 2;
+$_SESSION['sub_menu_active'] = 10;
+$cabang = $_SESSION['branch_id'];
+$permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 
 switch ($page) {
 	case 'list':
@@ -31,7 +34,9 @@ switch ($page) {
 		if($id){
 
 			$row = read_id($id);
-
+			$where_item_id = "where item_id = '$id'";
+			$row = select_object_config('item', $where_item_id);
+			$q_tabel_konversi = select_tabel_konversi($id);
 			$action = "item.php?page=edit&id=$id";
 		} else{
 
@@ -105,6 +110,116 @@ switch ($page) {
 		header('Location: item.php?page=list&did=3');
 
 	break;
+
+	case 'delete_konversi':
+		$id  = $_GET['item_id'];
+		$konversi_id = get_isset($_GET['id']);
+		$where_konversi_id = "konversi_id = '$konversi_id'";
+
+		delete_config('konversi_item', $where_konversi_id);
+		header("location: item.php?page=form&id=$id");
+		break;
+
+		case 'pop_modal_konversi':
+		$id  = $_GET['id'];
+		$where_item_id = "WHERE item_id = '$id'";
+		$satuan = select_config_by('item', 'item_satuan', $where_item_id);
+		$konversi_id = (isset($_GET['konversi_id'])) ? $_GET['konversi_id'] : null;
+
+		$and_satuan_konversi = "";
+
+		if ($konversi_id!=null) {
+			$where_konversi_id = "where konversi_id = '$konversi_id'";
+			$row = select_object_config('konversi_item', $where_konversi_id);
+
+			$and_satuan_konversi = " and satuan_id ='$row->satuan_konversi'";
+
+			$action = "item.php?page=edit_konversi&id=$konversi_id";
+		} else {
+				$row = new stdClass();
+
+			// $row->satuan = false;
+			$row->jumlah = false;
+			$row->satuan_konversi = false;
+			$row->jumlah_satuan_konversi = false;
+			$action = "item.php?page=save_konversi";
+		}	
+
+		$where_item_id = "WHERE item_id = '$id'";
+     	$item_name = select_config_by('item', 'item_name', $where_item_id);
+      	$where_satuan_id = "WHERE satuan_id = '$satuan'";
+      	$satuan_name = select_config_by('satuan', 'satuan_name', $where_satuan_id);
+      	$q_satuan = select_config('satuan','');
+
+      	$where_satuan_yang_sudah_dipilih = "where satuan_id != '$satuan'";
+      	$and_satuan_yang_sudah_dipilih = "";
+      	$q_satuan_yang_sudah_dipilih = select_config('konversi_item', $where_item_id);
+
+     
+      	while ($r_satuan_yang_sudah_dipilih = mysql_fetch_array($q_satuan_yang_sudah_dipilih)) {
+
+      		$satuan_konversi_yg_sudah_dipilih = $r_satuan_yang_sudah_dipilih['satuan_konversi'];
+
+      		if ($satuan_konversi_yg_sudah_dipilih != null && $satuan_konversi_yg_sudah_dipilih != $row->satuan_konversi) {
+      			$and_satuan_yang_sudah_dipilih = " and satuan_id != '$satuan_konversi_yg_sudah_dipilih'";      		
+      			$where_satuan_yang_sudah_dipilih = $where_satuan_yang_sudah_dipilih.$and_satuan_yang_sudah_dipilih;
+      		}
+
+      	}
+
+
+      	$q_konversi = select_konversi($where_satuan_yang_sudah_dipilih);
+
+      	include '../views/item/pop_modal_konversi.php';
+		break;
+
+		case 'save_konversi':
+
+		$id  = $_POST['item_id'];
+
+		extract($_POST);
+		$item_id = get_isset($item_id);
+		$satuan = get_isset($satuan);
+		$qty_utama = get_isset($qty_utama);
+		$satuan_konversi = get_isset($satuan_konversi);
+		$qty_konversi = get_isset($qty_konversi);
+
+		$data = "'',
+				 '$item_id',
+				 '$satuan',
+				 '$qty_utama',
+				 '$satuan_konversi',
+				 '$qty_konversi'
+				";
+		var_dump($_POST);
+		create_config('konversi_item', $data);
+		// echo $data;
+		header("location: item.php?page=form&id=$id");
+		break;
+
+		case 'edit_konversi':
+		$id  = $_POST['item_id'];
+		
+		extract($_POST);
+		$konversi_id = get_isset($_GET['id']);
+		$item_id = get_isset($item_id);
+		$satuan = get_isset($satuan);
+		$qty_utama = get_isset($qty_utama);
+		$satuan_konversi = get_isset($satuan_konversi);
+		$qty_konversi = get_isset($qty_konversi);
+
+		$data = "
+				 item_id = '$item_id',
+				 satuan = '$satuan',
+				 jumlah = '$qty_utama',
+				 satuan_konversi = '$satuan_konversi',
+				 jumlah_satuan_konversi = '$qty_konversi'
+				";
+
+		$where_konversi_id = "konversi_id = '$konversi_id'";	
+		update_config2("konversi_item", $data, $where_konversi_id);
+		header("location: item.php?page=form&id=$id");
+		break;
 }
 
 ?>

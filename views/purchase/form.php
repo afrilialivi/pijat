@@ -97,7 +97,18 @@ document.getElementById("i_total").value = total;
                                 <label>QTY</label>
                                 <input required type="number" name="i_qty" id="i_qty" class="form-control" placeholder="Masukkan jumlah..." value="<?= $row->purchase_qty ?>" onChange="grand_total()" min="0"/>
                               </div>
-                              
+                              <div class="form-group">
+                                <label>Satuan</label>
+                                <select id="basic" name="i_satuan_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                <?php
+                                  while($r_satuan = mysql_fetch_array($q_satuan)){
+                                ?>
+                                <option value="<?= $r_satuan['satuan_id'] ?>" <?php if($row->satuan_id == $r_satuan['satuan_id']){ ?> selected="selected"<?php } ?>><?= $r_satuan['satuan_name']?></option>
+                                <?php
+                                  }
+                                ?>
+                                </select>                                            
+                              </div>
                               <div class="form-group">
                               <label>Total Harga</label>
                               <input required type="text" readonly name="i_total" id="i_total" class="form-control"  value="<?= $row->purchase_total ?>"/>

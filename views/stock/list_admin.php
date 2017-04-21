@@ -1,4 +1,4 @@
-                <?php
+<?php
                 if(isset($_GET['did']) && $_GET['did'] == 1){
                 ?>
                 <section class="content_new">
@@ -51,19 +51,19 @@
                             <div class="box">
 
                                 <div class="box-body2 table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <div class="col-xs-12">
+                                        <table id="example1" class="table table-bordered table-striped">
                                         <thead style="background-color: #9975a1; color: #fff;">
                                             <tr>
-                                            	<th width="5%">No</th>
+                                                <th width="5%">No</th>
 
                                                 <th>Nama</th>
                                                 <th>Satuan</th>
-                                                <th>Limit</th>
                                                 <?php
-                                               	while($r_branch = mysql_fetch_array($q_branch)){ ?>
+                                                while($r_branch = mysql_fetch_array($q_branch)){ ?>
                                                 <th><?= $r_branch['branch_name']?></th>
-                                              	<?php } ?>
-                                                <th>Config</th>
+                                                <?php } ?>
+                                                <!-- <th>Config</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,30 +73,20 @@
                                             <tr>
                                                 <td><?= $no?></td>
                                                 <td><?= $row['item_name']?></td>
-                                                <td><?= $row['unit_name']?></td>
-                                                <td><?= $row['item_limit']?></td>
+                                                <td><?= $row['satuan_name']?></td>
                                                 <?php
                                                 $count_branch = 0;
                                                 $row_limit = 0;
                                                 $q_branch2 = mysql_query("select * from branches $where_branch order by branch_id");
-                                               	while($r_branch2 = mysql_fetch_array($q_branch2)){ ?>
-                                                <td  
-                                                    <?php 
-                                                         echo $r_branch2['branch_id'];
-                                                    
-                                                    
-                                                        if(get_stock($row['item_id'], $r_branch2['branch_id']) == $row_limit){ ?> 
-                                                            bgcolor="#fb7b7b" style="color:#fff;"
-                                                    <?php }elseif(get_stock($row['item_id'], $r_branch2['branch_id']) <= $row['item_limit']){
-                                                    ?>  bgcolor="#D82827" style="color:#fff;"
-                                                    <?php } ?>>
+                                                while($r_branch2 = mysql_fetch_array($q_branch2)){ ?>
+                                                <td>
                                                   <?= get_stock($row['item_id'], $r_branch2['branch_id'])?>
                                                 </td>
-                                              	
+                                                
                                                 <?php $count_branch++;} ?>
                                                
                                                 
-                                                <td style="text-align:center;">
+                                               <!--  <td style="text-align:center;">
                                                     <a href="stock.php?page=form&id=<?= $row['item_id']?>" class="btn btn-default" >
                                                       <i class="fa fa-pencil"></i>
                                                     </a>
@@ -104,7 +94,7 @@
                                                       class="btn btn-default" >
                                                       <i class="fa fa-trash-o"></i>
                                                     </a>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                             <?php
                                             $no++;
@@ -114,13 +104,14 @@
 
 
                                         </tbody>
-                                          <tfoot>
+                                          <!-- <tfoot>
                                             <tr>
                                                 <td colspan="8"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot> -->
                                     </table>
-
+                                    </div>
+                                
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
                         </div>

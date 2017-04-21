@@ -34,6 +34,7 @@ switch ($page) {
 		$query_supplier = select_supplier();
 		$query_item = select_item();
 		$query_branch = select_branch();
+		$q_satuan = select_config('satuan','');
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		if($id){
@@ -54,6 +55,7 @@ switch ($page) {
 			$row->purchase_total = false;
 			$row->supplier_id = false;
 			$row->branch_id = false;
+			$row->satuan_id = false;
 			
 			$action = "purchase.php?page=save";
 		}
@@ -75,6 +77,7 @@ switch ($page) {
 		$i_total = get_isset($i_total);
 		$i_supplier = get_isset($i_supplier);
 		$i_branch_id = get_isset($i_branch_id);
+		$i_satuan_id = get_isset($i_satuan_id);
 		$get_item_name = get_item_name($i_item_id);
 		$i_code = '2'.time();
 
@@ -86,7 +89,8 @@ switch ($page) {
 					'$i_harga',
 					'$i_total',
 					'$i_supplier',
-					'$i_branch_id'
+					'$i_branch_id',
+					'$i_satuan_id'
 			";
 			
 			//echo $data;

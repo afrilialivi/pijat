@@ -29,4 +29,17 @@ function update($data, $id){
 function delete($id){
 	mysql_query("delete from item where item_id = '$id'");
 }
+
+ function select_tabel_konversi($id){
+  $query = mysql_query("SELECT a.* , b.satuan_name , c.satuan_name AS konversi, d.item_name FROM konversi_item a
+		                  LEFT JOIN satuan b ON b.satuan_id = a.satuan_utama
+		                  LEFT JOIN satuan c ON c.satuan_id = a.satuan_konversi
+		                  LEFT JOIN item d ON d.item_id = a.item_id
+		                  WHERE a.item_id = '$id'");
+  return $query;
+}
+function select_konversi($where_satuan_yang_sudah_dipilih){
+  $query = mysql_query("SELECT * from satuan $where_satuan_yang_sudah_dipilih");
+  return $query;
+}
 ?>

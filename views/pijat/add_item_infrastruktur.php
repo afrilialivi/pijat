@@ -21,7 +21,7 @@
               <?php
               $no = 1;
               while ($r_pijat_details = mysql_fetch_array($q_pijat_details)) {?>
-                <tr>
+                <tr style="color: #000;">
                   <td style="text-align:center;"><?=$no;?></td>
                   <td><?= $r_pijat_details['item_name']?></td>
                   <td style="text-align:right;"><?= $r_pijat_details['satuan']?></td>

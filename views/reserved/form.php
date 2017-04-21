@@ -1,4 +1,8 @@
-
+<style type="text/css">
+    .dropdown-menu {
+        color: #000;
+    }
+</style>
         <!-- header logo: style can be found in header.less -->
            <?php
                 if(isset($_GET['err']) && $_GET['err'] == 1){
@@ -9,7 +13,7 @@
                 <i class="fa fa-warning"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
                 <b>Simpan Gagal !</b>
-               Pilih meja yang di booking 
+               <!--      --> 
                 </div>
            
                 </section>

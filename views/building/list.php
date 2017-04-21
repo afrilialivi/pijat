@@ -73,7 +73,7 @@
                                                <td style="text-align:center;">
 
                                                     <a href="building.php?page=form&id=<?= $row['ruangan_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['building_id']; ?>,'building.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['ruangan_id']; ?>,'building.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
 
                                                 </td>
                                             </tr>
