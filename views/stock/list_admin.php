@@ -56,9 +56,9 @@
                                         <thead style="background-color: #9975a1; color: #fff;">
                                             <tr>
                                                 <th width="5%">No</th>
-
                                                 <th>Nama</th>
                                                 <th>Satuan</th>
+                                                <th>Limit</th>
                                                 <?php
                                                 while($r_branch = mysql_fetch_array($q_branch)){ ?>
                                                 <th><?= $r_branch['branch_name']?></th>
@@ -74,17 +74,21 @@
                                                 <td><?= $no?></td>
                                                 <td><?= $row['item_name']?></td>
                                                 <td><?= $row['satuan_name']?></td>
+                                                <td><?= $row['item_limit']?></td>
+
                                                 <?php
-                                                $count_branch = 0;
-                                                $row_limit = 0;
-                                                $q_branch2 = mysql_query("select * from branches $where_branch order by branch_id");
-                                                while($r_branch2 = mysql_fetch_array($q_branch2)){ ?>
-                                                <td>
-                                                  <?= get_stock($row['item_id'], $r_branch2['branch_id'])?>
-                                                </td>
-                                                
-                                                <?php $count_branch++;} ?>
-                                               
+                                                  $q_branch_ = select_config('branches', '');
+                                                  while ($r_branch_ = mysql_fetch_array($q_branch_)) {?>
+                                                <td style="text-align: right
+                                                  <?php
+                                                  $i_id=$row['item_id'];
+                                                  if( get_stock($i_id, $r_branch_['branch_id']) <= $row['item_limit'])
+                                                    {
+                                                     echo "color:#fff;background-color: #d46ce0 !important;"; 
+                                                     } ?>">
+                                                  <?= get_stock($row['item_id'],$r_branch_['branch_id'])?>
+                                                </td>         
+                                                  <?}?>    
                                                 
                                                <!--  <td style="text-align:center;">
                                                     <a href="stock.php?page=form&id=<?= $row['item_id']?>" class="btn btn-default" >
@@ -96,10 +100,7 @@
                                                     </a>
                                                 </td> -->
                                             </tr>
-                                            <?php
-                                            $no++;
-                                                }
-                                            ?>
+                                            <?php $no++; } ?>
 
 
 

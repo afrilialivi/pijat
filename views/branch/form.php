@@ -23,7 +23,7 @@
                                         <div class="col-md-12">
                                         
                                         <div class="form-group">
-                                            <label>Name</label>
+                                            <label>Nama Cabang</label>
                                             <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-user"></i>
@@ -33,7 +33,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Phone</label>
+                                            <label>Telepon</label>
                                             <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
@@ -43,7 +43,7 @@
                                         </div>
 
                                          <div class="form-group">
-                                            <label>Address</label>
+                                            <label>Alamat</label>
                                             <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-home"></i>
@@ -55,12 +55,12 @@
                                          
 
                                          <div class="form-group">
-                                            <label>City</label>
+                                            <label>Kota</label>
                                             <input required type="text" name="i_city" class="form-control" placeholder="Masukkan kota..." value="<?= $row->branch_city ?>"/>
                                         </div>
 
                                          <div class="form-group">
-                                            <label>Description</label>
+                                            <label>Deskripsi</label>
                                             <textarea name="i_desc" class="form-control" rows="5"><?= $row->branch_desc ?></textarea>
                                         </div>
                                     

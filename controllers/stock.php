@@ -56,6 +56,7 @@ switch ($page) {
 	
 			$row->item_name = false;
 			$row->item_satuan = false;
+			$row->item_limit = false;
 			
 			$action = "stock.php?page=save";
 		}

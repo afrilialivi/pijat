@@ -70,9 +70,9 @@
                                             <tr>
                                             <td><?= $no?></td>
                                                <td><?= $row['item_name']?></td>
-                                                <td><?= $row['item_hpp']?></td>
-                                                <td><?= $row['item_margin']?></td>
-                                                <td><?= $row['item_harga_jual']?></td>
+                                                <td><?=format_rupiah($row['item_hpp'])?></td>
+                                                <td><?=format_rupiah($row['item_margin'])?></td>
+                                                <td><?=format_rupiah($row['item_harga_jual'])?></td>
                                                 <td><?= $row['satuan_name']?> </td>
                                                 
                                               <td style="text-align:center;">

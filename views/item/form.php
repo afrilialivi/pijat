@@ -34,6 +34,13 @@
 									<input required type="hidden" id="i_jual" name="i_jual" class="form-control" placeholder="Masukkan harga jual..." value="<?= $row->item_harga_jual ?>"/>
 								</div>
 								<div class="form-group">
+									<label>Limit :</label>
+									<input required type="textarea" name="i_limit_currency" id="i_limit_currency"
+									class="form-control number_only" placeholder="Masukkan limit ..." onkeyup="number_currency(this);"
+									value="<?= format_rupiah($row->item_limit) ?>"/>
+									<input required type="hidden" id="i_limit" name="i_limit" class="form-control" placeholder="Masukkan harga jual..." value="<?= $row->item_limit ?>"/>
+								</div>
+								<div class="form-group">
 							      <label for="">Satuan Utama : </label>
 							      <input type="hidden" id="item_id" name="pijat_id" value="<?= $id?>">
 							      <select id="i_satuan" name="i_satuan" class="selectpicker show-tick form-control" data-live-search="true">
