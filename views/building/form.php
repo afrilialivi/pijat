@@ -29,7 +29,7 @@
                                         </div>
 
                                          <div class="form-group">
-                                          <label>Branch</label>
+                                          <label>Cabang</label>
                                             <select id="basic" name="i_branch_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
                                            <?php
                                            while($r_branch = mysql_fetch_array($query_branch)){

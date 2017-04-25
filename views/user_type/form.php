@@ -70,7 +70,7 @@
             <label>Code</label>
             <input required type="text" name="i_code" class="form-control" placeholder="Enter code ..." value="<?= $row->user_code ?>"/>
             </div>-->
-              <div class="col-md-12">
+              <div class="col-md-12" style="color: #000;">
                 <div class="form-group">
                   <label>Name</label>
                   <input required type="text" name="i_name" class="form-control" placeholder="Enter name ..." value="<?= $row->user_type_name ?>"/>
@@ -91,7 +91,7 @@
                 $query = manu($user_type_id);
                 while($row = mysql_fetch_array($query)){ ?>
                 <div class="form-group" >
-                <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; border-bottom-style:inset;">
+                <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; border-bottom-style:inset; color: #000;">
                   <?=$row['side_menu_name']?>
                 </label>
                 <? if($row['side_menu_type_parent'] == 1){ ?>
@@ -115,7 +115,7 @@
                 $query2 = menu_parent($row['side_menu_id'],$user_type_id);
                 while($row2 = mysql_fetch_array($query2)){?>
                   <div class="item form-group" >
-                    <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; padding-left:5em; border-bottom-style:inset;">
+                    <label class="control-label col-md-9 col-sm-9 col-xs-9" for="name" style="text-align:left; padding-left:5em; color: #000; border-bottom-style:inset;">
                       <?=$row2['side_menu_name']?>
                     </label>
                     <? if($row2['side_menu_url'] != '#'){?>

@@ -11,4 +11,7 @@ function delete_pijat_item($id){
 	mysql_query("delete from pijat_details where pijat_detail_id = '$id'");
 }
 
+function delete ($id){
+	mysql_query("delete from pijat where pijat_id = '$id'");
+}
  ?>

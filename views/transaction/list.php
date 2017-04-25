@@ -75,53 +75,53 @@
 										<div class="col-md-6">
 											<div class="row">
 												<div class="input-group">
-	                          <input type="text" id="search" class="form-control input-sm normal" placeholder="Cari produk">
-	                          <span class="input-group-btn">
-	                            <button class="btn btn-default btn-sm" type="button">
-	                              <i class="fa fa-search"></i>
-	                            </button>
-	                          </span>
-	                      </div><!-- /input-group -->
+							                          <input type="text" id="search" class="form-control input-sm normal" placeholder="Cari produk">
+							                          <span class="input-group-btn">
+							                            <button class="btn btn-default btn-sm" type="button">
+							                              <i class="fa fa-search"></i>
+							                            </button>
+							                          </span>
+							                     </div><!-- /input-group -->
 											</div>
 											<br>
 											<div class="row">
 												<table id="table_item" class="table table-hover table-striped my-item" style="font-size: 12px;height:400px;">
-		                      <thead>
-		                        <tr>
-															<th width="5%">No.</th>
-		                          <th width="50%">NAMA ITEM</th>
-		                          <th class="text-right">HARGA</th>
-		                          <th class="text-center"><i class="fa fa-th"></i></th>
-		                        </tr>
-		                      </thead>
-		                      <tbody class="fbody" id="data_items">
+							                      <thead>
+							                        <tr>
+																				<th width="5%">No.</th>
+							                          <th width="50%">NAMA ITEM</th>
+							                          <th class="text-right">HARGA</th>
+							                          <th class="text-center"><i class="fa fa-th"></i></th>
+							                        </tr>
+							                      </thead>
+							                      <tbody class="fbody" id="data_items">
 
-		                      </tbody>
-		                    </table>
+							                      </tbody>
+							                    </table>
 											</div>
 										</div>
 										<div class="col-md-6" style="top:50px;">
-											<table class="table table-hover table-striped transaksi item-list" style="font-size:12px;">
-	                      <thead>
-	                        <tr>
-	                            <th class="text-center" style="width:10%;">QTY</th>
-	                            <th width="40%">ITEM</th>
-	                            <th style="">HARGA</th>
-	                            <th class="text-center hide" id="sales-column-discount">DISC</th>
-	                            <th class="text-right">TOTAL</th>
-	                            <th width="13%" class="text-center"><i class="fa fa-th"></i></th>
-	                        </tr>
-	                      </thead>
-	                      <tbody id="tbody_sales_cart">
-													<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-													</tr>
-	                      </tbody>
-	                  	</table>
+														<table class="table table-hover table-striped transaksi item-list" style="font-size:12px;">
+										                      <thead>
+										                        <tr>
+										                            <th class="text-center" style="width:10%;">QTY</th>
+										                            <th width="40%">ITEM</th>
+										                            <th style="">HARGA</th>
+										                            <th class="text-center hide" id="sales-column-discount">DISC</th>
+										                            <th class="text-right">TOTAL</th>
+										                            <th width="13%" class="text-center"><i class="fa fa-th"></i></th>
+										                        </tr>
+										                      </thead>
+										                      <tbody id="tbody_sales_cart">
+																						<tr>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																						</tr>
+										                      </tbody>
+									                  	</table>
 										</div>
 									</div>
 								</div>

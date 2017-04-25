@@ -38,7 +38,7 @@
 
                                     </div>
                                         <div class="col-md-4">
-                                          <label>Image</label>
+                                          <label>Gambar</label>
                                           <?php
                                           $gambar = ($row->infrastruktur_img) ? $row->infrastruktur_img : "img_not_found.png";?>
                                             <br>

@@ -23,7 +23,7 @@
                                         <div class="col-md-12">
                                         
                                         <div class="form-group">
-                                            <label>Nama</label>
+                                            <label>Name</label>
                                             <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-user"></i>

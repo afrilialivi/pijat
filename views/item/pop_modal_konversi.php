@@ -34,5 +34,6 @@
   <?php if (strpos($permit, 'c') !== false || strpos($permit, 'u') !== false){ ?>
     <input class="btn btn-primary" type="submit" value="Simpan"/>
   <?php } ?>
+  <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
 </div>
 </form>

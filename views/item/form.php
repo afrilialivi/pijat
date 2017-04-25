@@ -35,7 +35,7 @@
 								</div>
 								<div class="form-group">
 							      <label for="">Satuan Utama : </label>
-							      <input type="hidden" name="pijat_id" value="<?= $id?>">
+							      <input type="hidden" id="item_id" name="pijat_id" value="<?= $id?>">
 							      <select id="i_satuan" name="i_satuan" class="selectpicker show-tick form-control" data-live-search="true">
 							        <option value="0"></option>
 							        <?php 

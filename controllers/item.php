@@ -122,6 +122,7 @@ switch ($page) {
 
 		case 'pop_modal_konversi':
 		$id  = $_GET['id'];
+		$close_button = "item.php?page=form&id=$id";
 		$where_item_id = "WHERE item_id = '$id'";
 		$satuan = select_config_by('item', 'item_satuan', $where_item_id);
 		$konversi_id = (isset($_GET['konversi_id'])) ? $_GET['konversi_id'] : null;

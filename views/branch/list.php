@@ -41,8 +41,8 @@
                 <tr>
                   <th width="5%">No</th>
                   <th>Nama Cabang</th>
-                  <th>Phone</th>
-                  <th>City</th>
+                  <th>Telepon</th>
+                  <th>kota</th>
                   <th>Config</th>
                 </tr>
               </thead>
@@ -59,8 +59,7 @@
                         <a href="branch.php?page=form&id=<?= $row['branch_id']?>" class="btn btn-default" >
                           <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['branch_id']; ?>,'branch.php?page=delete&id=')"
-                          class="btn btn-default">
+                        <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['branch_id']; ?>,'branch.php?page=delete&id=')"class="btn btn-default">
                           <i class="fa fa-trash-o"></i>
                         </a>
                       </td>

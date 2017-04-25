@@ -58,7 +58,7 @@
                                             <th width="5%">No</th>
                                                 <th>Nama Infrastruktur</th>
                                                 <th>Warna Infrastruktur</th>
-                                                <th>Image Infrastruktur</th>
+                                                <th>Gambar Infrastruktur</th>
                                                     <th style="text-align: center;">Config</th> 
                                             </tr>
                                         </thead>

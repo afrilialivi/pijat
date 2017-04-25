@@ -30,7 +30,7 @@
                     <button type="button" name="button" class="btn btn-default" onclick="edit_item(<?= $r_pijat_details['pijat_detail_id']?>,'pijat.php?page=edit_pijat_item&pijat_detail_id=$pijat_detail_id')">
                       <i class="fa fa-pencil"></i>
                     </button>
-                    <button type="button" name="button" class="btn btn-default" onclick="confirm_delete(<?= $r_pijat_details['pijat_detail_id']?>,'pijat.php?page=delete_pijat_item&id=')">
+                    <button type="button" name="button" class="btn btn-default" onclick="confirm_delete(<?= $r_pijat_details['pijat_detail_id']?>,'pijat.php?page=delete_pijat_item&pijat_id=<?= $id?>&id=')">
                       <i class="fa fa-trash-o"></i>
                     </button>
                   </td>
@@ -59,9 +59,10 @@
   }
 
   function edit_item(id){
+    // alert(id);
     var pijat_id = <?= $id?>;
     $('#medium_modal').modal();
-   var url = 'pijat.php?page=add_new_item&id='+pijat_id+'&pijat_detail_id'+id;
+   var url = 'pijat.php?page=add_new_item&id='+pijat_id+'&pijat_detail_id='+id;
      $('#medium_modal_content').load(url,function(result){});
   }
 

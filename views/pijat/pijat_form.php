@@ -35,9 +35,10 @@
                   </div>
                   <div class="bootstrap-timepicker">
                       <div class="form-group">
-                          <label>Jam</label>
+                          <label>Durasi</label>
                           <div class="input-group">                                            
-                              <input type="text" name="i_hour" class="form-control timepicker"/>
+                              <input type="text" name="i_waktu" class="form-control timepicker" placeholder="Masukkan menit ..."
+                              value="<?= $row->pijat_waktu ?>"/>
                               <div class="input-group-addon">
                                   <i class="fa fa-clock-o"></i>
                               </div>

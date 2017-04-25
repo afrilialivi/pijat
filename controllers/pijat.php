@@ -120,8 +120,8 @@ switch ($page) {
     case 'add_new_item':
       $id = (isset($_GET['id'])) ? $_GET['id'] : null;
       $pijat_detail_id = (isset($_GET['pijat_detail_id'])) ? $_GET['pijat_detail_id'] : null;
-
-      if ($pijat_detail_id) {
+      // var_dump($_GET);
+      if ($pijat_detail_id!=null) {
 
         $where_pijat_detail_id = "WHERE pijat_detail_id = '$pijat_detail_id'";
         $row = select_object_config('pijat_details', $where_pijat_detail_id);
@@ -142,6 +142,7 @@ switch ($page) {
       $q_satuan = select_config('satuan','');
       $where_pijat_id = "WHERE pijat_id = '$id'";
       $pijat_name = select_config_by('pijat', 'pijat_name', $where_pijat_id);
+      // var_dump($pijat_detail_id);
       include '../views/pijat/popmodal_add_item.php';
       break;
 
@@ -185,8 +186,9 @@ switch ($page) {
       break;
 
     case 'delete_pijat_item':
-         $id = get_isset($_GET['id']);
-         $where_pijat_detail_id = "pijat_detail_id = '$id'";
+        $id = get_isset($_GET['id']);
+        $pijat_id = get_isset($_GET['pijat_id']);
+        $where_pijat_detail_id = "pijat_detail_id = '$id'";
         delete_config('pijat_details', $where_pijat_detail_id);
 
         header("Location:pijat.php?page=form&id=$pijat_id");
