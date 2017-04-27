@@ -43,69 +43,64 @@
                 ?>
 
                 <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            
-                             <div class="title_page"> <?= $title ?></div>
-                            
-                            <div class="box">
-                             
-                                <div class="box-body2 table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                            <th width="5%">No</th>
-                                                <th>Nama Cabang</th>
-                                                <th>Image</th>
-                                                <th>Phone</th>
-                                                <th>City</th>
-                                                <th>Config</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                           $no = 1;
-										   while($row = mysql_fetch_array($query)){
-                                            ?>
-                                            <tr>
-                                            <td><?= $no?></td>
-                                               <td><?= $row['branch_name']?></td>
-                                                <td><img src="<?php
-											   if($row['branch_img']){
-											   		$image = "../img/branch/".$row['branch_img'];
-											   }else{
-												   $image = "../img/img_not_found.png";
-											    }
-											    echo $image ?>" height="80" /></td>
-                                                 <td><?= $row['branch_phone'] ?></td>
-                                                  <td><?= $row['branch_city'] ?></td>
-                                               <td style="text-align:center;">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
 
-                                                    <a href="branch.php?page=form&id=<?= $row['branch_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['branch_id']; ?>,'branch.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+            <div class="title_page"> <?= $title ?></div>
 
-                                                </td> 
-                                            </tr>
-                                            <?php
-											$no++;
-                                            }
-                                            ?>
+                    <div class="box">
 
-                                           
-                                          
-                                        </tbody>
-                                          <tfoot>
-                                            <tr>
-                                                <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
-                                               
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                        <div class="box-body2 table-responsive">
+                            <div class="col-xs-12">
+                                <table id="example1" class="table table-bordered table-striped" style="border: 1px in">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">No</th>
+                                        <th>Nama </th>
+                                        <th>Telepon</th>
+                                        <th>Alamat</th>
+                                        <th>Pijat</th>
+                                        <th>Config</th> 
+                                    </tr>
+                                </thead>
 
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
-                    </div>
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    while($row = mysql_fetch_array($query)){
+                                    ?>
+                                    <tr>
+                                        <td><?= $no?></td>
+                                        <td><?= $row['member_name']?></td>
+                                        <td><?= $row['phone']?></td>
+                                        <td><?= $row['address']?></td>
+                                        <td><?= $row['pijat_name']?></td>
+                                        <td style="text-align:center;">
 
-                </section><!-- /.content -->
+                                            <a href="transaction.php?page=list&id=<?= $row['reserved_id']?>" class="btn btn-default" ><i class="fa fa-search-plus"></i></a>
+
+                                            <a href="reserved.php?page=list&id=<?= $row['reserved_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['reserved_id']; ?>,'reserved.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                        </td> 
+                                    </tr>
+                                    <?php
+                                    $no++;
+                                    }
+                                    ?>
+
+
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger " >Add</a></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+            </div>
+        </div>
+    </section><!-- /.content -->

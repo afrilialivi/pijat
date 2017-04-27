@@ -1,29 +1,44 @@
 <?php
 
-function select_table($where){
-	$query = mysql_query("select a.*, b.building_name, c.branch_name from tables a 
-							join buildings b on b.building_id = a.building_id
-							join branches c on c.branch_id = b.branch_id
-							$where
-							order by c.branch_id, b.building_id, a.table_id");
+function select($where){
+	$query = mysql_query("SELECT a.*,b.member_name,c.pijat_name
+								FROM reserved a
+								JOIN members b ON b.member_id = a.member_id
+								join pijat c ON c.pijat_id = a.pijat
+								order by reserved_id");
 	return $query;
 }
 
-function get_branch_name($branch_id){
-	$query = mysql_query("select branch_name as result from branches where branch_id = '$branch_id'");
-	$row = mysql_fetch_array($query);
-	
-	$result = ($row['result']);
-	return $result;
+function select_reserved(){
+	$query = mysql_query("select * from reserved order by reserved_id");
+}
+
+function select_member(){
+	$query = mysql_query("select * from members order by member_id ");
+	return $query;
+}
+
+function select_pijat(){
+	$query = mysql_query("select * from pijat order by pijat_id");
+	return $query;
 }
 
 function save($data){
 		$query = mysql_query("insert into reserved values($data)");	
 }
 
-function update_status($table_id, $status){
-	mysql_query("update tables set table_status_id = '$status' where table_id = '$table_id'");
+function read_id($id){
+	$query = mysql_query("select * from reserved where reserved_id = '$id'");
+	$result = mysql_fetch_object($query);
+	return $result;
 }
 
+function update($data, $id){
+	mysql_query("update reserved set ".$data." where reserved_id = '$id'");
+}
+
+function delete($id){
+	mysql_query("delete from reserved where reserved_id = '$id'");
+}
 
 ?>
