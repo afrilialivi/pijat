@@ -63,33 +63,7 @@ switch ($page) {
 		get_footer();
 		
 	break;
-	
-	case 'edit':
 
-		extract($_POST);
-
-		$id = get_isset($_GET['id']);
-		$i_member_id = get_isset($i_member_id);
-		$i_phone = get_isset($i_phone);
-		$i_address = get_isset($i_address);
-		$i_date = get_isset($i_date);
-		// $i_date = format_back_date($i_date);
-		$i_hour = get_isset($i_hour);
-		$i_pijat_id = get_isset($i_pijat_id);
-
-		$data = " member_id = '$i_member_id',
-				  phone = '$i_phone',
-				  address = '$i_address',
-				  date = '$i_date',
-				  hour = '$i_hour',
-				  pijat = '$i_pijat_id'
-				";
-		// var_dump($data);				
-		update($data, $id);
-
-		header("Location: reserved.php?page=list_backup&id=$id&did=2");
-	break;
-	
 	case 'save':
 		
 		extract($_POST);
@@ -146,6 +120,32 @@ switch ($page) {
 
 		header("location: reserved.php?page=list_backup&did=1");	
 	break;
+	
+	case 'edit':
+
+		extract($_POST);
+
+		$id = get_isset($_GET['id']);
+		$i_member_id = get_isset($i_member_id);
+		$i_phone = get_isset($i_phone);
+		$i_address = get_isset($i_address);
+		$i_date = get_isset($i_date);
+		// $i_date = format_back_date($i_date);
+		$i_hour = get_isset($i_hour);
+		$i_pijat_id = get_isset($i_pijat_id);
+
+		$data = " member_id = '$i_member_id',
+				  phone = '$i_phone',
+				  address = '$i_address',
+				  date = '$i_date',
+				  hour = '$i_hour',
+				  pijat = '$i_pijat_id'
+				";
+		// var_dump($data);				
+		update($data, $id);
+
+		header("Location: reserved.php?page=list_backup&id=$id&did=2");
+	break;
 
 	case 'delete':
 
@@ -173,8 +173,9 @@ switch ($page) {
     	create_config('members',$data_s);
     	var_dump($_POST);
     	// echo $data_s;
-    header('location: reserved.php');
+    header('location: reserved.php?page=list&id=');
 	break;
+	
 	case 'get_member_details':
 		$i_member_id = $_POST['i_member_id'];
 		$where_member_id = "where member_id = '$i_member_id'";
@@ -187,6 +188,14 @@ switch ($page) {
 							'member_phone' => $r_member['member_phone']  
 							);
 		echo json_encode($data);
+	break;
+
+	case 'edit_transaction':
+
+		extract($_POST);
+
+		$id = get_isset($_GET['id']);
+		header("location: transaction.php?page=list&reserved_id=$id");	
 	break;
 }
 

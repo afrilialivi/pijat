@@ -78,10 +78,12 @@
                                         <td><?= $row['pijat_name']?></td>
                                         <td style="text-align:center;">
 
-                                            <a href="transaction.php?page=list&id=<?= $row['reserved_id']?>" class="btn btn-default" ><i class="fa fa-search-plus"></i></a>
+                                            <a href="reserved.php?page=edit_transaction&id=<?= $row['reserved_id']?>" class="btn btn-default"><i class="fa fa-search-plus"></i></a>
 
                                             <a href="reserved.php?page=list&id=<?= $row['reserved_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
+
                                             <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['reserved_id']; ?>,'reserved.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+
                                         </td> 
                                     </tr>
                                     <?php

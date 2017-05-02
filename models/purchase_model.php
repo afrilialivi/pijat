@@ -88,4 +88,16 @@ function get_item_name($item_id){
 	$result = ($row['result']);
 	return $result;
 }
+
+function select_satuan_item($id)
+{
+	$query = mysql_query("SELECT a.item_satuan, b.satuan_name FROM item a 
+							LEFT JOIN satuan b ON b.satuan_id = a.item_satuan
+							WHERE a.item_id = 1
+							UNION 
+							SELECT c.satuan_konversi, d.satuan_name FROM konversi_item c
+							LEFT JOIN satuan d ON d.satuan_id = c.satuan_konversi
+							WHERE c.item_id = 1");
+	return $query;
+}
 ?>

@@ -472,6 +472,28 @@ function konversi_ke_satuan_utama($item_id, $unit_id_beli,$qty){
 	return $result;
 }
 
+// new konversi
+function konversi_ke_satuan_utama_($item_id, $unit_id_beli,$qty){
+	$result = '';
+	$query 	= mysql_query("SELECT item_satuan as result FROM item WHERE item_id = '$item_id'");
+	$row 	= mysql_fetch_array($query);
+
+	$unit_id_utama = $row['result'];
+	if ($unit_id_beli != 0) {
+		$q_konversi = mysql_query("SELECT * FROM konversi_item WHERE item_id = '$item_id'
+														 AND satuan_utama = '$unit_id_utama'
+														 AND satuan_konversi = '$unit_id_beli'");
+		$r_konversi = mysql_fetch_array($q_konversi);
+		if ($r_konversi['jumlah'] > $r_konversi['jumlah_satuan_konversi']) {
+			$qty = $qty * $r_konversi['jumlah_satuan_konversi'];
+		} elseif ($r_konversi['jumlah'] < $r_konversi['jumlah_satuan_konversi']) {
+			$qty = $qty / $r_konversi['jumlah_satuan_konversi'];
+		}
+	}
+	$result = $qty;
+	return $result;
+}
+
 // konversi dari jumlah konversi ke satuan utama
 function konversi_total_jumlah($unit_id_utama, $item_id, $qty, $unit_konversi){
 	$qty_asli = $qty;

@@ -118,6 +118,9 @@ switch ($page) {
       break;
 
     case 'add_new_item':
+
+      // $close_button = "pijat.php?page=form&id=$id";
+
       $id = (isset($_GET['id'])) ? $_GET['id'] : null;
       $pijat_detail_id = (isset($_GET['pijat_detail_id'])) ? $_GET['pijat_detail_id'] : null;
       // var_dump($_GET);

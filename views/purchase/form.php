@@ -79,7 +79,8 @@ document.getElementById("i_total").value = total;
 
                               <div class="form-group">
                                 <label>Nama Barang</label>
-                                <select id="basic" name="i_item_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                <select id="i_item_id" name="i_item_id" size="1" class="form-control" onchange="set_item_satuan(this);" />
+                                <option value="0"></option>
                                 <?php
                                   while($r_item = mysql_fetch_array($query_item)){
                                 ?>
@@ -89,9 +90,16 @@ document.getElementById("i_total").value = total;
                                 ?>
                                 </select>                                            
                               </div>
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                 <label>Harga</label>
                                 <input required type="number" name="i_harga" id="i_harga" class="form-control" placeholder="Masukkan harga..." value="<?= $row->purchase_price ?>" min="0"/>
+                              </div> -->
+                              <div class="form-group">
+                                <label>Harga Jual :</label>
+                                <input required type="textarea" name="i_harga_currency" id="i_harga_currency"
+                                class="form-control number_only" placeholder="Masukkan harga ..." onkeyup="number_currency(this);"
+                                value="<?= format_rupiah($row->purchase_price) ?>"/>
+                                <input required type="hidden" id="i_harga" name="i_harga" class="form-control" placeholder="Masukkan harga ..." value="<?= $row->purchase_price ?>"/>
                               </div>
                               <div class="form-group">
                                 <label>QTY</label>
@@ -99,15 +107,7 @@ document.getElementById("i_total").value = total;
                               </div>
                               <div class="form-group">
                                 <label>Satuan</label>
-                                <select id="basic" name="i_satuan_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
-                                <?php
-                                  while($r_satuan = mysql_fetch_array($q_satuan)){
-                                ?>
-                                <option value="<?= $r_satuan['satuan_id'] ?>" <?php if($row->satuan_id == $r_satuan['satuan_id']){ ?> selected="selected"<?php } ?>><?= $r_satuan['satuan_name']?></option>
-                                <?php
-                                  }
-                                ?>
-                                </select>                                            
+                                <select id="basic" name="i_satuan_id" size="1" class="form-control" ></select>
                               </div>
                               <div class="form-group">
                               <label>Total Harga</label>
@@ -116,7 +116,8 @@ document.getElementById("i_total").value = total;
                               
                               <div class="form-group">
                                 <label>Supplier</label>
-                                <select id="basic" name="i_supplier" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                <select id="basic" name="i_supplier" size="1" class="form-control" />
+                                <option value="0"></option>
                                 <?php
                                   while($r_supplier = mysql_fetch_array($query_supplier)){
                                 ?>
@@ -129,7 +130,8 @@ document.getElementById("i_total").value = total;
 
                               <div class="form-group">
                                 <label>Cabang</label>
-                                <select id="basic" name="i_branch_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                <select id="basic" name="i_branch_id" size="1" class="form-control"/>
+                                <option value="0"></option>
                                 <?php
                                   while($r_branch = mysql_fetch_array($query_branch)){
                                 ?>
@@ -163,3 +165,27 @@ document.getElementById("i_total").value = total;
               </div><!--/.col (right) -->
           </div>   <!-- /.row -->
       </section><!-- /.content -->
+      <script type="text/javascript">
+        function set_item_satuan(elem)
+        {
+          var item_id = $('#i_item_id').val();
+          // alert(item_id);
+          $.ajax({
+            type        : "post",
+            data        : {item_id:item_id},
+            dataType    : "json",
+            url         : "purchase.php?page=get_satuan_id",
+            success: function(data){
+              $('#i_item_id').empty();
+              $('#i_item_id').append('<option value="0"> </option>');
+              for (var i = 0; i <= data.length ; i++) {
+                // $(elem_id).append('<option value="'+data[i].item_satuan+'">">'+data[i].satuan_name+'</option>');
+              }
+            },
+            error: function(data)
+            {
+              alert("error");
+            }
+          });
+        }
+      </script>

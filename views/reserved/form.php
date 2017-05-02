@@ -69,6 +69,7 @@
                                         <div class="col-md-9">
                                         <label>Nama</label>
                                         <select id="i_member_id" name="i_member_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                        <option value="0"></option>
                                         <?php
                                         while($r_member = mysql_fetch_array($query_member)){
                                         ?>
@@ -120,6 +121,7 @@
                                         <div class="col-md-11">
                                             <label>Pijat</label>
                                            <select id="i_pijat_id" name="i_pijat_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                           <option value="0"></option>
                                             <?php
                                             while($r_pijat = mysql_fetch_array($query_pijat)){
                                             ?>

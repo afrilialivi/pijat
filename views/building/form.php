@@ -31,6 +31,7 @@
                                          <div class="form-group">
                                           <label>Cabang</label>
                                             <select id="basic" name="i_branch_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                            <option value="0"></option>
                                            <?php
                                            while($r_branch = mysql_fetch_array($query_branch)){
                                             ?>

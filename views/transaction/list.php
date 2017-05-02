@@ -5,6 +5,15 @@
     overflow:scroll;
     scrollbar-face-color:red;
 	}
+	label {
+			color: #000;
+		  }
+	th{
+		color: #fff;
+	}
+	td{
+		color: #000;
+	}
 </style>
 
 
@@ -29,19 +38,23 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="">Member :</label>
-								<select class="selectpicker form-control normal" id="i_member" name="i_member">
-									<option value="0"></option>
-									<?php while ($r_member = mysql_fetch_array($q_member)) {?>
-										<option value="<?= $r_member['member_id']?>"><?= $r_member['member_name']?></option>
-									<? } ?>
-								</select>
+								<select id="i_member" name="i_member" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                        <option value="0"></option>
+                                        <?php
+                                        while($r_member = mysql_fetch_array($q_member)){
+                                        ?>
+                                        <option value="<?= $r_member['member_id'] ?>" <?php if($r_reserved->member_id == $r_member['member_id']){ ?> selected="selected"<?php } ?>><?= $r_member['member_name']?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                </select>  
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="">Cabang :</label>
 								<select class="selectpicker form-control normal" id="i_branch" name="i_branch" required>
-									<option value="0"></option>
+								<option value="0"></option>
 									<?php while ($r_branch = mysql_fetch_array($q_branch)) {?>
 										<option value="<?= $r_branch['branch_id']?>"
 											<?php if ($branch_id = $r_branch['branch_id']){echo "selected";}?>>
@@ -54,12 +67,18 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label for="">Pijat :</label>
-									<select class="selectpicker form-control normal" id="i_pijat" name="i_pijat" onchange="set_harga()"  required>
-										<option value="0"></option>
-										<?php while ($r_pijat = mysql_fetch_array($q_pijat)) {?>
-											<option value="<?= $r_pijat['pijat_id']?>" data-harga="<?= $r_pijat['pijat_harga']?>"><?= $r_pijat['pijat_name']?></option>
-										<? } ?>
-									</select>
+									<select id="i_pijat" name="i_pijat" size="1" class="selectpicker show-tick form-control" data-live-search="true" onchange="set_harga()" />
+                                           <option value="0"></option>
+                                            <?php
+                                            while($r_pijat = mysql_fetch_array($q_pijat)){
+                                            ?>
+                                            <option value="<?= $r_pijat['pijat_id'] ?>" <?php if($r_reserved->pijat == $r_pijat['pijat_id']){ ?> selected="selected"<?php } ?> data-harga = "<?php echo $r_pijat['pijat_harga'];?>">
+                                            	<?= $r_pijat['pijat_name']?>
+                                            </option>
+                                            <?php
+                                            }
+                                            ?>
+                                    s</select> 
 								</div>
 								<div class="form-group">
 									<label>Harga :</label>
@@ -88,10 +107,10 @@
 												<table id="table_item" class="table table-hover table-striped my-item" style="font-size: 12px;height:400px;">
 							                      <thead>
 							                        <tr>
-																				<th width="5%">No.</th>
-							                          <th width="50%">NAMA ITEM</th>
-							                          <th class="text-right">HARGA</th>
-							                          <th class="text-center"><i class="fa fa-th"></i></th>
+													 	<th width="5%">No.</th>
+							                          	<th width="50%">NAMA ITEM</th>
+							                          	<th class="text-right">HARGA</th>
+							                          	<th class="text-center"><i class="fa fa-th"></i></th>
 							                        </tr>
 							                      </thead>
 							                      <tbody class="fbody" id="data_items">
@@ -101,27 +120,27 @@
 											</div>
 										</div>
 										<div class="col-md-6" style="top:50px;">
-														<table class="table table-hover table-striped transaksi item-list" style="font-size:12px;">
-										                      <thead>
-										                        <tr>
-										                            <th class="text-center" style="width:10%;">QTY</th>
-										                            <th width="40%">ITEM</th>
-										                            <th style="">HARGA</th>
-										                            <th class="text-center hide" id="sales-column-discount">DISC</th>
-										                            <th class="text-right">TOTAL</th>
-										                            <th width="13%" class="text-center"><i class="fa fa-th"></i></th>
-										                        </tr>
-										                      </thead>
-										                      <tbody id="tbody_sales_cart">
-																						<tr>
-																							<td></td>
-																							<td></td>
-																							<td></td>
-																							<td></td>
-																							<td></td>
-																						</tr>
-										                      </tbody>
-									                  	</table>
+											<table class="table table-hover table-striped transaksi item-list" style="font-size:12px;">
+							                      <thead>
+							                        <tr>
+							                            <th class="text-center" style="width:10%;">QTY</th>
+							                            <th width="40%">ITEM</th>
+							                            <th style="">HARGA</th>
+							                            <th class="text-center hide" id="sales-column-discount">DISC</th>
+							                            <th class="text-right">TOTAL</th>
+							                            <th width="13%" class="text-center"><i class="fa fa-th"></i></th>
+							                        </tr>
+							                      </thead>
+							                      <tbody id="tbody_sales_cart">
+														<tr>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+							                      </tbody>
+						                  	</table>
 										</div>
 									</div>
 								</div>
@@ -129,6 +148,10 @@
 						</div>
 					</div>
 				</div>
+				<!-- <div class="box-footer" style="background-color: #fff;">
+                    <input class="btn btn-warning" type="submit" value="Save"/>
+                    <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+                </div> -->
 			</div>
 		</div>
 	</div>
@@ -137,9 +160,10 @@
 
 	function set_harga() {
 		var i_pijat = $('#i_pijat').val();
-		var harga = $('#i_pijat option:selected').data('harga');
-		$('#grand_total').val(harga);
-		$('#grand_total_currency').val(toRp(harga));
+		var harga = $('#i_pijat option:selected').data('harga')||0;
+		$('#grand_total').val(harga)||0;
+		$('#grand_total_currency').val(toRp(harga))||0;
+		console.log(harga);
 	}
 
 	$('body').on('click', '.btn-add-cart', function (e) {
@@ -148,8 +172,9 @@
   });
 
 
-
 $(document).ready(function(){
+
+	set_harga();
 
 	var items = [];
 	var html = '';

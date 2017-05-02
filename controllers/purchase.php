@@ -64,6 +64,21 @@ switch ($page) {
 		get_footer();
 	break;
 
+	function get_satuan_id()
+	{
+		$item_id = $_POST['item_id'];
+		echo $item_id;
+		$q_satuan_item = select_satuan_item($item_id);
+		while ($r_satuan_item = mysql_fetch_array($q_satuan_item)) {
+			$data[] = array(
+							'item_satuan' => $r_satuan_item['item_satuan'], 
+							'satuan_name' => $r_satuan_item['satuan_name']
+							);
+		}
+		// // var_dump($data);
+		echo json_encode($data);
+	}
+
 	case 'save':
 	
 		extract($_POST);
@@ -81,44 +96,48 @@ switch ($page) {
 		$get_item_name = get_item_name($i_item_id);
 		$i_code = '2'.time();
 
+		echo $i_qty;
 		$data = "'',
-					'$i_code',
-					'$i_date', 
-					'$i_item_id', 
-					'$i_qty',
-					'$i_harga',
-					'$i_total',
-					'$i_supplier',
-					'$i_branch_id',
-					'$i_satuan_id'
-			";
+				 '$i_code',
+				 '$i_date', 
+				 '$i_item_id', 
+				 '$i_qty',
+				 '$i_harga',
+				 '$i_total',
+				 '$i_supplier',
+				 '$i_branch_id',
+				 '$i_satuan_id'
+				";
 			
-			//echo $data;
+			// echo $data;
 
-			create($data);
+		// 	create($data);
 			
-			$data_id = mysql_insert_id();
-			$where_item_id_branch_id = "where item_id = '$i_item_id' and branch_id = '$i_branch_id'";
-
+		// 	$data_id = mysql_insert_id();
+			$where_item_id_satuan_id = "where item_id = '$i_item_id' and item_satuan = '$i_satuan_id'";
+			$i_qty = konversi_ke_satuan_utama_($i_item_id, $i_satuan_id, $i_qty);
+			echo $i_qty;
+			$where_item_id_branch_id = "where item = '$i_item_id' and branch = '$i_branch_id'";
 			$cek_stok = select_config_by('item_stocks', 'count(*)', $where_item_id_branch_id);
-			if ($cek_stok > 0) {
-					add_stock($i_item_id, $i_qty, $i_branch_id);
-			}
-			else{	
 
-				$data_i = "'',
-						 '$i_item_id',
-						 '$i_qty',
-						 '$i_branch_id'
-						";
+		// 	if ($cek_stok > 0) {
+		// 			add_stock($i_item_id, $i_qty, $i_branch_id);
+		// 	}
+		// 	else{	
 
-			create_config('item_stocks', $data_i);
-			}
+		// 		$data_i = "'',
+		// 				 '$i_item_id',
+		// 				 '$i_qty',
+		// 				 '$i_branch_id'
+		// 				";
 
-		// simpan jurnal
-		create_journal($i_code, "purchase.php?page=form&id=", 2, $i_harga, $i_user_id, $i_branch_id);
-		unset($_SESSION['item_id']);
-		header("Location: purchase.php?page=form&did=1");
+		// 	create_config('item_stocks', $data_i);
+		// 	}
+
+		// // simpan jurnal
+		// create_journal($i_code, "purchase.php?page=form&id=", 2, $i_harga, $i_user_id, $i_branch_id);
+		// unset($_SESSION['item_id']);
+		// header("Location: purchase.php?page=form&did=1");
 		
 		
 	break;

@@ -33,6 +33,12 @@ function read_id($id){
 	return $result;
 }
 
+function read_id_transaction($id){
+	$query = mysql_query("select * from transactions_tmp where transaction_id = '$id'");
+	$result = mysql_fetch_object($query);
+	return $result;
+}
+
 function update($data, $id){
 	mysql_query("update reserved set ".$data." where reserved_id = '$id'");
 }

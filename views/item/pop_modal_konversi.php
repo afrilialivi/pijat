@@ -15,6 +15,7 @@
       <div class="form-group">
         <label>Satuan Konversi</label>
         <select id="satuan_konversi" name="satuan_konversi" size="1" class="selectpicker show-tick form-control" data-live-search="true">
+        <option value="0"></option>
         <?php
          while($r_satuan = mysql_fetch_array($q_konversi)){?>
         <option value="<?= $r_satuan['satuan_id'] ?>"

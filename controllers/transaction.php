@@ -12,6 +12,26 @@ switch ($page) {
      case 'list':
         get_header();
         $close_button = "home.php";
+
+        $reserved_id = isset($_GET['reserved_id']) ? $_GET['reserved_id'] : null;
+
+        if($reserved_id!=null)
+        {
+            $where_reserved_id = "WHERE reserved_id = '$reserved_id'";
+            $r_reserved = select_object_config('reserved', $where_reserved_id);
+        } else {
+            $r_reserved = new stdClass;
+
+            $r_reserved->reserved_id = false;
+            $r_reserved->member_id   = false;
+            $r_reserved->phone       = false;
+            $r_reserved->address     = false;
+            $r_reserved->date        = false;
+            $r_reserved->hour        = false;
+            $r_reserved->pijat       = false;
+            $r_reserved->status      = false;
+        }
+
         $date = format_date(date("Y-m-d"));
     		if(isset($_GET['date'])){
     			$date = format_date($_GET['date']);
@@ -26,10 +46,8 @@ switch ($page) {
     		$q_branch = select_config('branches','');
 
         $q_pijat = select_config('pijat', '');
-            $q_pijat = select_config('pijat','');
 
          $q_item = select_config('item', '');
-            $q_item = select_config('item','');
 
         $ruangan_infrastruktur_id = isset($_GET['ruangan_infrastruktur_id']) ? $_GET['ruangan_infrastruktur_id'] : null;
         // get_isset($_GET['ruangan_infrastruktur_id']);
@@ -54,14 +72,6 @@ switch ($page) {
             // $query = select($where);
 
             //inisialisasi
-            $row = new stdClass();
-
-            $row->member_id = false;
-            $row->branch_id = false;
-            $row->pijat = false;
-            // $row->item = false;
-            $row->transaction_date = date("d/m/Y");
-            $row->transaction_code = false;
 
         // $pijat
 
