@@ -26,9 +26,25 @@ table{
   margin-top: 20px;
 }
 
-table > thead > tr > th,
-table tr td {
-  border: 1px solid !important;
+table > tbody
+{
+  border: none;
+  color: #000;
+}
+
+#data_items tbody,
+#tbody_sales_cart tbody
+{
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#data_items,
+#tbody_sales_cart {
+  border-collapse: collapse;
+  width: 100%;
+  word-break:break-all;
+  overflow-y:scroll!important;
 }
 
 thead {
@@ -37,4 +53,23 @@ thead {
 }
 .box {
   border:none;
+}
+
+.panel-item {
+  margin-top: 0px;
+  padding: 10px;
+  height: 320px;
+}
+
+.my-item {
+    width: auto!important;
+    height: 300px !important;
+    overflow-y: scroll!important;
+    display: block!important;
+}
+
+input.price-tag
+{
+  font-size: 25px;
+  margin-bottom: 10px !important;
 }

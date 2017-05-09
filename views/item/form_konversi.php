@@ -10,9 +10,9 @@
                   <th width="5%">No</th>
                   <th>Item</th>
                   <th>Satuan Utama</th>
-                  <th>QTY</th> 
+                  <th>QTY Utama</th> 
                   <th>Konversi</th>
-                  <th>QTY</th>
+                  <th>QTY Konversi</th>
                   <th style="text-align : center;">Config</th>
                 </tr>
               </thead>
@@ -45,7 +45,7 @@
               </tbody>
                 <tfoot>
                <tr>
-                <td colspan="7"><button type="button" class="btn btn-success" onclick="select_satuan()">Tambah</button></td>
+                <td colspan="7"><button type="button" class="btn btn-danger" onclick="select_satuan()">Tambah</button></td>
               </tr>                                              
                   
                 </tfoot>

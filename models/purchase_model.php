@@ -61,11 +61,11 @@ function create_journal($data_id, $data_url, $journal_type_id, $journal_credit, 
 }
 
 function add_stock($item_id, $branch_id, $qty){
-	$query = mysql_query("select count(item_stock_id) as result from item_stocks where item_id = '$item_id' and branch_id = '$branch_id'");
+	$query = mysql_query("SELECT COUNT(item_stock_id) AS result FROM item_stocks WHERE item = '$item_id' AND branch = '$branch_id'");
 	$result = mysql_fetch_array($query);
 	
 	if($result['result'] > 0){
-		mysql_query("update item_stocks set item_stock_qty = item_stock_qty + $qty where item_id = $item_id and branch_id = '$branch_id'");
+		mysql_query("update item_stocks set item_stock_qty = item_stock_qty + $qty where item = $item_id and branch = '$branch_id'");
 	}else{
 		mysql_query("insert into item_stocks values('', '$item_id', '$qty', '$branch_id')");
 	}
@@ -93,11 +93,11 @@ function select_satuan_item($id)
 {
 	$query = mysql_query("SELECT a.item_satuan, b.satuan_name FROM item a 
 							LEFT JOIN satuan b ON b.satuan_id = a.item_satuan
-							WHERE a.item_id = 1
+							WHERE a.item_id = '$id'
 							UNION 
 							SELECT c.satuan_konversi, d.satuan_name FROM konversi_item c
 							LEFT JOIN satuan d ON d.satuan_id = c.satuan_konversi
-							WHERE c.item_id = 1");
+							WHERE c.item_id = '$id'");
 	return $query;
 }
 ?>

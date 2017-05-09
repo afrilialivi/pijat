@@ -79,7 +79,7 @@ document.getElementById("i_total").value = total;
 
                               <div class="form-group">
                                 <label>Nama Barang</label>
-                                <select id="i_item_id" name="i_item_id" size="1" class="form-control" onchange="set_item_satuan(this);" />
+                                <select id="i_item_id" name="i_item_id" size="1" class="form-control" onchange="set_item_satuan()" />
                                 <option value="0"></option>
                                 <?php
                                   while($r_item = mysql_fetch_array($query_item)){
@@ -95,7 +95,7 @@ document.getElementById("i_total").value = total;
                                 <input required type="number" name="i_harga" id="i_harga" class="form-control" placeholder="Masukkan harga..." value="<?= $row->purchase_price ?>" min="0"/>
                               </div> -->
                               <div class="form-group">
-                                <label>Harga Jual :</label>
+                                <label>Harga Beli :</label>
                                 <input required type="textarea" name="i_harga_currency" id="i_harga_currency"
                                 class="form-control number_only" placeholder="Masukkan harga ..." onkeyup="number_currency(this);"
                                 value="<?= format_rupiah($row->purchase_price) ?>"/>
@@ -107,7 +107,7 @@ document.getElementById("i_total").value = total;
                               </div>
                               <div class="form-group">
                                 <label>Satuan</label>
-                                <select id="basic" name="i_satuan_id" size="1" class="form-control" ></select>
+                                <select id="i_satuan_id" name="i_satuan_id" size="1" class="form-control" ></select>
                               </div>
                               <div class="form-group">
                               <label>Total Harga</label>
@@ -166,21 +166,23 @@ document.getElementById("i_total").value = total;
           </div>   <!-- /.row -->
       </section><!-- /.content -->
       <script type="text/javascript">
-        function set_item_satuan(elem)
+        function set_item_satuan()
         {
           var item_id = $('#i_item_id').val();
           // alert(item_id);
           $.ajax({
             type        : "post",
+            url         : "purchase.php?page=get_satuan_id",
             data        : {item_id:item_id},
             dataType    : "json",
-            url         : "purchase.php?page=get_satuan_id",
             success: function(data){
-              $('#i_item_id').empty();
-              $('#i_item_id').append('<option value="0"> </option>');
-              for (var i = 0; i <= data.length ; i++) {
-                // $(elem_id).append('<option value="'+data[i].item_satuan+'">">'+data[i].satuan_name+'</option>');
+              $('#i_satuan_id').empty();
+              $('#i_satuan_id').append('<option value="0"></option>');
+
+              for (var i = 0; i < data.length; i++) {
+                $('#i_satuan_id').append('<option value="'+data[i].item_satuan+'">'+data[i].satuan_name+'</option>');
               }
+
             },
             error: function(data)
             {

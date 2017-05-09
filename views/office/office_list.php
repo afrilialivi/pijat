@@ -49,7 +49,7 @@ Edit Berhasil
   .office_name{
     font-family:serif;
   }
-  a.edit{
+  button.edit{
     border-radius: 20px;
   }
 </style>
@@ -75,8 +75,10 @@ Edit Berhasil
             <br>
             <label for=""><?= $row->office_email?></label>
             <br>
-            <a type="button" name="button" class="btn btn-primary edit" href="<?=$action?>">
-              <i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Profile
+            <a href="<?=$action?>">
+							<button type="button" name="button" class="btn btn-primary edit"  name="button">
+								<i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Profile
+							</button>
             </a>
           </center>
           <br>

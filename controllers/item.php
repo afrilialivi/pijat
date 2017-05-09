@@ -207,21 +207,21 @@ switch ($page) {
 		$id  = $_POST['item_id'];
 		
 		extract($_POST);
-		$konversi_id = get_isset($_GET['id']);
-		$item_id = get_isset($item_id);
-		$satuan = get_isset($satuan);
-		$qty_utama = get_isset($qty_utama);
-		$satuan_konversi = get_isset($satuan_konversi);
-		$qty_konversi = get_isset($qty_konversi);
+			$konversi_id = get_isset($_GET['id']);
+			$item_id = get_isset($item_id);
+			$satuan = get_isset($satuan);
+			$qty_utama = get_isset($qty_utama);
+			$satuan_konversi = get_isset($satuan_konversi);
+			$qty_konversi = get_isset($qty_konversi);
 
-		$data = "
-				 item_id = '$item_id',
-				 satuan = '$satuan',
-				 jumlah = '$qty_utama',
-				 satuan_konversi = '$satuan_konversi',
-				 jumlah_satuan_konversi = '$qty_konversi'
-				";
-
+			$data = "
+					 item_id = '$item_id',
+					 satuan_utama = '$satuan',
+					 jumlah = '$qty_utama',
+					 satuan_konversi = '$satuan_konversi',
+					 jumlah_satuan_konversi = '$qty_konversi'
+					";
+		var_dump($data);
 		$where_konversi_id = "konversi_id = '$konversi_id'";	
 		update_config2("konversi_item", $data, $where_konversi_id);
 		header("location: item.php?page=form&id=$id");

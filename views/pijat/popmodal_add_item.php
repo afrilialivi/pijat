@@ -36,7 +36,7 @@
   </div>
   <div class="modal-footer">
     <button type="submit" name="button" class="btn btn-danger">Simpan</button>
-    <!-- <a href="" class="btn btn-default" >Close</a> -->
+    <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
   </div>
 </form>
 <script type="text/javascript">

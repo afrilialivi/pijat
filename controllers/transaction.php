@@ -173,4 +173,50 @@ switch ($page) {
           }
           echo json_encode($data);
           break;
+
+        case 'simpan_transaksi':
+          $item_id      = $_POST['item_id'];
+          $item_qty     = $_POST['item_qty'];
+          $member_id    = $_POST['i_member'];
+          $tanggal      = $_POST['i_date'];
+          $tanggal      = date("Y-m-d", strtotime($tanggal));
+          $branch_id    = $_POST['i_branch'];
+          $pijat_id     = $_POST['i_pijat'];
+          $reserved_id  = $_POST['reserved_id'];
+          $item_price   = $_POST['item_price'];
+          $pijat_price  = $_POST['pijat_price'];
+          var_dump($_POST);
+          $data_transaction = "'',
+                               '$member_id',
+                               '$branch_id',
+                               '$pijat_id',
+                               '$pijat_price',
+                               '$tanggal',
+                               ''";
+          echo $tanggal;
+          $transaction_id = create_config('transactions_tmp', $data_transaction);
+
+          $i = 0;
+          $total = '';
+          foreach ($item_id as $value) {
+            $total[$i] = $item_price[$i]*$item_qty[$i];
+            $data_transaction_detail = "'',
+                                        '$transaction_id',
+                                        '',
+                                        '".$item_id[$i]."',
+                                        '".$item_qty[$i]."',
+                                        '".$item_price[$i]."',
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        '".$total[$i]."',
+                                        ''";
+            create_config('transaction_tmp_details', $data_transaction_detail);
+            $i++;
+          }
+
+
+          break;
     }

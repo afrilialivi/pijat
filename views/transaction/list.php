@@ -1,157 +1,152 @@
-<style media="screen">
-	#table_item
-	{
-		height: 400px;
-    overflow:scroll;
-    scrollbar-face-color:red;
-	}
-	label {
-			color: #000;
-		  }
-	th{
-		color: #fff;
-	}
-	td{
-		color: #000;
-	}
-</style>
-
 
 <link href="../css/transaction.css" rel="stylesheet" type="text/css"/>
 <section class="content">
 	<div class="col-md-12">
 		<div class="box">
 			<div class="box-body">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="">Tanggal : </label>
-								<div class="input-group">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
+				<form id="form_pijat" role="form">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-4">
+								<div class="form-group">
+									<input type="hidden" id="reserved_id" name="reserved_id" value="<?php echo $reserved_id?>">
+									<label for="">Tanggal : </label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input type="text" required class="form-control pull-right normal"
+										id="date_picker1" name="i_date" value="<?= $date ?>"/>
+									</div><!-- /.input group -->
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="">Member :</label>
+									<select id="i_member" name="i_member" size="1"
+									class="selectpicker show-tick form-control" data-live-search="true" required>
+		                      <option value="0"></option>
+		                      <?php
+		                      while($r_member = mysql_fetch_array($q_member)){
+		                      ?>
+		                      <option value="<?= $r_member['member_id'] ?>"
+														<?php if($r_reserved->member_id == $r_member['member_id']){ ?> selected="selected"<?php } ?>>
+														<?= $r_member['member_name']?>
+													</option>
+		                      <?php
+		                      }
+		                      ?>
+		              </select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="">Cabang :</label>
+									<select class="selectpicker form-control normal" id="i_branch" name="i_branch" required>
+									<option value="0"></option>
+										<?php while ($r_branch = mysql_fetch_array($q_branch)) {?>
+											<option value="<?= $r_branch['branch_id']?>"
+												<?php if ($branch_id = $r_branch['branch_id']){echo "selected";}?>>
+												<?= $r_branch['branch_name']?></option>
+										<? } ?>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="">Pijat :</label>
+										<select id="i_pijat" name="i_pijat" size="1" class="selectpicker show-tick form-control"
+										data-live-search="true" onchange="set_harga()" required>
+	                     <option value="0"></option>
+	                      <?php
+	                      while($r_pijat = mysql_fetch_array($q_pijat)){
+	                      ?>
+	                      <option value="<?= $r_pijat['pijat_id'] ?>"
+													<?php if($r_reserved->pijat == $r_pijat['pijat_id']){ ?>
+														selected="selected"<?php } ?> data-harga = "<?php echo $r_pijat['pijat_harga'];?>">
+	                      	<?= $r_pijat['pijat_name']?>
+	                      </option>
+	                      <?php
+	                      }
+	                      ?>
+										</select>
 									</div>
-									<input type="text" required class="form-control pull-right normal" id="date_picker1" name="i_date" value="<?= $date ?>"/>
-								</div><!-- /.input group -->
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="">Member :</label>
-								<select id="i_member" name="i_member" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
-                                        <option value="0"></option>
-                                        <?php
-                                        while($r_member = mysql_fetch_array($q_member)){
-                                        ?>
-                                        <option value="<?= $r_member['member_id'] ?>" <?php if($r_reserved->member_id == $r_member['member_id']){ ?> selected="selected"<?php } ?>><?= $r_member['member_name']?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                </select>  
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="">Cabang :</label>
-								<select class="selectpicker form-control normal" id="i_branch" name="i_branch" required>
-								<option value="0"></option>
-									<?php while ($r_branch = mysql_fetch_array($q_branch)) {?>
-										<option value="<?= $r_branch['branch_id']?>"
-											<?php if ($branch_id = $r_branch['branch_id']){echo "selected";}?>>
-											<?= $r_branch['branch_name']?></option>
-									<? } ?>
-								</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="">Pijat :</label>
-									<select id="i_pijat" name="i_pijat" size="1" class="selectpicker show-tick form-control" data-live-search="true" onchange="set_harga()" />
-                                           <option value="0"></option>
-                                            <?php
-                                            while($r_pijat = mysql_fetch_array($q_pijat)){
-                                            ?>
-                                            <option value="<?= $r_pijat['pijat_id'] ?>" <?php if($r_reserved->pijat == $r_pijat['pijat_id']){ ?> selected="selected"<?php } ?> data-harga = "<?php echo $r_pijat['pijat_harga'];?>">
-                                            	<?= $r_pijat['pijat_name']?>
-                                            </option>
-                                            <?php
-                                            }
-                                            ?>
-                                    s</select> 
-								</div>
-								<div class="form-group">
-									<label>Harga :</label>
-									<input type="text" class="form-control normal" readonly name="grand_total_currency" id="grand_total_currency" value="">
-									<input type="hidden" name="grand_total" id="grand_total" class="form-control normal" value=""/>
+									<div class="form-group">
+										<label>Harga :</label>
+										<input required type="text" class="form-control normal" readonly name="grand_total_currency" id="grand_total_currency" value="">
+										<input type="hidden" name="pijat_price" id="pijat_price" class="form-control normal" value=""/>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="panel panel-default">
-									<div class="panel-body">
-										<div class="col-md-6">
+							<div class="row">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="input-group">
+											<input type="text" id="search" class="form-control input-sm normal" placeholder="Cari produk">
+											<span class="input-group-btn">
+												<button class="btn btn-default btn-sm" type="button">
+													<i class="fa fa-search"></i>
+												</button>
+											</span>
+										 </div><!-- /input-group -->
+									</div>
+									<div class="col-md-6">
+										<div class="">
+													<input type="text" name="" value="" class="price-tag form-control normal" readonly>
+												</div><!-- /input-group -->
+									</div>
+								</div>
+								<div class="col-md-6">
+										<div id="" class="panel panel-default panel-item">
 											<div class="row">
-												<div class="input-group">
-							                          <input type="text" id="search" class="form-control input-sm normal" placeholder="Cari produk">
-							                          <span class="input-group-btn">
-							                            <button class="btn btn-default btn-sm" type="button">
-							                              <i class="fa fa-search"></i>
-							                            </button>
-							                          </span>
-							                     </div><!-- /input-group -->
-											</div>
-											<br>
-											<div class="row">
-												<table id="table_item" class="table table-hover table-striped my-item" style="font-size: 12px;height:400px;">
-							                      <thead>
-							                        <tr>
-													 	<th width="5%">No.</th>
-							                          	<th width="50%">NAMA ITEM</th>
-							                          	<th class="text-right">HARGA</th>
-							                          	<th class="text-center"><i class="fa fa-th"></i></th>
-							                        </tr>
-							                      </thead>
-							                      <tbody class="fbody" id="data_items">
+											<table id="table_item" class="table my-item" style="font-size: 12px;">
+		                      <thead>
+		                        <tr>
+								 								<th width="5%">No.</th>
+		                          	<th width="50%">NAMA ITEM</th>
+		                          	<th class="text-right">HARGA</th>
+		                          	<th class="text-center"><i class="fa fa-th"></i></th>
+		                        </tr>
+		                      </thead>
+		                      <tbody class="" id="data_items" class="scrollable">
 
-							                      </tbody>
-							                    </table>
-											</div>
+		                      </tbody>
+		                    </table>
 										</div>
-										<div class="col-md-6" style="top:50px;">
-											<table class="table table-hover table-striped transaksi item-list" style="font-size:12px;">
-							                      <thead>
-							                        <tr>
-							                            <th class="text-center" style="width:10%;">QTY</th>
-							                            <th width="40%">ITEM</th>
-							                            <th style="">HARGA</th>
-							                            <th class="text-center hide" id="sales-column-discount">DISC</th>
-							                            <th class="text-right">TOTAL</th>
-							                            <th width="13%" class="text-center"><i class="fa fa-th"></i></th>
-							                        </tr>
-							                      </thead>
-							                      <tbody id="tbody_sales_cart">
-														<tr>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-														</tr>
-							                      </tbody>
-						                  	</table>
-										</div>
+									</div>
+								</div>
+									<div class="col-md-6">
+										<div class="panel panel-default panel-item">
+										<table class="table my-item">
+											<thead>
+												<tr>
+													<th class="text-center" style="width:10%;">QTY</th>
+													<th width="40%">ITEM</th>
+													<th style="">HARGA</th>
+													<th class="text-center hide" id="sales-column-discount">DISC</th>
+													<th class="text-right">TOTAL</th>
+													<th width="13%" class="text-center"><i class="fa fa-th"></i></th>
+												</tr>
+											</thead>
+											<tbody id="tbody_sales_cart">
+
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- <div class="box-footer" style="background-color: #fff;">
-                    <input class="btn btn-warning" type="submit" value="Save"/>
-                    <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
-                </div> -->
+					<div class="box-footer" style="background-color: #fff; border-color:#ddd;">
+	            <button id="" type="submit" class="btn btn-primary">Save</button>
+	            <a href="<?= $close_button?>">
+								<button type="button" name="button" class="btn btn-danger" >
+									Close
+								</button>
+							</a>
+	        </div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -179,6 +174,7 @@ $(document).ready(function(){
 	var items = [];
 	var html = '';
 	var add_item_list = [];
+	// var item_detail = [];
 	// var search_data = [];
 
 	$.fn.getItems = function(){
@@ -203,19 +199,14 @@ $(document).ready(function(){
 									no++;
 								});
 
-						$("#data_items").append(html);
-						$('#table_item').animate({scrollTop: $('#textdiv').prop("scrollHeight")}, 500);
-						// alert(data);
+						$("#data_items").html(html);
+						// $('#table_item').animate({scrollTop: $('#data_items').prop("scrollHeight")}, 500);
 				}).fail(function(data){
 							alert(data);
 					});
-					$('#table_item').animate({scrollTop: $('#textdiv').prop("scrollHeight")}, 500);
+					// alert();
+					// $('#table_item').animate({scrollTop: $('#data_items').prop("scrollHeight")}, 500);
 	}
-
-	$('.btn-add-cart').on('click', function (e) {
-      $.fn.addCart($(this));
-      e.preventDefault();
-  });
 
 	$.fn.addCart = function(btn){
 
@@ -253,13 +244,11 @@ $(document).ready(function(){
 			localStorage.setItem('item_detail', JSON.stringify(add_item_list));
 			$.fn.refreshChart();
 
-			// console.log(add_item_list);
 	}
 
 	$.fn.refreshChart = function () {
 					// $.fn.refreshSales();
 					storage_item_detail = JSON.parse(localStorage.getItem('item_detail'));
-					console.log(storage_item_detail);
 
 					var html = '';
 					var html_struk = '';
@@ -306,6 +295,7 @@ $(document).ready(function(){
 							html += '<td class="text-right">'+itemTotal+'</td>';
 							html += '<td style="text-align: right;">' +
 											'<div class="btn-group">' +
+											'<button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'+
 											'</div>' +
 											'</td>';
 							html += '</tr>';
@@ -313,7 +303,7 @@ $(document).ready(function(){
 							// console.log(item_name);
 			});
 
-
+			// console.log(storage_item_detail);
 		};
 
 		$('#search').keyup(function(){
@@ -452,8 +442,42 @@ $(document).ready(function(){
 
 	$.fn.getItems();
 
+
+	$("#form_pijat").submit(function(e) {
+
+		e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var url = "transaction.php?page=simpan_transaksi";
+		var storage_item_detail = JSON.parse(localStorage.getItem('item_detail'));
+		var item_id 	= [];
+		var item_qty 	= [];
+		var item_price = [];
+
+		$.each(storage_item_detail, function(index, value){
+
+			item_id.push(value.item_id);
+			item_qty.push(value.item_qty);
+			item_price.push(value.item_price);
+
+		});
+		var paramArr = $("#form_pijat").serializeArray();
+	  paramArr.push( {name:'item_id', value:item_id },
+	                 {name:'item_qty', value:item_qty },
+	                 {name:'item_price', value:item_price });
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: paramArr, // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+           }
+         });
+		return false;
 });
 
+});
 
 
 </script>

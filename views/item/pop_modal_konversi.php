@@ -27,13 +27,14 @@
       </div>
       <div class="form-group">
         <label>Jumlah Satuan Konversi</label>
-        <input required type="text" name="qty_konversi" id="qty_konversi" class="form-control"
+        <input required type="number" name="qty_konversi" id="qty_konversi" class="form-control"
         placeholder="Masukkan jumlah..." value="<?= $row->jumlah_satuan_konversi ?>"/>
       </div>
 </div>
 <div class="modal-footer">
   <?php if (strpos($permit, 'c') !== false || strpos($permit, 'u') !== false){ ?>
-    <input class="btn btn-primary" type="submit" value="Simpan"/>
+    <!-- <input class="btn btn-primary" type="submit" value="Simpan"/> -->
+    <button type="submit" name="button" class="btn btn-danger">Simpan</button>
   <?php } ?>
   <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
 </div>
