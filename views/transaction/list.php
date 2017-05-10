@@ -471,7 +471,8 @@ $(document).ready(function(){
            data: paramArr, // serializes the form's elements.
            success: function(data)
            {
-               alert(data); // show response from the php script.
+               // alert(data); // show response from the php script.
+               window.location.href="transaction.php?page=form_statement&id=data";
            }
          });
 		return false;

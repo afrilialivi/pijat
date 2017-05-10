@@ -13,6 +13,9 @@
                       border-top:none;
                       outline: none;
                   }
+    label{
+        color: #000 ;
+    }
 </style>
 
 <script type="text/javascript">
@@ -139,131 +142,162 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div style="margin-bottom: 56%;">
-                                                        <center><img src=".."></center>
+                                                        <!-- <center><img src=".."></center> -->
                                                     </div>
                                                     <div id="tekanan">
                                                         <input type="checkbox" value="1" id="tekanan_on" name="i_tekanan" class="form-check" 
                                                         <?php if ($r_statement->tekanan==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="tekanan_off" name="i_tekanan" 
                                                         <?php if ($r_statement->tekanan==2){echo "Checked";}?>
-                                                        class="form-check" style="margin-left: 18%;"> Tidak    
+                                                        class="form-check" style="margin-left: 18%;"> 
+                                                        <label>Tidak </label>
                                                     </div>   
                                                     <div id="asma">
                                                         <input type="checkbox" value="1" id="asma_on" name="i_asma" class="form-check"  
                                                         <?php if ($r_statement->asma==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya </label>
                                                         <input type="checkbox" value="2" id="asma_off" name="i_asma" class="form-check"
                                                         <?php if ($r_statement->asma==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="inhaler">
                                                         <input type="checkbox" value="1" id="inhaler_on" name="i_inhaler" class="form-check" 
                                                         <?php if ($r_statement->inhaler==1){echo "Checked";}?>
-                                                         style="margin-left: 33%" /> Ya
+                                                         style="margin-left: 33%" /> 
+                                                         <label>Ya</label>
                                                         <input type="checkbox" value="2" id="inhaler_off" name="i_inhaler" class="form-check" 
                                                         <?php if ($r_statement->inhaler==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;" /> Tidak
+                                                        style="margin-left: 18%;" /> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="leher">
                                                         <input type="checkbox" value="1" id="leher_on" name="i_leher" class="form-check" 
                                                         <?php if ($r_statement->leher==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="leher_off" name="i_leher" class="form-check" 
                                                         <?php if ($r_statement->leher==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;" /> Tidak
+                                                        style="margin-left: 18%;" /> 
+                                                        <label>Tidak</label>
                                                     </div>
 
                                                     <div id="kulit" style="margin-bottom: 15%;"> 
                                                         <input type="checkbox" value="1" id="kulit_on" name="i_kulit" class="form-check" 
                                                         <?php if ($r_statement->kulit==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="kulit_off" name="i_kulit" class="form-check" 
                                                         <?php if ($r_statement->kulit==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="selain" style="margin-bottom: 15%;">
                                                         <input type="checkbox" value="1" id="selain_on" name="i_selain" class="form-check"  
                                                         <?php if ($r_statement->selain_diatas==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="selain_off" name="i_selain" class="form-check" 
                                                         <?php if ($r_statement->selain_diatas==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;" /> Tidak
+                                                        style="margin-left: 18%;" /> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="alergi" style="margin-bottom: 15%;">
                                                         <input type="checkbox" value="1" id="alergi_on" name="i_alergi" class="form-check" 
                                                          <?php if ($r_statement->alergi==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="alergi_off" name="i_alergi" class="form-check" 
                                                         <?php if ($r_statement->alergi==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;" /> Tidak
+                                                        style="margin-left: 18%;" /> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="hamil" style="margin-bottom: 14%;">
                                                         <input type="checkbox" value="1" id="hamil_on" name="i_hamil" class="form-check" 
                                                         <?php if ($r_statement->hamil==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="hamil_off" name="i_hamil" class="form-check" 
                                                         <?php if ($r_statement->hamil==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div  id="lens">
                                                         <input type="checkbox" value="1" id="lens_on" name="i_lens" class="form-check" 
                                                         <?php if ($r_statement->kontak_lens==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="lens_off" name="i_lens" class="form-check" 
                                                         <?php if ($r_statement->kontak_lens==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="melepasnya">
                                                         <input type="checkbox" value="1" id="melepasnya_on" name="i_melepasnya" class="form-check" 
                                                         <?php if ($r_statement->melepas_lens==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="melepasnya_off" name="i_melepasnya" class="form-check" 
                                                         <?php if ($r_statement->melepas_lens==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;" /> Tidak
+                                                        style="margin-left: 18%;" /> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div>
                                                         <input type="checkbox" value="1" id="pijatan_1" name="i_level" class="form-check check_2" 
                                                         <?php if ($r_statement->level==1){echo "Checked";}?>
-                                                         /> Lembut 
+                                                         /> 
+                                                         <label>Lembut</label> 
                                                         <input type="checkbox" value="2" id="pijatan_2" name="i_level" class="form-check check_2" 
                                                         <?php if ($r_statement->level==2){echo "Checked";}?>
-                                                        style="margin-left: 5%;" /> Sedang
+                                                        style="margin-left: 5%;" /> 
+                                                        <label>Sedang</label>
                                                         <input type="checkbox" value="3" id="pijatan_3" name="i_level" class="form-check check_2" 
                                                         <?php if ($r_statement->level==3){echo "Checked";}?>
-                                                        style="margin-left: 5%" /> Kuat
+                                                        style="margin-left: 5%" /> 
+                                                        <label>Kuat</label>
                                                     </div>
                                                     <div  id="spesial">
                                                         <input type="checkbox" value="1" id="spesial_on" name="i_spesial" class="form-check" 
                                                         <?php if ($r_statement->spesial==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="spesial_off" name="i_spesial" class="form-check" 
                                                         <?php if ($r_statement->spesial==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="jawaban">
                                                         <input type="checkbox" value="1" id="jawaban_on" name="i_jawaban" class="form-check" 
                                                         <?php if ($r_statement->jawaban==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="jawaban_off" name="i_jawaban" class="form-check" 
                                                         <?php if ($r_statement->jawaban==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="menyembunyikan" style="margin-bottom: 5%;">
                                                         <input type="checkbox" value="1" id="menyembunyikan_on" name="i_menyembunyikan" class="form-check" 
                                                         <?php if ($r_statement->tidak_menyembunyikan==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="menyembunyikan_off" name="i_menyembunyikan" class="form-check" 
                                                         <?php if ($r_statement->tidak_menyembunyikan==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                     <div id="bertanggung">
                                                         <input type="checkbox" value="1" id="bertanggung_on" name="i_bertanggung_jawab" class="form-check" 
                                                         <?php if ($r_statement->tanggung_jawab==1){echo "Checked";}?>
-                                                        style="margin-left: 33%" /> Ya
+                                                        style="margin-left: 33%" /> 
+                                                        <label>Ya</label>
                                                         <input type="checkbox" value="2" id="bertanggung_off" name="i_bertanggung_jawab" class="form-check" 
                                                         <?php if ($r_statement->tanggung_jawab==2){echo "Checked";}?>
-                                                        style="margin-left: 18%;"/> Tidak
+                                                        style="margin-left: 18%;"/> 
+                                                        <label>Tidak</label>
                                                     </div>
                                                 </div>
                                             </div>

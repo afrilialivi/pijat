@@ -22,7 +22,7 @@ function add_menu(id)
   }
 }
 </script>
- <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
+ <form action="<?= $action_statement?>" method="post" enctype="multipart/form-data" role="form">
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">

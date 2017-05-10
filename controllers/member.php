@@ -23,6 +23,7 @@ switch ($page) {
 		get_header();
 
 		$close_button = "member.php?page=list";
+		// $print ="print.php?page=statement";
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		$query_statement = select_statement($id);
@@ -284,7 +285,7 @@ switch ($page) {
 				header("Location: member.php?page=list&id=$id&did=2");
 		break;
 
-	case 'delete_statement':
+		case 'delete_statement':
 			$id = get_isset($_GET['id']);
 			$member_id = get_isset($_GET['member_id']);
 
@@ -292,6 +293,17 @@ switch ($page) {
 			delete('statement',$id,$where_member_id);
 			// delete_statements(id);
 		break;
+		
+		case 'print':
+		
+		extract($_POST);
+
+		$statement_id = get_isset($_GET['statement']);
+		// echo $statement_id;
+		header("location: print.php?page=statement&statement=$statement_id");
+
+		break;
+
 }
 	
 ?>

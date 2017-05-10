@@ -72,6 +72,14 @@ switch ($page) {
                 exit();
                 include '../views/print/excelmenudownload.php';
         break;
+
+        case 'statement':
+        	$statement_id = $_GET['statement'];
+        	$q_member_statement = select_member_statement($statement_id);
+ 			$r_member_statement = mysql_fetch_array($q_member_statement);
+        	// echo $statement_id;
+        	include '../views/print/statement.php';
+        	break;
 }
 
 ?>

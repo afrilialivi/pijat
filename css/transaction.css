@@ -36,6 +36,7 @@ table > tbody
 #tbody_sales_cart tbody
 {
     height: 100px;
+    color: #000;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -73,3 +74,6 @@ input.price-tag
   font-size: 25px;
   margin-bottom: 10px !important;
 }
+label{
+    color :#000;
+  }

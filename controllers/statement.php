@@ -17,6 +17,8 @@ switch ($page) {
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		$member_id = (isset($_GET['member'])) ? $_GET['member'] : null;
+		$status = (isset($_GET['status'])) ? $_GET['status'] : null;
+
 		if($member_id){
 			$where_member_id = "WHERE member_id = '$member_id'";
 			$r_member = select_object_config('members', $where_member_id);
@@ -46,8 +48,11 @@ switch ($page) {
 				$r_statement->jawaban = false;
 				$r_statement->tidak_menyembunyikan = false;
 				$r_statement->tanggung_jawab = false;
-
-				$action_statement = "member.php?page=save_statement&id=$member_id";
+				if ($status != 1) {
+					$action_statement = "member.php?page=save_statement&id=$member_id";	
+				} else {
+					$action_statement = "";	
+				}
 			}
 
 		} else {
@@ -58,6 +63,13 @@ switch ($page) {
 			$r_member->member_email = false; 	
 			$r_member->member_phone = false;
 			$r_member->member_alamat = false;
+
+			if ($status != 1) {
+					// $action_statement = "member.php?page=save_statement&id=$member_id";	
+				} else {
+					// $action_statement = "";	
+				}
+				
 		}
 			$r_statement = new stdClass();
 

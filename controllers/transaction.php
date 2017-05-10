@@ -185,7 +185,7 @@ switch ($page) {
           $reserved_id  = $_POST['reserved_id'];
           $item_price   = $_POST['item_price'];
           $pijat_price  = $_POST['pijat_price'];
-          var_dump($_POST);
+          // var_dump($_POST);
           $data_transaction = "'',
                                '$member_id',
                                '$branch_id',
@@ -193,7 +193,7 @@ switch ($page) {
                                '$pijat_price',
                                '$tanggal',
                                ''";
-          echo $tanggal;
+          // echo $tanggal;
           $transaction_id = create_config('transactions_tmp', $data_transaction);
 
           $i = 0;
@@ -216,7 +216,14 @@ switch ($page) {
             create_config('transaction_tmp_details', $data_transaction_detail);
             $i++;
           }
-
+          echo json_encode($transaction_id);
 
           break;
+
+          case 'form_statement':
+                $status = 1;
+                
+                header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
+            break;
+
     }

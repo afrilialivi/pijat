@@ -13,6 +13,10 @@
                       border-top:none;
                       outline: none;
                   }
+    .btn-danger1{
+        background-color: #d82827;
+        color: #fff;
+    }
 </style>
 
 <script type="text/javascript">
@@ -276,6 +280,9 @@
                                             <div class="box-footer"  style="background-color: #fff;">
                                                 <input class="btn btn-warning" type="submit" value="Save"/>
                                                 <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+                                                <a href="member.php?page=print&statement=<?php echo $id?>" class="btn btn-danger1" >Print</a>
+                                                
+                                                
                                             </div>
                             
                                     </div><!-- /.box -->
