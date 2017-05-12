@@ -11,14 +11,14 @@ $_SESSION['menu_active'] = 1;
 switch ($page) {
 
 	case 'list':
-		get_header();
+		// get_header();
 
 		$close_button = "transaction.php";
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		$member_id = (isset($_GET['member'])) ? $_GET['member'] : null;
 		$status = (isset($_GET['status'])) ? $_GET['status'] : null;
-
+		echo $member_id;
 		if($member_id){
 			$where_member_id = "WHERE member_id = '$member_id'";
 			$r_member = select_object_config('members', $where_member_id);
@@ -49,7 +49,7 @@ switch ($page) {
 				$r_statement->tidak_menyembunyikan = false;
 				$r_statement->tanggung_jawab = false;
 				if ($status != 1) {
-					$action_statement = "member.php?page=save_statement&id=$member_id";	
+					$action_statement = "statement.php?page=save_statement";	
 				} else {
 					$action_statement = "";	
 				}
@@ -67,9 +67,9 @@ switch ($page) {
 			if ($status != 1) {
 					// $action_statement = "member.php?page=save_statement&id=$member_id";	
 				} else {
-					// $action_statement = "";	
+					$action_statement = "";	
 				}
-				
+
 		}
 			$r_statement = new stdClass();
 
@@ -94,8 +94,8 @@ switch ($page) {
 			$r_statement->tanggung_jawab = false;
 
 		// echo "string";
-		include '../views/statement/form_statement.php';
-		get_footer();
+		// include '../views/statement/form_statement.php';
+		// get_footer();
 	break;
 
 	case 'save_statement':
@@ -147,7 +147,7 @@ switch ($page) {
 				// create_config('statement',$data);
 				$statement_id = create_config('statement', $data);
 				var_dump($_POST); 
-				// header("Location: member.php?page=list&did=2");
+				header("Location: order.php?page=list");
 				// echo "string";
 		break;
 

@@ -216,14 +216,22 @@ switch ($page) {
             create_config('transaction_tmp_details', $data_transaction_detail);
             $i++;
           }
-          echo json_encode($transaction_id);
+
+          $data = array(
+              'transaction_id'  => $transaction_id, 
+              'member_id'       => $member_id
+              );
+
+          echo json_encode($data);
 
           break;
 
           case 'form_statement':
                 $status = 1;
-                
-                header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
+                $i_member = $_GET['member_id'];
+                $transaction_id = $_GET['transaction_id'];
+                print_r($_GET);
+                // header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
             break;
 
     }
