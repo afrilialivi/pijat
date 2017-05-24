@@ -17,7 +17,7 @@ document.getElementById("i_total").value = total;
 </script>
 <style type="text/css">
     label{
-      color: #000;
+      color: rgb(107, 52, 106);
     }
 </style>
 <!-- MEMBER -->

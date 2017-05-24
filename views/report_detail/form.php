@@ -31,7 +31,7 @@
 
                              <form role="form" action="<?= $action?>" method="post">
 
-                            <div class="box box-primary">
+                            <div class="box box-cokelat">
 
 
                                 <div class="box-body">

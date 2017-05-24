@@ -179,7 +179,7 @@ switch ($page) {
           $item_qty     = $_POST['item_qty'];
           $member_id    = $_POST['i_member'];
           $tanggal      = $_POST['i_date'];
-          $tanggal      = date("Y-m-d", strtotime($tanggal));
+          $tanggal      = format_back_date($tanggal);
           $branch_id    = $_POST['i_branch'];
           $pijat_id     = $_POST['i_pijat'];
           $reserved_id  = $_POST['reserved_id'];
@@ -193,13 +193,15 @@ switch ($page) {
                                '$pijat_price',
                                '$tanggal',
                                ''";
-          // echo $tanggal;
           $transaction_id = create_config('transactions_tmp', $data_transaction);
 
+          // echo $item_qty;
+                          
           $i = 0;
-          $total = '';
+          $total = 0;
           foreach ($item_id as $value) {
-            $total[$i] = $item_price[$i]*$item_qty[$i];
+            $total = 0;
+            $total = $item_price[$i]*$item_qty[$i];
             $data_transaction_detail = "'',
                                         '$transaction_id',
                                         '',
@@ -209,9 +211,8 @@ switch ($page) {
                                         '',
                                         '',
                                         '',
-                                        '',
-                                        '',
-                                        '".$total[$i]."',
+                                        '',                                    
+                                        '".$total."',
                                         ''";
             create_config('transaction_tmp_details', $data_transaction_detail);
             $i++;
@@ -227,11 +228,12 @@ switch ($page) {
           break;
 
           case 'form_statement':
+                echo "string";
                 $status = 1;
                 $i_member = $_GET['member_id'];
                 $transaction_id = $_GET['transaction_id'];
                 print_r($_GET);
-                // header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
+                header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
             break;
 
     }

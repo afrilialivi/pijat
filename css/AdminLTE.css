@@ -1381,9 +1381,9 @@ body > .header .logo .icon {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  border-bottom: 1px solid #ff3f00;
+  border-bottom:1px solid #361563;
   color:#fff;
-  background:#ff3f00;
+  background: #6b346a;
 }
 .box .box-header:before,
 .box .box-header:after {

@@ -1,5 +1,10 @@
 
 <link href="../css/transaction.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+	label{
+		color: rgb(107, 52, 106);
+	}
+</style>
 <section class="content">
 	<div class="col-md-12">
 		<div class="box">
@@ -74,8 +79,8 @@
 									</div>
 									<div class="form-group">
 										<label>Harga :</label>
-										<input required type="text" class="form-control normal" readonly name="grand_total_currency" id="grand_total_currency" value="">
-										<input type="hidden" name="pijat_price" id="pijat_price" class="form-control normal" value=""/>
+										<input required type="text" class="form-control normal" readonly name="grand_total_currency" id="grand_total_currency">
+										<input type="hidden" name="pijat_price" id="pijat_price" class="form-control normal"/>
 									</div>
 								</div>
 							</div>
@@ -157,7 +162,7 @@
 	function set_harga() {
 		var i_pijat = $('#i_pijat').val();
 		var harga = $('#i_pijat option:selected').data('harga')||0;
-		$('#grand_total').val(harga)||0;
+		$('#pijat_price').val(harga)||0;
 		$('#grand_total_currency').val(toRp(harga))||0;
 		console.log(harga);
 	}
@@ -468,30 +473,34 @@ $(document).ready(function(){
 
     var url = "transaction.php?page=simpan_transaksi";
 		var storage_item_detail = JSON.parse(localStorage.getItem('item_detail'));
-		var item_id 	= [];
-		var item_qty 	= [];
-		var item_price = [];
+		// var item_id 	= [];
+		// var item_qty 	= [];
+		// var item_price = [];
+
+		var paramArr = $("#form_pijat").serializeArray();
 
 		$.each(storage_item_detail, function(index, value){
-
-			item_id.push(value.item_id);
-			item_qty.push(value.item_qty);
-			item_price.push(value.item_price);
+			  
+		  paramArr.push( {name:'item_id[]', value:value.item_id },
+		                 {name:'item_qty[]', value:value.item_qty },
+		                 {name:'item_price[]', value:value.item_price });
 
 		});
-		var paramArr = $("#form_pijat").serializeArray();
-	  paramArr.push( {name:'item_id', value:item_id },
-	                 {name:'item_qty', value:item_qty },
-	                 {name:'item_price', value:item_price });
+		// var paramArr = $("#form_pijat").serializeArray();
+		//   paramArr.push( {name:'item_id[]', value:item_id },
+		//                  {name:'item_qty[]', value:item_qty },
+		//                  {name:'item_price[]', value:item_price });
 
     $.ajax({
            type: "POST",
-           url: url,
+	       url: url,
            data: paramArr, // serializes the form's elements.
+           dataType:'JSON',
            success: function(data)
            {
-               alert(data); // show response from the php script.
-               // window.location.href="transaction.php?page=form_statement&transaction_id="+data.transaction_id+"&member_id="+data.member_id;
+           		console.log(data);
+               // alert(data); // show response from the php script.
+               window.location.href="transaction.php?page=form_statement&transaction_id="+data.transaction_id+"&member_id="+data.member_id;
            }
          });
 		return false;
