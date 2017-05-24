@@ -142,7 +142,7 @@
                                                     </div> 
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div style="margin-bottom: 56%;">
+                                                    <div style="margin-bottom: 70%;">
                                                         <center><img src=".."></center>
                                                     </div>
                                                     <div id="tekanan">

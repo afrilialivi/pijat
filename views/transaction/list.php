@@ -145,9 +145,9 @@
 						</div>
 					</div>
 					<div class="box-footer" style="background-color: #fff; border-color:#ddd;">
-	            <button id="" type="submit" class="btn btn-primary">Save</button>
+	            <button id="" type="submit" class="btn btn-danger">Save</button>
 	            <a href="<?= $close_button?>">
-								<button type="button" name="button" class="btn btn-danger" >
+								<button type="button" name="button" class="btn btn-default" >
 									Close
 								</button>
 							</a>
