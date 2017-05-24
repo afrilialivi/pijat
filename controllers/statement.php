@@ -21,7 +21,7 @@ switch ($page) {
 		
 		if($member_id){
 			$where_member_id = "WHERE member_id = '$member_id'";
-			$r_member = select_object_config('members', $where_member_id);
+			$row = select_object_config('members', $where_member_id);
 			
 			$statement_id = select_config_by('statement', 'count(*)', $where_member_id); 
 			if ($statement_id>0) {
@@ -29,6 +29,10 @@ switch ($page) {
 			} else {
 				$r_statement = new stdClass();
 
+				$row->member_name	= false;
+				$row->member_email = false;
+				$row->member_phone = false;
+				$row->member_alamat = false;
 
 				$r_statement->tekanan = false;
 				$r_statement->asma = false;
