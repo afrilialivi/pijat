@@ -217,7 +217,7 @@ img {
   background-color: #222222 !important;
 }
 .bg-red {
-  background-color: #f56954 !important;
+  background-color: #6B346A !important;
 }
 .bg-yellow {
   background-color: #f39c12 !important;
@@ -267,7 +267,7 @@ img {
 }
 /* Text colors */
 .text-red {
-  color: #f56954 !important;
+  color: #6B346A !important;
 }
 .text-yellow {
   color: #f39c12 !important;
@@ -837,7 +837,7 @@ body > .header .logo .icon {
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon.danger,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa.danger,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion.danger {
-  background: #f56954;
+  background: #6B346A;
 }
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon.warning,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa.warning,
@@ -1095,10 +1095,10 @@ body > .header .logo .icon {
   box-shadow: none;
 }
 .form-group.has-error label {
-  color: #f56954;
+  color: #6B346A;
 }
 .form-group.has-error .form-control {
-  border-color: #f56954 !important;
+  border-color: #6B346A !important;
   box-shadow: none;
 }
 /* Input group */
@@ -1196,7 +1196,7 @@ body > .header .logo .icon {
 }
 .progress-bar-red,
 .progress-bar-danger {
-  background-color: #f56954;
+  background-color: #6B346A;
 }
 .progress-striped .progress-bar-red,
 .progress-striped .progress-bar-danger {
@@ -1355,7 +1355,7 @@ body > .header .logo .icon {
   border-top-color: #00c0ef;
 }
 .box.box-danger {
-  border-top-color: #f56954;
+  border-top-color: #6B346A;
 }
 .box.box-warning {
   border-top-color: #f39c12;
@@ -1553,8 +1553,8 @@ body > .header .logo .icon {
 }
 .box.box-solid.box-danger > .box-header {
   color: #fff;
-  background: #f56954;
-  background-color: #f56954;
+  background: #6B346A;
+  background-color: #6B346A;
 }
 .box.box-solid.box-danger > .box-header a {
   color: #444;
@@ -1616,7 +1616,7 @@ body > .header .logo .icon {
   margin-bottom: 0;
 }
 .box .todo-list > li.danger {
-  border-left-color: #f56954;
+  border-left-color: #6B346A;
 }
 .box .todo-list > li.warning {
   border-left-color: #f39c12;
@@ -1645,7 +1645,7 @@ body > .header .logo .icon {
 .box .todo-list > li .tools {
   display: none;
   float: right;
-  color: #f56954;
+  color: #6B346A;
 }
 .box .todo-list > li .tools > .fa,
 .box .todo-list > li .tools > .glyphicon,
@@ -1697,7 +1697,7 @@ body > .header .logo .icon {
   border: 2px solid #00a65a;
 }
 .box .chat .item > img.offline {
-  border: 2px solid #f56954;
+  border: 2px solid #6B346A;
 }
 .box .chat .item > .message {
   margin-left: 55px;
@@ -1917,13 +1917,13 @@ Component: timeline
   background-color: #00acd6;
 }
 .btn.btn-danger {
-  background-color: #f56954;
-  border-color: #f4543c;
+  background-color: #6B346A;
+  border-color: #361563;
 }
 .btn.btn-danger:hover,
 .btn.btn-danger:active,
 .btn.btn-danger.hover {
-  background-color: #f4543c;
+  background-color: #9975A1;
 }
 .btn.btn-warning {
   background-color: #f39c12;
@@ -3092,7 +3092,7 @@ Component: timeline
 /*--------------hikaru style-----------------*/
 
 .home_icon1{
-  background: url('../img/new/home_icon1.gif') no-repeat bottom right;
+  background: url('../img/new/home_icon1.png') no-repeat bottom right;
   width: 159px;
   height: 153px;
 }
@@ -3104,7 +3104,7 @@ Component: timeline
   background: url('../img/new/home.png') no-repeat top left;
  }
  .home_icon2{
-  background: url('../img/new/home_icon2.gif') no-repeat bottom right;
+  background: url('../img/new/home_icon2.png') no-repeat bottom right;
   width: 159px;
   height: 153px;
 }
@@ -3114,7 +3114,7 @@ Component: timeline
  }
 
 .home_icon3{
-  background: url('../img/new/home_icon3.gif') no-repeat bottom right;
+  background: url('../img/new/home_icon3.png') no-repeat bottom right;
   width: 159px;
   height: 153px;
 }
@@ -3124,7 +3124,7 @@ Component: timeline
  }
 
  .home_icon4{
-  background: url('../img/new/home_icon4.gif') no-repeat bottom right;
+  background: url('../img/new/home_icon4.png') no-repeat bottom right;
   width: 159px;
   height: 153px;
 }

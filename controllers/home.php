@@ -9,7 +9,7 @@ $_SESSION['menu_active'] = 1;
 switch ($page) {
 	case 'list':
 		get_header($title);
-		include '../views/layout/home.php';
+		include '../views/layout/home2.php';
 		get_footer();
 	break;
 	case 'form_result':
