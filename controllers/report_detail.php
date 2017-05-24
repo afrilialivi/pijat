@@ -6,7 +6,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Report Detail");
 
-$_SESSION['menu_active'] = 10;
+$_SESSION['menu_active'] = 5;
 
 switch ($page) {
 

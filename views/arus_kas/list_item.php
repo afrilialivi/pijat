@@ -6,7 +6,7 @@
                             <div class="box">
                              
                               <div class="box-body2 table-responsive">
-                              <div class="box-header" style="cursor: move;">
+                              <div class="box-header">
 <h3 class="box-title"><strong>Journal</strong></h3>
 </div>
                                     <table id="" class="table table-bordered table-striped">
