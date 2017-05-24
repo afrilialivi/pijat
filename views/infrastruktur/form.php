@@ -5,6 +5,9 @@
     max-width: 250px;
     max-height: 250px;
    }
+   label{
+    color:#6B346A;
+   }
  </style>
 
                 <!-- Main content -->
