@@ -15,6 +15,11 @@ document.getElementById("i_total").value = total;
 }
 
 </script>
+<style type="text/css">
+    label{
+      color: #000;
+    }
+</style>
 <!-- MEMBER -->
 <?php if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
   <section class="content_new">

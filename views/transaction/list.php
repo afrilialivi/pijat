@@ -93,7 +93,8 @@
 									</div>
 									<div class="col-md-6">
 										<div class="">
-													<input type="text" name="" value="" class="price-tag form-control normal" readonly>
+													<input type="text" name="" value="" id="total_allcurr" class="price-tag form-control normal" style="text-align: right;" readonly>
+													<input type="hidden" name="" value="" id="total_all" class="price-tag form-control normal">
 												</div><!-- /input-group -->
 									</div>
 								</div>
@@ -245,6 +246,22 @@ $(document).ready(function(){
 			$.fn.refreshChart();
 
 	}
+		$("body").on("click", ".removeCart", function (event) {
+				var item_id 		= $(this).attr('data-id');
+				var bapak 			= $(this).parent();
+				var mbah				= bapak.parent();
+				var mbahembah		= mbah.parent();
+				var item_index 	= mbahembah.index();
+
+				$.each(add_item_list, function (index, value) {
+							if (value.item_id == item_id) {
+									add_item_list.splice(index, 1);
+									return false;
+							}
+					});
+					localStorage.setItem('item_detail', JSON.stringify(add_item_list));
+					$.fn.refreshChart();
+		});
 
 	$.fn.refreshChart = function () {
 					// $.fn.refreshSales();
@@ -295,15 +312,17 @@ $(document).ready(function(){
 							html += '<td class="text-right">'+itemTotal+'</td>';
 							html += '<td style="text-align: right;">' +
 											'<div class="btn-group">' +
-											'<button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'+
+											'<button type="button" data-id="'+item_id+'" class="btn btn-danger removeCart"><i class="fa fa-trash-o"></i></button>'+
 											'</div>' +
 											'</td>';
 							html += '</tr>';
 							$("#tbody_sales_cart").html(html);
 							// console.log(item_name);
 			});
+			var intSubTotalcur = Intl.NumberFormat().format(intSubTotal);
 
-			// console.log(storage_item_detail);
+			$('#total_allcurr').val(intSubTotalcur);
+			$('#total_all').val(intSubTotal);
 		};
 
 		$('#search').keyup(function(){
