@@ -157,11 +157,11 @@ document.getElementById("i_total").value = total;
                             <?php
                             if(!$id){
                             ?>
-                            <input class="btn btn-warning" type="submit" value="Save"/>
+                            <input class="btn btn-danger" type="submit" value="Save"/>
                             <?php
                             }
                             ?>
-                            <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+                            <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
 
                           </div>
 
