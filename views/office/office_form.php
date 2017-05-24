@@ -133,8 +133,8 @@ Edit Berhasil
 					</div><!-- /.box-body -->
 					<div class="box-footer">
 						<?php if (strpos($permit, 'c') !== false || strpos($permit, 'u') !== false): ?>
-							<input class="btn btn-primary" type="submit" value="Simpan"/>
-							<a href="<?= $close_button?>" class="btn btn-danger" >Keluar</a>
+							<input class="btn btn-danger" type="submit" value="Simpan"/>
+							<a href="<?= $close_button?>" class="btn btn-default" >Keluar</a>
 						<?php endif; ?>
 					</div>
 				</div><!-- /.box -->

@@ -84,7 +84,7 @@
                                 
                                   <div class="box-footer">
                                
-                                <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+                                <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
                              
                              </div>
                             

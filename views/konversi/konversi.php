@@ -97,7 +97,7 @@
               </tbody>
                 <tfoot>
                <tr>
-                <td><button type="button" class="btn btn-success" onclick="select_satuan()">Tambah</button></td>
+                <td><button type="button" class="btn btn-danger" onclick="select_satuan()">Tambah</button></td>
               </tr>                                              
                   
                 </tfoot>

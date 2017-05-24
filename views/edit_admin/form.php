@@ -117,7 +117,7 @@
 
 
                     <div class="box-footer">
-                                <input class="btn btn-warning" type="submit" value="Save"/>
+                                <input class="btn btn-danger" type="submit" value="Save"/>
 
                                 </div>
 

@@ -45,8 +45,8 @@
             </div>
           <div style="clear:both;"></div>
           <div class="box-footer">
-            <input class="btn btn-warning" type="submit" value="Simpan"/>
-            <a href="<?= $close_button?>" class="btn btn-danger">Batal</a>
+            <input class="btn btn-danger" type="submit" value="Simpan"/>
+            <a href="<?= $close_button?>" class="btn btn-default">Batal</a>
           </div>
           </div><!-- /.box-body -->
         </div><!-- /.box -->

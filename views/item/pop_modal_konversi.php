@@ -36,6 +36,6 @@
     <!-- <input class="btn btn-primary" type="submit" value="Simpan"/> -->
     <button type="submit" name="button" class="btn btn-danger">Simpan</button>
   <?php } ?>
-  <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+  <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
 </div>
 </form>

@@ -278,8 +278,8 @@
                                         </div><!-- /.box-body -->
                                 
                                             <div class="box-footer"  style="background-color: #fff;">
-                                                <input class="btn btn-warning" type="submit" value="Save"/>
-                                                <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
+                                                <input class="btn btn-danger" type="submit" value="Save"/>
+                                                <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
                                                 <a href="member.php?page=print&statement=<?php echo $id?>" class="btn btn-danger1" >Print</a>
                                                 
                                                 

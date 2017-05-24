@@ -41,7 +41,7 @@
               <tr>
                 <td colspan="5" style="border-right-style: hidden;">
                   <button type="button" name="button" class="btn btn-danger" onclick="add_item(<?= $id?>)">
-                    Tambah
+                    Add
                   </button>
                 </td>
               </tr>
