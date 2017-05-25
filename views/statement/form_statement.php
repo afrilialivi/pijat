@@ -63,19 +63,19 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                          <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Nama " name="$i_name" value="<?= $row->member_name ?>" />
+                                                            <input class="untukInput1" type="text" size="120" placeholder="Nama " name="$i_name" value="<?= $r_member->member_name ?>" />
                                                         </div>
                                                         <br>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Email" name="$i_email" value="<?= $row->member_email ?>" />
+                                                            <input class="untukInput1" type="text" size="120" placeholder="Email" name="$i_email" value="<?= $r_member->member_email ?>" />
                                                         </div>
                                                         <br>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Phone" name="$i_phone" value="<?= $row->member_phone ?>" />
+                                                            <input class="untukInput1" type="text" size="120" placeholder="Phone" name="$i_phone" value="<?= $r_member->member_phone ?>" />
                                                         </div>
                                                         <br>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Alamat" name="$i_alamat" value="<?= $row->member_alamat ?>" />
+                                                            <input class="untukInput1" type="text" size="120" placeholder="Alamat" name="$i_alamat" value="<?= $r_member->member_alamat ?>" />
                                                         </div><br>
 
                                                     </div>
@@ -93,10 +93,10 @@
                                                         <div id="asma">
                                                             <label>Apakah anda menderita asma?</label> 
                                                             <input type="checkbox" value="1" id="asma_on" name="i_asma" class="form-check"  
-                                                            <?php if ($r_statement->asma==1){echo "Checked";}?>
+                                                            <?php if ($r_statement['asma']==1){echo "Checked";}?>
                                                             style="margin-left: 63.8%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="asma_off" name="i_asma" class="form-check"
-                                                            <?php if ($r_statement->asma==2){echo "Checked";}?>
+                                                            <?php if ($r_statement['asma']==2){echo "Checked";}?>
                                                             style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="inhaler">

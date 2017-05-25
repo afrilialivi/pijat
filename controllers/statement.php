@@ -21,18 +21,20 @@ switch ($page) {
 		
 		if($member_id){
 			$where_member_id = "WHERE member_id = '$member_id'";
-			$row = select_object_config('members', $where_member_id);
-			
+			$r_member = select_object_config('members', $where_member_id);			
 			$statement_id = select_config_by('statement', 'count(*)', $where_member_id); 
 			if ($statement_id>0) {
-				$r_statement = select_object_config('statement', $where_member_id);
-			} else {
+				$row = mysql_query("SELECT * FROM statement WHERE member_id = '$member_id'");
+				$r_statement = mysql_fetch_array($row);
+				//echo $r_statement['asma'];	
+				// $result = $row['result'];
+				// echo $row['asma'];
+				// var_dump($row);		
+				
+					$action_statement = "statement.php?page=save_statement";
+			} 
+			else {
 				$r_statement = new stdClass();
-
-				$row->member_name	= false;
-				$row->member_email = false;
-				$row->member_phone = false;
-				$row->member_alamat = false;
 
 				$r_statement->tekanan = false;
 				$r_statement->asma = false;
@@ -60,7 +62,8 @@ switch ($page) {
 				}
 			}
 
-		} else {
+		} 
+		else {
 
 			$r_member = new stdClass();
 
@@ -70,35 +73,36 @@ switch ($page) {
 			$r_member->member_alamat = false;
 
 			if ($status != 1) {
-					// $action_statement = "member.php?page=save_statement&id=$member_id";	
+					$action_statement = "member.php?page=save_statement&id=$member_id";	
 				} else {
 					$action_statement = "";	
 				}
 
 		}
-			$r_statement = new stdClass();
+			// $r_statement = new stdClass();
 
-			$r_statement->tekanan = false;
-			$r_statement->asma = false;
-			$r_statement->inhaler = false;
-			$r_statement->leher = false;
-			$r_statement->kulit = false;
-			$r_statement->kulit_jabarkan = false;
-			$r_statement->selain_diatas = false;
-			$r_statement->selain_jabarkan = false;
-			$r_statement->alergi  = false;
-			$r_statement->alergi_jabarkan = false;
-			$r_statement->hamil = false;
-			$r_statement->usia_kandungan = false;
-			$r_statement->kontak_lens = false;
-			$r_statement->melepas_lens = false;
-			$r_statement->level = false;
-			$r_statement->spesial = false;
-			$r_statement->jawaban = false;
-			$r_statement->tidak_menyembunyikan = false;
-			$r_statement->tanggung_jawab = false;
+			// $r_statement->tekanan = false;
+			// $r_statement->asma = false;
+			// $r_statement->inhaler = false;
+			// $r_statement->leher = false;
+			// $r_statement->kulit = false;
+			// $r_statement->kulit_jabarkan = false;
+			// $r_statement->selain_diatas = false;
+			// $r_statement->selain_jabarkan = false;
+			// $r_statement->alergi  = false;
+			// $r_statement->alergi_jabarkan = false;
+			// $r_statement->hamil = false;
+			// $r_statement->usia_kandungan = false;
+			// $r_statement->kontak_lens = false;
+			// $r_statement->melepas_lens = false;
+			// $r_statement->level = false;
+			// $r_statement->spesial = false;
+			// $r_statement->jawaban = false;
+			// $r_statement->tidak_menyembunyikan = false;
+			// $r_statement->tanggung_jawab = false;
 
 		// echo "string";
+		//var_dump($r_statement);
 		include '../views/statement/form_statement.php';
 		get_footer();
 	break;
@@ -152,7 +156,7 @@ switch ($page) {
 				// create_config('statement',$data);
 				$statement_id = create_config('statement', $data);
 				// var_dump($_POST); 
-				header("Location: order.php?page=list");
+			     header("Location: order.php?page=list");
 				// echo "string";
 		break;
 

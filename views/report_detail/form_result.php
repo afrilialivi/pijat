@@ -2,9 +2,9 @@
 <?php
 $title = array(
 		"Jumlah Hari",
-		"Jumlah Penjualan",
-		"Total Penjualan",
-		"Menu Terlaris"
+		"Jumlah Transaksi",
+		"Total Transaksi",
+		"Pijat Terlaris"
 		);
 $content = array($jumlah_hari, $jumlah_penjualan, "<span style='font-size:20px'>Rp. </span>".$total_penjualan, $menu_terlaris);
 for($i=0; $i<=3; $i++){
