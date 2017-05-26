@@ -63,19 +63,19 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                          <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Nama " name="$i_name" value="<?= $r_member->member_name ?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Nama " name="$i_name" value="<?= $r_member->member_name ?>" />
                                                         </div>
                                                         <br>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Email" name="$i_email" value="<?= $r_member->member_email ?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Email" name="$i_email" value="<?= $r_member->member_email ?>" />
                                                         </div>
                                                         <br>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Phone" name="$i_phone" value="<?= $r_member->member_phone ?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Phone" name="$i_phone" value="<?= $r_member->member_phone ?>" />
                                                         </div>
                                                         <br>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Alamat" name="$i_alamat" value="<?= $r_member->member_alamat ?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Alamat" name="$i_alamat" value="<?= $r_member->member_alamat ?>" />
                                                         </div><br>
 
                                                     </div>
@@ -84,156 +84,158 @@
                                                         <div id="tekanan">
                                                              <label>Apakah anda mempunyai atau pernah mempunyai masalah tekanan darah tinggi ?</label>
                                                             <input type="checkbox" value="1" id="tekanan_on" name="i_tekanan" class="form-check" 
-                                                            <?php if ($r_statement->tekanan==1){echo "Checked";}?>
-                                                            style="margin-left: 32.9%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['tekanan']==1){echo "Checked";}?>
+                                                            style="margin-left: 21%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="tekanan_off" name="i_tekanan" 
-                                                            <?php if ($r_statement->tekanan==2){echo "Checked";}?>
-                                                            class="form-check" style="margin-left: 6.5%;"> <label class="hitam">Tidak</label>    
+                                                            <?php if ($r_statement['tekanan']==2){echo "Checked";}?>
+                                                            class="form-check" style="margin-left: 4%;"> <label class="hitam">Tidak</label>    
                                                         </div>
                                                         <div id="asma">
                                                             <label>Apakah anda menderita asma?</label> 
                                                             <input type="checkbox" value="1" id="asma_on" name="i_asma" class="form-check"  
                                                             <?php if ($r_statement['asma']==1){echo "Checked";}?>
-                                                            style="margin-left: 63.8%" /> <label class="hitam">Ya</label>
+                                                            style="margin-left: 56.5%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="asma_off" name="i_asma" class="form-check"
                                                             <?php if ($r_statement['asma']==2){echo "Checked";}?>
-                                                            style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
+                                                            style="margin-left: 4%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="inhaler">
                                                             <label>Jika ya, apakah anda perlu menggunakan inhaler saat perawatan berlangsung?</label>
                                                             <input type="checkbox" value="1" id="inhaler_on" name="i_inhaler" class="form-check" 
-                                                            <?php if ($r_statement->inhaler==1){echo "Checked";}?>
-                                                             style="margin-left: 34.5%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['inhaler']==1){echo "Checked";}?>
+                                                             style="margin-left: 22.8%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="inhaler_off" name="i_inhaler" class="form-check" 
-                                                            <?php if ($r_statement->inhaler==2){echo "Checked";}?>
-                                                            style="margin-left: 6.4%;" /> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['inhaler']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;" /> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="leher">
                                                             <label>Apakah anda sedang mengalami masalah leher dan punggung?</label>
                                                             <input type="checkbox" value="1" id="leher_on" name="i_leher" class="form-check" 
-                                                            <?php if ($r_statement->leher==1){echo "Checked";}?>
-                                                            style="margin-left: 43.8%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['leher']==1){echo "Checked";}?>
+                                                            style="margin-left: 33.6%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="leher_off" name="i_leher" class="form-check" 
-                                                            <?php if ($r_statement->leher==2){echo "Checked";}?>
-                                                            style="margin-left: 6.4%;" /> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['leher']==2){echo "Checked";}?>
+                                                            style="margin-left: 4.1%;" /> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="kulit"> 
                                                             <label>Apakah anda sedang memiliki masalah kulit, luka, cedera, atau infeksi?</label>
                                                             <input type="checkbox" value="1" id="kulit_on" name="i_kulit" class="form-check" 
-                                                            <?php if ($r_statement->kulit==1){echo "Checked";}?>
-                                                            style="margin-left: 39.2%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['kulit']==1){echo "Checked";}?>
+                                                            style="margin-left: 28.5%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="kulit_off" name="i_kulit" class="form-check" 
-                                                            <?php if ($r_statement->kulit==2){echo "Checked";}?>
-                                                            style="margin-left: 6.3%;"/> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['kulit']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Jika ya, Tolong Jabarkan" name="i_kulit_jabarkan" value="<?=$r_statement->kulit_jabarkan?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Jika ya, Tolong Jabarkan" name="i_kulit_jabarkan" value="<?=$r_statement['kulit_jabarkan']?>" />
                                                         </div>
                                                         <!-- <br> -->
                                                         <div id="selain" >
                                                             <label>Apakah anda memiliki masalah kesehatan selain yang telah disebutkan di atas dan perlu terapis anda ketahui?</label>
                                                             <input type="checkbox" value="1" id="selain_on" name="i_selain" class="form-check"  
-                                                            <?php if ($r_statement->selain_diatas==1){echo "Checked";}?>
-                                                            style="margin-left: 15.6%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['leher']==1){echo "Checked";}?>
+                                                            style="margin-left: 0.9%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="selain_off" name="i_selain" class="form-check" 
-                                                            <?php if ($r_statement->selain_diatas==2){echo "Checked";}?>
-                                                            style="margin-left: 6.4%;" /> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['leher']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;" /> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Jika ya, Tolong Jabarkan" name="i_selain_jabarkan" value="<?= $r_statement->selain_jabarkan?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Jika ya, Tolong Jabarkan" name="i_selain_jabarkan" value="<?= $r_statement['selain_jabarkan']?>" />
                                                         </div>
                                                         <!-- <br> -->
                                                         <div id="alergi">
                                                             <label>Apakah anda memiliki alergi atau bahan-bahan tertentu yang dapat bereaksi terhadap kulit anda?</label>
                                                             <input type="checkbox" value="1" id="alergi_on" name="i_alergi" class="form-check" 
-                                                             <?php if ($r_statement->alergi==1){echo "Checked";}?>
-                                                            style="margin-left: 23.8%" /> <label class="hitam">Ya</label>
+                                                             <?php if ($r_statement['alergi']==1){echo "Checked";}?>
+                                                            style="margin-left: 10.1%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="alergi_off" name="i_alergi" class="form-check" 
-                                                            <?php if ($r_statement->alergi==2){echo "Checked";}?>
-                                                            style="margin-left: 6.5%;" /> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['alergi']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;" /> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Jika ya, Tolong Jabarkan" name="i_alergi_jabarkan" value="<?= $r_statement->alergi_jabarkan?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Jika ya, Tolong Jabarkan" name="i_alergi_jabarkan" value="<?= $r_statement['alergi_jabarkan']?>" />
                                                         </div>
                                                         <!-- <br> -->
                                                         <div id="hamil">
                                                             <label>Apakah anda sedang hamil atau sedang merencanakan kehamilan?</label>
                                                             <input type="checkbox" value="1" id="hamil_on" name="i_hamil" class="form-check" 
-                                                            <?php if ($r_statement->hamil==1){echo "Checked";}?>
-                                                            style="margin-left: 41.8%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['hamil']==1){echo "Checked";}?>
+                                                            style="margin-left: 31%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="hamil_off" name="i_hamil" class="form-check" 
-                                                            <?php if ($r_statement->hamil==2){echo "Checked";}?>
-                                                            style="margin-left: 6.6%;"/> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['hamil']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div>
-                                                            <input class="untukInput1" type="text" size="120" placeholder="Jika ya, Berapa usia kandungan anda ?" name="i_usia_kandungan" value="<?= $r_statement->usia_kandungan?>" />
+                                                            <input class="untukInput1" type="text" size="105" placeholder="Jika ya, Berapa usia kandungan anda ?" name="i_usia_kandungan" value="<?= $r_statement['usia_kandungan']?>" />
                                                         </div>
                                                         <!-- <br> -->
                                                         <div  id="lens">
                                                             <label>Apakah anda menggunakan kontak lens?</label>
                                                             <input type="checkbox" value="1" id="lens_on" name="i_lens" class="form-check" 
-                                                            <?php if ($r_statement->kontak_lens==1){echo "Checked";}?>
-                                                            style="margin-left: 57.5%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['kontak_lens']==1){echo "Checked";}?>
+                                                            style="margin-left: 48.9%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="lens_off" name="i_lens" class="form-check" 
-                                                            <?php if ($r_statement->kontak_lens==2){echo "Checked";}?>
-                                                            style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['kontak_lens']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="melepasnya">
                                                             <label>Jika ya, apakah anda perlu melepasnya sebelum perawatan wajah atau perawatan lainnya?</label>
                                                             <input type="checkbox" value="1" id="melepasnya_on" name="i_melepasnya" class="form-check" 
-                                                            <?php if ($r_statement->melepas_lens==1){echo "Checked";}?>
-                                                            style="margin-left: 27.7%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['melepas_lens']==1){echo "Checked";}?>
+                                                            style="margin-left: 14.7%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="melepasnya_off" name="i_melepasnya" class="form-check" 
-                                                            <?php if ($r_statement->melepas_lens==2){echo "Checked";}?>
-                                                            style="margin-left: 6.7%;" /> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['melepas_lens']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;" /> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div>
                                                             <label>Bagaimana level tekanan pijatan yang anda inginkan saat perawatan?</label>
                                                             <input type="checkbox" value="1" id="pijatan_1" name="i_level" class="form-check check_2" 
-                                                            <?php if ($r_statement->level==1){echo "Checked";}?> style="margin-left: 30%;"
+                                                            <?php if ($r_statement['level']==1){echo "Checked";}?> style="margin-left: 29.2%;"
                                                              /> <label class="hitam">Lembut</label>
                                                             <input type="checkbox" value="2" id="pijatan_2" name="i_level" class="form-check check_2" 
-                                                            <?php if ($r_statement->level==2){echo "Checked";}?>
-                                                            style="margin-left: 4%;" /> <label class="hitam">Sedang</label>
+                                                            <?php if ($r_statement['level']==2){echo "Checked";}?>
+                                                            style="margin-left: 0.4%;" /> <label class="hitam">Sedang</label>
                                                             <input type="checkbox" value="3" id="pijatan_3" name="i_level" class="form-check check_2" 
-                                                            <?php if ($r_statement->level==3){echo "Checked";}?>
-                                                            style="margin-left: 4%" /> <label class="hitam">Kuat</label>
+                                                            <?php if ($r_statement['level']==3){echo "Checked";}?>
+                                                            style="margin-left: 0.4%" /> <label class="hitam">Kuat</label>
                                                         </div>
                                                             <div  id="spesial">
                                                                 <label>Apakah anda ingin mendapatkan penawaran spesial kami melalui email atau pesan SMS/WA?</label>
                                                                 <input type="checkbox" value="1" id="spesial_on" name="i_spesial" class="form-check" 
-                                                                <?php if ($r_statement->spesial==1){echo "Checked";}?>
-                                                                style="margin-left: 26.5%" /> <label class="hitam">Ya</label>
+                                                                <?php if ($r_statement['spesial']==1){echo "Checked";}?>
+                                                                style="margin-left: 13.2%" /> <label class="hitam">Ya</label>
                                                                 <input type="checkbox" value="2" id="spesial_off" name="i_spesial" class="form-check" 
-                                                                <?php if ($r_statement->spesial==2){echo "Checked";}?>
-                                                                style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
+                                                                <?php if ($r_statement['spesial']==2){echo "Checked";}?>
+                                                                style="margin-left: 4.1%;"/> <label class="hitam">Tidak</label>
                                                             </div>
                                                         <div id="jawaban">
                                                             <label>Saya menyatakan bahwa jawaban yang berikan adalah benar</label>
                                                             <input type="checkbox" value="1" id="jawaban_on" name="i_jawaban" class="form-check" 
-                                                            <?php if ($r_statement->jawaban==1){echo "Checked";}?>
-                                                            style="margin-left: 46%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['jawaban']==1){echo "Checked";}?>
+                                                            style="margin-left: 35.6%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="jawaban_off" name="i_jawaban" class="form-check" 
-                                                            <?php if ($r_statement->jawaban==2){echo "Checked";}?>
-                                                            style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['jawaban']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="menyembunyikan" >
-                                                            <label>Saya tidak menyembunyikan informasi apapun yang mungkin relevan untuk menentukan bagaimana perawatan saya dilakukan</label>
+                                                            <label>Saya tidak menyembunyikan informasi apapun yang mungkin relevan untuk menentukan bagaimana
+                                                            <br>perawatan saya dilakukan</label>
                                                             <input type="checkbox" value="1" id="menyembunyikan_on" name="i_menyembunyikan" class="form-check" 
-                                                            <?php if ($r_statement->tidak_menyembunyikan==1){echo "Checked";}?>
-                                                            style="margin-left: 6.2%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['tidak_menyembunyikan']==1){echo "Checked";}?>
+                                                            style="margin-left: 7.6%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="menyembunyikan_off" name="i_menyembunyikan" class="form-check" 
-                                                            <?php if ($r_statement->tidak_menyembunyikan==2){echo "Checked";}?>
-                                                            style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['tidak_menyembunyikan']==2){echo "Checked";}?>
+                                                            style="margin-left: 4%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                         <div id="bertanggung">
-                                                            <label>Saya mengetahui bahwa Zee Holistic Living tidak bertanggung jawab atas cedera atau keruskan setelah perawatan dilakukan</label>
+                                                            <label>Saya mengetahui bahwa Zee Holistic Living tidak bertanggung jawab atas cedera atau kerusakan
+                                                            <br>setelah perawatan dilakukan</label>
                                                             <input type="checkbox" value="1" id="bertanggung_on" name="i_bertanggung_jawab" class="form-check" 
-                                                            <?php if ($r_statement->tanggung_jawab==1){echo "Checked";}?>
-                                                            style="margin-left: 7.2%" /> <label class="hitam">Ya</label>
+                                                            <?php if ($r_statement['tanggung_jawab']==1){echo "Checked";}?>
+                                                            style="margin-left: 9.8%" /> <label class="hitam">Ya</label>
                                                             <input type="checkbox" value="2" id="bertanggung_off" name="i_bertanggung_jawab" class="form-check" 
-                                                            <?php if ($r_statement->tanggung_jawab==2){echo "Checked";}?>
-                                                            style="margin-left: 6.5%;"/> <label class="hitam">Tidak</label>
+                                                            <?php if ($r_statement['tanggung_jawab']==2){echo "Checked";}?>
+                                                            style="margin-left: 4.1%;"/> <label class="hitam">Tidak</label>
                                                         </div>
                                                     </div> 
                                                 </div>

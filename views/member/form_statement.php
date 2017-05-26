@@ -17,6 +17,9 @@
         background-color: #d82827;
         color: #fff;
     }
+    label {
+        color: rgb(107, 52, 106);
+    }
 </style>
 
 <script type="text/javascript">
