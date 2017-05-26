@@ -17,11 +17,8 @@
         background-color: #d82827;
         color: #fff;
     }
-    b{
-        color: #000;
-    }
-    label{
-        color: #6B346A;
+    label {
+        color: rgb(107, 52, 106);
     }
 </style>
 
