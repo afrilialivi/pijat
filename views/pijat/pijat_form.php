@@ -1,4 +1,8 @@
-
+<style type="text/css">
+    label{
+        color: #6B346A;
+    }
+</style>
 <!-- Content Header (Page header) -->
 
                  <?php

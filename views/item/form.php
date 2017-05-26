@@ -1,3 +1,8 @@
+<style type="text/css">
+    label{
+        color: #6B346A;
+    }
+</style>
 	<section class="content" id="staticParent">
 		<div class="row">
 		<!-- right column -->

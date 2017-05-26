@@ -224,6 +224,7 @@ switch ($page) {
               );
 
           echo json_encode($data);
+          
 
           break;
 
@@ -235,5 +236,4 @@ switch ($page) {
                 print_r($_GET);
                 header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
             break;
-
     }

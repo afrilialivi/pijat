@@ -30,8 +30,8 @@ switch ($page) {
 				// $result = $row['result'];
 				// echo $row['asma'];
 				// var_dump($row);		
-				
-					$action_statement = "statement.php?page=save_statement";
+
+					$action_statement = "statement.php?page=save_statement"; 
 			} 
 			else {
 				$r_statement = new stdClass();

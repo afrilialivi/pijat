@@ -1,3 +1,8 @@
+<style type="text/css">
+    label{
+        color: #6B346A;
+    }
+</style>
 <script type="text/javascript">
 function grand_total(){
 	var harga = parseFloat(document.getElementById("i_harga").value);

@@ -1,3 +1,8 @@
+<style type="text/css">
+    label{
+        color: #6B346A;
+    }
+</style>
 <?php
                 if(isset($_GET['did']) && $_GET['did'] == 1){
                 ?>
